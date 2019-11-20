@@ -1,0 +1,1 @@
+CREATE TABLE `nsc`.`scheduler` ( `id` INT NOT NULL AUTO_INCREMENT COMMENT 'ID ที่เพิ่มข้อมูล' , `alert_date` TEXT NULL , `alert_time` TIME NULL , `alert` TEXT NOT NULL , `enable` BOOLEAN NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
