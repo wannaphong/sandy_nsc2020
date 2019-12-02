@@ -25,16 +25,20 @@ def temp_now(j):
     สภาพอากาศปัจจุบัน เวลา {time} นาฬิกา
     มีอุณหภูมิ {temp} องศาเซลเซียส
     สภาพอากาศ{status}
-    """.format(time=now.strftime("%H:%M"),status=status(j["status"])
+    """.format(time=now.strftime("%H:%M"),status=j["detailed_status"]
     ,temp=int(pytemperature.k2c(j["temperature"]["temp"])))
     return t
-def get_txt(place:str,t:str):
+def temp_future(day,t):
+    pass
+def get_txt(place:str,d:str,t:str=None):
     """
     place : ชื่อสถานที่
     t : เวลา
     """
-    if t=='now':
+    if d=='now' and t==None:
         wm = json.loads(get_weather_now(place).to_JSON())
         print(temp_now(wm))
+    elif d=='tomorrow':
+        pass
 
 get_txt("Nong Khai,TH","now")
