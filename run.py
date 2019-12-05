@@ -1,5 +1,5 @@
 import time
-import winsound
+from gettime.nowtime import now
 from precise_runner import PreciseEngine, PreciseRunner
 import speech_recognition as sr
 from tts import TTS
@@ -7,13 +7,19 @@ from vad import run
 print('start')
 t=TTS()
 r = sr.Recognizer()
-def on_prediction(prob):
+def on_prediction(prob:float)->None:
     print(print(prob) if prob > 0.5 else '.', end='', flush=True)
 
 """def on_activation():
     print('Activation')
     winsound.PlaySound("*", winsound.MB_OK)"""
 
+def process(text:str)->str:
+    if "เวลา" in text:
+        text=now()
+    else:
+        text="คุณพูดว่า "+text
+    return text
 def on_activation():
     global t
     t.listen("หวัดดีค่ะ")
@@ -28,7 +34,7 @@ def on_activation():
         print("กำลังรอเสียง")
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
-        t.listen("คุณพูดว่า "+text)
+        t.listen(process(text))
     except sr.RequestError as e:
         print(e)
     except Exception as e:
