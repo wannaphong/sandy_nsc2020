@@ -3,6 +3,7 @@ from gettime.nowtime import now
 from precise_runner import PreciseEngine, PreciseRunner
 import speech_recognition as sr
 from tts import TTS
+from sos import sent
 from vad import run
 import sys
 print('start')
@@ -21,6 +22,9 @@ def process(text:str)->str:
         text=now()
     elif "ออก" in text or "ลาก่อน" in text:
         text="ลาก่อนค่ะ"
+    elif "ช่วยเหลือ" in text or "ฉุกเฉิน" in text:
+        text="กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
+        sent()
     else:
         text="คุณพูดว่า "+text
     return text
