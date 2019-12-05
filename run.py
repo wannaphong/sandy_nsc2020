@@ -27,7 +27,7 @@ def process(text:str)->str:
 def on_activation():
     global stauts
     global t
-    t.listen("หวัดดีค่ะ")
+    t.listen("ค่ะเจ้านาย")
     global r
     print("hotword detected")
     run()
