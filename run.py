@@ -9,7 +9,7 @@ import sys
 print('start')
 t=TTS()
 r = sr.Recognizer()
-t.listen("NSC 2020 แสนดีผู้ช่วยผู้สูงอายุ กำลังเริ่มต้นการทำงาน")
+#t.listen("NSC 2020 แสนดีผู้ช่วยผู้สูงอายุ กำลังเริ่มต้นการทำงาน")
 def on_prediction(prob:float)->None:
     print(print(prob) if prob > 0.5 else '.', end='', flush=True)
 
@@ -31,7 +31,7 @@ def process(text:str)->str:
 def on_activation():
     global stauts
     global t
-    t.listen("ค่ะเจ้านาย")
+    t.listen("ครับ")
     global r
     print("hotword detected")
     run()
@@ -55,7 +55,7 @@ def on_activation():
 engine = PreciseEngine('C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe', 'jao-sandy.pb') 
 # PreciseEngine(ที่ตั้งโฟลเดอร์ Scripts ของ precise-engine ,  ไฟล์ model)
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
-runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, trigger_level=0)
+runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.55, trigger_level=3)
 runner.start()
 while 1:
     time.sleep(1)
