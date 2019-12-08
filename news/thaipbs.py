@@ -4,7 +4,7 @@ class news(object):
     def __init__(self,url):
         self.url = url
         self.data = feedparser.parse(self.url)
-    def get_data(self):
+    def get_news(self):
         return self.data.entries
 class politics(news):
     def __init__(self):
