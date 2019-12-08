@@ -28,8 +28,9 @@ def temp_now(j):
     """.format(time=now.strftime("%H:%M"),status=j["detailed_status"]
     ,temp=int(pytemperature.k2c(j["temperature"]["temp"])))
     return t
-def temp_future(day,t):
-    pass
+def forecast(day):
+    global owm
+    wn = json.loads(owm.three_hours_forecast(place).get_forecast().to_JSON())
 def get_txt(place:str,d:str,t:str=None):
     """
     place : ชื่อสถานที่
@@ -39,6 +40,6 @@ def get_txt(place:str,d:str,t:str=None):
         wm = json.loads(get_weather_now(place).to_JSON())
         print(temp_now(wm))
     elif d=='tomorrow':
-        pass
+        
 
 get_txt("Nong Khai,TH","now")
