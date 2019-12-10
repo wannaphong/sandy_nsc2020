@@ -5,6 +5,7 @@ import speech_recognition as sr
 from tts import TTS
 from sos import sent
 from vad import run
+from news.news import gethotnews
 import sys
 print('start')
 t=TTS()
@@ -25,6 +26,8 @@ def process(text:str)->str:
     elif "ช่วยเหลือ" in text or "ฉุกเฉิน" in text:
         text="กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
         sent()
+    elif "ข่าว" in text:
+        text=gethotnews()
     else:
         text="คุณพูดว่า "+text
     return text
