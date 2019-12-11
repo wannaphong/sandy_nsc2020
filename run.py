@@ -9,7 +9,9 @@ from news.news import gethotnews
 import sys
 from pydub import AudioSegment
 from pydub.playback import play
-from weather.weather import now
+from weather.weather import now as now_w
+from music.song import music
+m = music()
 def playsound(path):
     song = AudioSegment.from_file(path)
     play(song)
@@ -25,6 +27,7 @@ def on_prediction(prob:float)->None:
     winsound.PlaySound("*", winsound.MB_OK)"""
 stauts=""
 def process(text:str)->str:
+    global m
     if "เวลา" in text:
         text=now()
     elif "ออก" in text or "ลาก่อน" in text:
@@ -35,7 +38,17 @@ def process(text:str)->str:
     elif "ข่าว" in text:
         text=gethotnews()
     elif "อากาศ" in text and "ตอนนี้" in text:
-        text=now().replace('\n','')
+        text=now_w().replace('\n','')
+    elif "ฟัง" in text and 'ต่อ' in text:
+        m.play()
+        text=""
+    elif 'เพลง' in text:
+        text=text.split('เพลง')[1]
+        m.change(text)
+        #text=text
+    elif 'ปิด' in text and ('เพลง' in text or 'เสียง' in text):
+        text="ปิดเรียบร้อยแล้วค่ะ"
+        m.stop()
     else:
         text="คุณพูดว่า "+text
     return text
@@ -46,10 +59,14 @@ def sound(text):
         playsound('./sound/ค่ะ.mp3')
     elif text == "ลาก่อนค่ะ":
         playsound('./sound/bye.mp3')
+    elif text=='':
+        pass
     else:
         t.listen(text)
 def on_activation():
     global stauts
+    global m
+    m.pause()
     sound("ค่ะ")
     global r
     print("hotword detected")
