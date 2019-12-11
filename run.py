@@ -7,6 +7,12 @@ from sos import sent
 from vad import run
 from news.news import gethotnews
 import sys
+from pydub import AudioSegment
+from pydub.playback import play
+from weather.weather import now
+def playsound(path):
+    song = AudioSegment.from_file(path)
+    play(song)
 print('start')
 t=TTS()
 r = sr.Recognizer()
@@ -28,13 +34,23 @@ def process(text:str)->str:
         sent()
     elif "ข่าว" in text:
         text=gethotnews()
+    elif "อากาศ" in text and "ตอนนี้" in text:
+        text=now().replace('\n','')
     else:
         text="คุณพูดว่า "+text
     return text
+
+def sound(text):
+    global t
+    if text == "ค่ะ":
+        playsound('./sound/ค่ะ.mp3')
+    elif text == "ลาก่อนค่ะ":
+        playsound('./sound/bye.mp3')
+    else:
+        t.listen(text)
 def on_activation():
     global stauts
-    global t
-    t.listen("ครับ")
+    sound("ค่ะ")
     global r
     print("hotword detected")
     run()
@@ -47,7 +63,7 @@ def on_activation():
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
-        t.listen(tt)
+        sound(tt)
         if tt=="ลาก่อนค่ะ":
             stauts="exit"#sys.exit(0)
     except sr.RequestError as e:

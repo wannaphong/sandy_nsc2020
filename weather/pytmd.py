@@ -71,7 +71,7 @@ en_cond={
     11:"Cool",
     12:"Very hot"
 }
-def cond(t,lang="th"):
+def cond2txt(t,lang="th"):
   global th_cond,en_cond
   if lang is "th":
     return th_cond[t]

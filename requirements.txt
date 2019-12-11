@@ -1,0 +1,5 @@
+playsound
+pyaudio
+py-webrtcvad
+pydub
+pythainlp

@@ -31,12 +31,6 @@ NUM_WINDOW_CHUNKS_END = NUM_WINDOW_CHUNKS * 2
 
 START_OFFSET = int(NUM_WINDOW_CHUNKS * CHUNK_DURATION_MS * 0.5 * RATE)
 
-
-
-
-
-
-
 got_a_sentence = False
 leave = False
 
