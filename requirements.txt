@@ -1,5 +1,15 @@
+requests
 playsound
 pyaudio
-py-webrtcvad
+webrtcvad
 pydub
+tinydb
 pythainlp
+feedparser
+pandas
+speechrecognition
+gtts
+pydub
+python-vlc
+pafy
+youtube-dl

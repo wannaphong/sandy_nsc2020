@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import time
 from gettime.nowtime import now
 from precise_runner import PreciseEngine, PreciseRunner

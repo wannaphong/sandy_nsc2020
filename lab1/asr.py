@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import speech_recognition as sr
 r = sr.Recognizer()
 with sr.Microphone() as source:

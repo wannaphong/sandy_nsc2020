@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pafy
 import vlc
 from vlc import *

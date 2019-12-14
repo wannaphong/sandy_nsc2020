@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from .thaipbs import *
 from pythainlp.util import num_to_thaiword
 def gethotnews():

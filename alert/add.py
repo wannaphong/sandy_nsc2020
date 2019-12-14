@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from tinydb import TinyDB, Query
 import pytz
 import datetime as dt
