@@ -1,0 +1,8 @@
+sudo apt-get install alsa-base pulseaudio
+
+sudo adduser pi audio
+sudo reboot
+
+
+pip install tensorflow==1.14.0
+pip install https://github.com/wannaphongcom/mycroft-precise/archive/dev.zip
