@@ -1,4 +1,7 @@
 requests
+prettyparse==0.1.4
+protobuf
+absl-py
 playsound
 pyaudio
 webrtcvad
@@ -13,3 +16,8 @@ pydub
 python-vlc
 pafy
 youtube-dl
+termcolor
+gast
+tensorflow==1.14.0
+tensorflow-estimator==1.14.0
+tensorboard==1.14.0
