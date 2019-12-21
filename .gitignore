@@ -104,3 +104,4 @@ venv.bak/
 .mypy_cache/
 t.mp3
 recording.wav
+text_to_speech_thai/
