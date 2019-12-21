@@ -1,0 +1,14 @@
+import pandas as pd
+import glob
+
+files = [f for f in glob.glob("*.csv", recursive=True)]
+colnames=['id', 'text', 'time']
+data=""
+for i in files:
+    user1 = pd.read_csv(i, names=colnames, header=None)
+    t=list(user1.text)
+    g=[i.replace('.csv','')]*len(t)
+    data+='\n'.join([k+"|"+j for k,j in list(zip(t,g))])
+
+with open('data.set','w',encoding='utf-8') as f:
+    f.write(data)

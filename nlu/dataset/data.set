@@ -1,0 +1,133 @@
+[DATE]พรุ่งนี้[/DATE] [TIME]10:00 น.[/TIME] ต้อง[EVENT]ไปโรงเรียน[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]10:00 น.[/TIME] [EVENT]ไปหาหมอ[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]10:00 น.[/TIME]มีนัด[EVENT]ไปหาหมอ[/EVENT]|alert
+[TIME]5 โมงเย็นนี้[/TIME][EVENT]มีรายการทีวีให้ดู[/EVENT]|alert
+[DATE]ทุกวัน[/DATE]ตอน[TIME]เที่ยง[/TIME][EVENT]กินยา[/EVENT]ด้วย|alert
+[DATE]พรุ่งนี้[/DATE][EVENT]มีนัดไปเจอเพื่อน[/EVENT]เวลา [TIME]9:00 น[/TIME]|alert
+[DATE]พรุ่งนี้[/DATE]ตอน [TIME]8:30 น[/TIME].อย่าลืม[EVENT]เปิดรายการทีวีช่อง 9[/EVENT]|alert
+[TIME]5 โมงเย็นนี้[/TIME][EVENT]ทำข้าวผัด[/EVENT]|alert
+วันที่ [DATE]19 พ.ย.[/DATE] [EVENT]มีนัดไปหาหมอ[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]16:00 น[/TIME][EVENT]ไปรับลูก[/EVENT]|alert
+[TIME]22:00 น.[/TIME] แจ้งเตือนว่า[EVENT]ห้ามอย่ากินยา[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]เช้า[/TIME][EVENT]มีงานทำบุญที่วัด[/EVENT]อย่าลืมแจ้งเตือนด้วย|alert
+สัก [TIME]17:50 น.[/TIME] บอกด้วยว่า[EVENT]อย่าลืมหุงข้าวด้วย[/EVENT]|alert
+สัก [TIME]10 โมงเช้า[/TIME]ช่วยเตือนหน่อยว่า[EVENT]ต้องออกไปหาหลาน[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]หกโมงเช้า[/TIME]ต้อง[EVENT]เดินทางไปมหาวิทยาลัยขอนแก่น[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]อย่าลืมเตือนด้วยตอน [TIME]14:00 น.[/TIME] ว่า[EVENT]บ่ายสองแล้ว[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]18:00 น.[/TIME] [EVENT]นัดทำงานกลุ่มแม่บ้าน[/EVENT]|alert
+[DATE]วันนี้[/DATE][TIME]บ่ายสาม[/TIME]อย่าลืม[EVENT]ไปจ่ายค่าโทรศัพท์[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]อย่าลืม[EVENT]คืนหนังสือที่ห้องสมุด[/EVENT]|alert
+[TIME]บ่ายสอง[/TIME]มีนัด[EVENT]ไปทุ่งนา[/EVENT]|alert
+อย่าลืมแจ้งเตือนด้วยว่า[EVENT]ไปจ่ายตลาด[/EVENT]เวลา [TIME]17:00 น.[/TIME] [DATE]พรุ่งนี้[/DATE]|alert
+[DATE]วันจันทร์[/DATE]นี้ [TIME]10:00 น.[/TIME] [EVENT]ไปหาหมอ[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][EVENT]ไปหากรมกิจการผู้สูงอายุ[/EVENT]|alert
+[DATE]วันเสาร์[/DATE]อย่าลืมเตือนว่า[EVENT]ไปจ่ายค่าไฟ[/EVENT]เวลา [TIME]17:00 น.[/TIME]|alert
+[TIME]19:00 น.[/TIME] [EVENT]ไปกินเนื้อย่าง[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]เวลา [TIME]21:00 น.[/TIME] อย่าลืมเตือนว่า[EVENT]ถึงเวลานอนแล้ว[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]15:00 น[/TIME][EVENT]ไปดูหนัง[/EVENT]|alert
+[TIME]บ่ายสอง[/TIME]เตือนด้วยว่า[EVENT]ต้องไปเดินหนังสือ[/EVENT]|alert
+[TIME]ช่วงบ่าย[/TIME]อย่าลืมเตือน[EVENT]ตากผ้า[/EVENT]ด้วย|alert
+[DATE]พรุ่งนี้[/DATE][TIME]เก้าโมงเช้า[/TIME]ไป[EVENT]หาหมอ[/EVENT]ด้วย|alert
+[DATE]พรุ่งนี้[/DATE]ก่อน[OFF]ปิดไฟ[/OFF][TIME]นอน[/TIME]ให้เตือนให้[EVENT]ห่มผ้าด้วย[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]14:00 น[/TIME]อย่าลืมเตือน[EVENT]ให้กินยา[/EVENT|alert
+[TIME]เช้า[/TIME][DATE]พรุ่งนี้[/DATE]อย่าลืมเตือน[EVENT]ให้ไปรดน้ำต้นไม้[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]ตอน [TIME]03:00 น[/TIME]เตือนด้วยนะให้[EVENT]ตื่นมาสวดมนต์[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]ตอน[TIME]เที่ยงคืน[/TIME]อย่าลืมเตือนด้วยนะ[EVENT]ได้เวลานอนแล้ว[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]ตอน [TIME]15:00 น[/TIME][EVENT]มีนัดไปลูก[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]18:00 น[/TIME][EVENT]ไปดูหนัง[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]10:00 น[/TIME][EVENT]ไปจองตั๋วรถตู้[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]สิบโมงเช้า[/TIME][EVENT]ได้เวลากินยา[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][EVENT]ไปหาลูก[/EVENT]ที่[LOG]เซ็นทรัลอุดร[/LOG]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]บ่าย 3 โมง 11 นาที[/TIME][EVENT]ไปเดินเล่น[/EVENT]|alert
+[DATE]วันนี้[/DATE]ตอน [TIME]10 โมงครึ่ง[/TIME][EVENT]มีนัดไปหาหมอ[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][EVENT]อย่าลืมจ่ายค่าไฟ[/EVENT]ตอน [TIME]15:00 น[/TIME]ด้วย|alert
+[DATE]พรุ่งนี้[/DATE]ตอน [TIME]13:00 น.[/TIME] [EVENT]ไปพบลูก[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]เวลา [TIME]19:00 น[/TIME][PERSON]เรา[/PERSON]กับ[PERSON]ลูก[/PERSON][EVENT]มีนัดกินข้าวกัน[/EVENT]|alert
+อีก [TIME]10 นาที[/TIME][EVENT]ได้เวลาอาบน้ำ[/EVENT]|alert
+[DATE]วันนี้[/DATE][EVENT]นัดทำงาน[/EVENT] [TIME]15:00 น[/TIME]อย่าลืมเตือนด้วยล่ะ|alert
+อีก [TIME]5 นาที[/TIME]อย่าลืมเตือน[EVENT]ให้ปิดไฟด้วย[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]ช่วงบ่าย[/TIME][EVENT]ไปหาเดินเล่นกัน[/EVENT]|alert
+นับถอยหลังอีก [TIME]10 นาที[/TIME] อย่าลืมเตือน[EVENT]ให้ไปซักผ้า[/EVENT]|alert
+เวลา [TIME]19:00 น[/TIME][DATE]วันนี้[/DATE][EVENT]มีนัดทำงานกลุ่ม[/EVENT]|alert
+[DATE]ทุกวัน[/DATE]เวลา [TIME]18:00 น[/TIME]มีนัด[EVENT]ไปออกกำลังกาย[/EVENT]|alert
+ตอน [TIME]9:00 น[/TIME]เตือน[EVENT]ให้กินยาด้วย[/EVENT]|alert
+เอาล่ะ[DATE]วันนี้[/DATE]ตอน [TIME]15:00 น[/TIME][EVENT]มีธุระไปหาหมอ[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]แจ้งเตือนด้วยนะตอน [TIME]15:00 น[/TIME][EVENT]ต้องไปรับลูก[/EVENT]|alert
+[EVENT]ตั้งนาฬิกาปลุก[/EVENT]เวลา [TIME]7:00 น[/TIME]|alert
+แจ้งเตือนเวลา [TIME]8:00 น[/TIME]ของ[DATE]ทุกวัน[/DATE][EVENT]ให้ออกกำลังกาย[/EVENT]|alert
+อีกประมาณ [TIME]3 นาที[/TIME] เตือน[EVENT]ให้ปิดเตาด้วยนะ[/EVENT]|alert
+อีก [TIME]9 นาที[/TIME]หลังจากนี้[EVENT]ให้ปลุกด้วยนะ[/EVENT]|alert
+[DATE]ทุกวัน[/DATE]เวลา [TIME]8:00 น[/TIME]ให้เตือนว่า[EVENT]อย่าลืมกินข้าว[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]เที่ยงคืน[/TIME]เตือน[EVENT]ให้สวดมนต์ด้วย[/EVENT]|alert
+อย่าลืมแจ้งเตือนด้วย[TIME]ช่วงบ่ายสามโมงเย็น[/TIME][EVENT]เรามีนัดไปหาอาจารย์[/EVENT]|alertตอนนี้เป็นเวลาเท่าไร|asktime
+วันนี้วันที่เท่าไร|asktime
+ตอนนี้เวลาเท่าไรนะ|asktime
+ตอนนี้เพลาเท่าไร|asktime
+ตอนนี้กี่โมงแล้ว|asktime
+ตอนนี้จักโมงแล้ว|asktime
+กี่โมงกี่ยามแล้ว|asktimeอีก [TIME]1 นาที[/TIME] [EVENT]เปิดพัดลม[/EVENT]|fan
+[DATE]ทุกวัน[/DATE]เวลา [TIME]19:00 น.[/TIME] [EVENT]ให้ปิดพัดลม[/EVENT]|fan
+อากาศร้อนแล้ว[EVENT]เปิดลม[/EVENT]หน่อย|fan
+อากาศหนาวล่ะ [EVENT]ปิดลม[/EVENT]หน่อย|fan
+อีก [TIME]10 ชั่วโมง[/TIME][EVENT]ปิดพัดลม[/EVENT]|fan
+อีก [TIME]5 นาที[/TIME] [EVENT]เปิดพัดลม[/EVENT]|fan
+นับถอยหลัง [TIME]10 นาที[/TIME] [EVENT]ปิดพัดลม[/EVENT]|fanอีก [TIME]5 นาที[/TIME][EVENT]เปิดไฟ[/EVENT]|light
+[DATE]ทุกวัน[/DATE] [TIME]10:00 น.[/TIME] เปิดไฟ|light
+ยกเลิกการตั้งเวลา[EVENT]เปิดไฟ[/EVENT][DATE]ทุกวัน[/DATE] [TIME]10:00 น.[/TIME]|light
+อีกสัก [TIME]5 นาที[/TIME][EVENT]เปิดไฟ[/EVENT]|light
+[TIME]9 นาที[/TIME] [EVENT]ปิดไฟ[/EVENT]|light
+มืดแล้ว[EVENT]เปิดไฟ[/EVENT]หน่อย|light
+เช้าแล้ว[EVENT]ปิดไฟ[/EVENT]หน่อย|light
+สว่างแล้วดับไฟหน่อย|light
+อีก [TIME]9 นาที[/TIME]เปิดไฟ|light
+อีก [TIME]8 นาที[/TIME] ปิดไฟ|light
+[EVENT]ปิดไฟ[/EVENT]หน่อย|light
+ได้เวลาเปิดไฟแล้ว|light
+ไฟจงมา|light
+นับถอยหลัง [TIME]10 นาที[/TIME] [EVENT]ปิดไฟ[/EVENT]|light
+เปิดไฟหน่อย|lightอยากฟัง[MUSIT]เพลงคืนความสุขให้คนในชาติ[/MUSIT]|music
+อยากร้อง[MUSIT]เพลงบัวลอย[/MUSIT]|music
+เปิด[MUSIT]เพลงแสงดาวแห่งศรัทธา[/MUSIT]ให้ฟังหน่อย|music
+ปิดเพลง|music
+เหนื่อยจังเปิด[MUSIT]เพลงชัยชนะ[/MUSIT]ให้หน่อย|music
+ฟัง[MUSIT]เพลงทิ้งไว้กลางทาง[/MUSIT]|music
+เปิด[MUSIT]เพลงสวัสดีปีใหม่ไทย[/MUSIT]|music
+เปิด[MUSIT]เพลงลูกอม[/MUSIT]ให้ฟังหน่อย|music
+เปิด[MUSIT]เพลงวันแม่[/MUSIT]ให้ฟังหน่อย|music
+เปิด[MUSIT]เพลงแมว[/MUSIT]|music
+เปิด[MUSIT]เพลงปีใหม่[/MUSIT]ให้ฟังหน่อย|music
+เปิด[MUSIT]เพลงความเชื่อ[/MUSIT]ของ [PERSON]bodyslam[/PERSON]|musicอ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
+อ่านข่าว[DATE]เมื่อวาน[/DATE]ให้ฟังหน่อย|news
+อ่าน[TYPE]ข่าวการเมือง[/TYPE]ให้ฟังหน่อย|news
+อ่าน[TYPE]ข่าวกีฬา[/TYPE]ให้ฟังหน่อย|news
+อ่านข่าวเกี่ยวกับ[PERSON]นายก[/PERSON]ให้ฟังหน่อย|news
+อ่าน[EVENT]ข่าวภัยหนาว[/EVENT]|news
+อยากฟังข่าว[PERSON]นายก[/PERSON]จัง|news
+อยากฟังข่าว[TYPE]การเมืองไทย[/TYPE][DATE]วันนี้[/DATE]|news
+อ่าน[EVENT]ข่าวไฟไหม้[/EVENT]|news
+อ่าน[TYPE]ข่าวต่างประเทศ[/TYPE]|news
+อ่าน[TYPE]ข่าวเด่นประจำวัน[/TYPE]หน่อย|news
+อ่าน[EVENT]ข่าวหวย[/EVENT]หน่อย|news
+มี[TYPE]ข่าวดารา[/TYPE]อะไรบ้าง|news
+อ่าน[TYPE]ข่าวไอที[/TYPE]ให้ฟังหน่อย|news
+อ่าน[EVENT]ข่าวพระราชสำนัก[/EVENT]ให้ฟังหน่อย|news
+อยากฟัง[TYPE]ข่าวในหลวง[/TYPE]|news
+อ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|newsอยากฟังธรรมะ[religion]ศีลห้า[/religion]|religion
+อยากฟังธรรมะ|religion
+อยากฟัง[religion]บทสวดมนต์[/religion]|religion
+อยากฟัง[religion]บทแผ่เมตตา[/religion]|religion[DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอย่างไร|weather
+[DATE]วันนี้[/DATE][TIME]ช่วงบ่าย[/TIME]อากาศจะเป็นยังไง|weather
+อากาศที่[LOG]บุรีรัมย์[/LOG]เป็นอย่างไรบ้าง|weather
+[DATE]พรุ่งนี้[/DATE]ถ้าจะไป[LOG]ทะเลบางแสน[/LOG]อากาศจะเป็นอย่างไร|weather
+[DATE]พรุ่งนี้[/DATE][EVENT]ฝนตก[/EVENT]จะตกไหม|weather
+[EVENT]อากาศหนาว[/EVENT]มากตอนนี้แล้ว[DATE]พรุ่งนี้[/DATE][EVENT]อากาศหนาว[/EVENT]ไหม|weather
+[DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอย่างไร|weather
+[DATE]พรุ่งนี้[/DATE]เวลา [TIME]13:00 น[/TIME]สภาพอากาศจะเป็นอย่างไร|weather
+[TIME]คืนนี้[/TIME]อากาศจะเป็นอย่างไร|weather
+อุณหภูมิต่ำสุด[DATE]พรุ่งนี้[/DATE]เป็นเท่าไหร่|weather
+[DATE]วันมะรืน[/DATE]อากาศจะเป็นอะไร|weather
+[DATE]คืนนี้[/DATE]อากาศจะหนาวไหม|weather
+[DATE]พรุ่งนี้[/DATE]สภาพอากาศที่[LOG]บุรีรัมย์[/LOG]จะเป็นอย่างไร|weather
+[DATE]พรุ่งนี้[/DATE]ที่[LOG]หนองคาย[/LOG]อากาศจะเป็นอย่างไร|weather
+[LOG]ระยอง[/LOG]พรุ่งนี้อากาศจะเป็นอะไร|weather
+พยากรณ์อากาศ[DATE]วันพรุ่งนี้[/DATE]|weather
