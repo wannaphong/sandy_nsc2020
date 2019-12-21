@@ -1,17 +1,17 @@
-# -*- coding: utf-8 -*-
 import pafy
 import vlc
 from vlc import *
 import urllib.request
 import urllib.parse
 import re
-Instance = vlc.Instance()
+
 
 class music:
     def __init__(self):
+        self.m="stop"
+        self.status = True
         self.Instance = vlc.Instance()
         self.player = self.Instance.media_list_player_new()
-        #self._search(search)
     def change(self,search):
         self.stop()
         self._search(search)
@@ -21,24 +21,23 @@ class music:
         self.search_results = re.findall(r'href=\"\/watch\?v=(.{11})', self.html_content.read().decode())
         
         self.MediaList= self.Instance.media_list_new()
-        for i in self.search_results :
+        for i in list((self.search_results)) :
             self.MediaList.add_media("https://www.youtube.com/watch?v=" + i)
         self.player.set_media_list(self.MediaList)
-        #self.insex.i >= 0:
-        self.player.play()
+        self.play()
 
+    
     def play(self):
-        self.player.audio_set_volume(70)
         self.player.play()
+        self.m = "play" 
     def stop(self):
         self.player.stop()
+        self.m="stop"
     def pause(self):
-        self.player.pause()
+        if self.m == 'play':
+            self.player.pause()
+            self.m="pause"
+            print("status is pause!")
+
     def next(self):
         self.player.next()
-    def mute(self):
-        self.player.audio_set_volume(0)
-        
-    
-        
-

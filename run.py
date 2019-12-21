@@ -43,7 +43,7 @@ def process(text:str)->str:
     elif "ฟัง" in text and 'ต่อ' in text:
         m.play()
         text=""
-    elif 'เพลง' in text:
+    elif 'เปิด' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
         m.change(text)
         #text=text
@@ -92,7 +92,7 @@ def on_activation():
 engine = PreciseEngine('C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe', 'jao-sandy.pb') 
 # PreciseEngine(ที่ตั้งโฟลเดอร์ Scripts ของ precise-engine ,  ไฟล์ model)
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
-runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.55, trigger_level=3)
+runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.6, trigger_level=3)
 runner.start()
 while 1:
     time.sleep(1)
