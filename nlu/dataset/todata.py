@@ -1,5 +1,6 @@
 import pandas as pd
 import glob
+import re
 
 files = [f for f in glob.glob("*.csv", recursive=True)]
 colnames=['id', 'text', 'time']
@@ -12,3 +13,6 @@ for i in files:
 
 with open('data.set','w',encoding='utf-8') as f:
     f.write(data)
+ 
+with open('data-nottag.set','w',encoding='utf-8') as f:
+    f.write(re.sub('\[.*?]', '',data))
