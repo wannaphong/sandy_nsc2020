@@ -1,18 +1,18 @@
-[DATE]พรุ่งนี้[/DATE] [TIME]10:00 น.[/TIME] ต้อง[EVENT]ไปโรงเรียน[/EVENT]|alert
-[DATE]พรุ่งนี้[/DATE] [TIME]10:00 น.[/TIME] [EVENT]ไปหาหมอ[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]10:00 น.[/TIME] เตือนด้วยว่าต้อง[EVENT]ไปโรงเรียน[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]10:00 น.[/TIME] ให้เตือนว่า[EVENT]ไปหาหมอ[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE] [TIME]10:00 น.[/TIME]มีนัด[EVENT]ไปหาหมอ[/EVENT]|alert
-[TIME]5 โมงเย็นนี้[/TIME][EVENT]มีรายการทีวีให้ดู[/EVENT]|alert
-[DATE]ทุกวัน[/DATE]ตอน[TIME]เที่ยง[/TIME][EVENT]กินยา[/EVENT]ด้วย|alert
-[DATE]พรุ่งนี้[/DATE][EVENT]มีนัดไปเจอเพื่อน[/EVENT]เวลา [TIME]9:00 น[/TIME]|alert
+[TIME]5 โมงเย็นนี้[/TIME]ให้แจ้งเตือนว่า[EVENT]มีรายการทีวีให้ดู[/EVENT]|alert
+[DATE]ทุกวัน[/DATE]ตอน[TIME]เที่ยง[/TIME]เตือน[EVENT]กินยา[/EVENT]ด้วย|alert
+[DATE]พรุ่งนี้[/DATE]นัดหมาย[EVENT]มีนัดไปเจอเพื่อน[/EVENT]เวลา [TIME]9:00 น[/TIME]|alert
 [DATE]พรุ่งนี้[/DATE]ตอน [TIME]8:30 น[/TIME].อย่าลืม[EVENT]เปิดรายการทีวีช่อง 9[/EVENT]|alert
 [TIME]5 โมงเย็นนี้[/TIME][EVENT]ทำข้าวผัด[/EVENT]|alert
-วันที่ [DATE]19 พ.ย.[/DATE] [EVENT]มีนัดไปหาหมอ[/EVENT]|alert
+วันที่ [DATE]19 พ.ย.[/DATE] มีธุระ[EVENT]มีนัดไปหาหมอ[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE] [TIME]16:00 น[/TIME][EVENT]ไปรับลูก[/EVENT]|alert
 [TIME]22:00 น.[/TIME] แจ้งเตือนว่า[EVENT]ห้ามอย่ากินยา[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE][TIME]เช้า[/TIME][EVENT]มีงานทำบุญที่วัด[/EVENT]อย่าลืมแจ้งเตือนด้วย|alert
 สัก [TIME]17:50 น.[/TIME] บอกด้วยว่า[EVENT]อย่าลืมหุงข้าวด้วย[/EVENT]|alert
 สัก [TIME]10 โมงเช้า[/TIME]ช่วยเตือนหน่อยว่า[EVENT]ต้องออกไปหาหลาน[/EVENT]|alert
-[DATE]พรุ่งนี้[/DATE][TIME]หกโมงเช้า[/TIME]ต้อง[EVENT]เดินทางไปมหาวิทยาลัยขอนแก่น[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]หกโมงเช้า[/TIME]อย่าลืมต้อง[EVENT]เดินทางไปมหาวิทยาลัยขอนแก่น[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE]อย่าลืมเตือนด้วยตอน [TIME]14:00 น.[/TIME] ว่า[EVENT]บ่ายสองแล้ว[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE] [TIME]18:00 น.[/TIME] [EVENT]นัดทำงานกลุ่มแม่บ้าน[/EVENT]|alert
 [DATE]วันนี้[/DATE][TIME]บ่ายสาม[/TIME]อย่าลืม[EVENT]ไปจ่ายค่าโทรศัพท์[/EVENT]|alert
@@ -22,7 +22,7 @@
 [DATE]วันจันทร์[/DATE]นี้ [TIME]10:00 น.[/TIME] [EVENT]ไปหาหมอ[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE][EVENT]ไปหากรมกิจการผู้สูงอายุ[/EVENT]|alert
 [DATE]วันเสาร์[/DATE]อย่าลืมเตือนว่า[EVENT]ไปจ่ายค่าไฟ[/EVENT]เวลา [TIME]17:00 น.[/TIME]|alert
-[TIME]19:00 น.[/TIME] [EVENT]ไปกินเนื้อย่าง[/EVENT]|alert
+[TIME]19:00 น.[/TIME] เตือน[EVENT]ไปกินเนื้อย่าง[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE]เวลา [TIME]21:00 น.[/TIME] อย่าลืมเตือนว่า[EVENT]ถึงเวลานอนแล้ว[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE] [TIME]15:00 น[/TIME][EVENT]ไปดูหนัง[/EVENT]|alert
 [TIME]บ่ายสอง[/TIME]เตือนด้วยว่า[EVENT]ต้องไปเดินหนังสือ[/EVENT]|alert
@@ -40,13 +40,13 @@
 [DATE]พรุ่งนี้[/DATE][EVENT]ไปหาลูก[/EVENT]ที่[LOG]เซ็นทรัลอุดร[/LOG]|alert
 [DATE]พรุ่งนี้[/DATE][TIME]บ่าย 3 โมง 11 นาที[/TIME][EVENT]ไปเดินเล่น[/EVENT]|alert
 [DATE]วันนี้[/DATE]ตอน [TIME]10 โมงครึ่ง[/TIME][EVENT]มีนัดไปหาหมอ[/EVENT]|alert
-[DATE]พรุ่งนี้[/DATE][EVENT]อย่าลืมจ่ายค่าไฟ[/EVENT]ตอน [TIME]15:00 น[/TIME]ด้วย|alert
-[DATE]พรุ่งนี้[/DATE]ตอน [TIME]13:00 น.[/TIME] [EVENT]ไปพบลูก[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]อย่าลืม[EVENT]จ่ายค่าไฟ[/EVENT]ตอน [TIME]15:00 น[/TIME]ด้วย|alert
+[DATE]พรุ่งนี้[/DATE]ตอน [TIME]13:00 น.[/TIME] เตือน[EVENT]ไปพบลูก[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE]เวลา [TIME]19:00 น[/TIME][PERSON]เรา[/PERSON]กับ[PERSON]ลูก[/PERSON][EVENT]มีนัดกินข้าวกัน[/EVENT]|alert
 อีก [TIME]10 นาที[/TIME][EVENT]ได้เวลาอาบน้ำ[/EVENT]|alert
 [DATE]วันนี้[/DATE][EVENT]นัดทำงาน[/EVENT] [TIME]15:00 น[/TIME]อย่าลืมเตือนด้วยล่ะ|alert
 อีก [TIME]5 นาที[/TIME]อย่าลืมเตือน[EVENT]ให้ปิดไฟด้วย[/EVENT]|alert
-[DATE]พรุ่งนี้[/DATE][TIME]ช่วงบ่าย[/TIME][EVENT]ไปหาเดินเล่นกัน[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]ช่วงบ่าย[/TIME]ให้เตือน[EVENT]ไปหาเดินเล่นกัน[/EVENT]|alert
 นับถอยหลังอีก [TIME]10 นาที[/TIME] อย่าลืมเตือน[EVENT]ให้ไปซักผ้า[/EVENT]|alert
 เวลา [TIME]19:00 น[/TIME][DATE]วันนี้[/DATE][EVENT]มีนัดทำงานกลุ่ม[/EVENT]|alert
 [DATE]ทุกวัน[/DATE]เวลา [TIME]18:00 น[/TIME]มีนัด[EVENT]ไปออกกำลังกาย[/EVENT]|alert
@@ -55,7 +55,7 @@
 [DATE]พรุ่งนี้[/DATE]แจ้งเตือนด้วยนะตอน [TIME]15:00 น[/TIME][EVENT]ต้องไปรับลูก[/EVENT]|alert
 [EVENT]ตั้งนาฬิกาปลุก[/EVENT]เวลา [TIME]7:00 น[/TIME]|alert
 แจ้งเตือนเวลา [TIME]8:00 น[/TIME]ของ[DATE]ทุกวัน[/DATE][EVENT]ให้ออกกำลังกาย[/EVENT]|alert
-อีกประมาณ [TIME]3 นาที[/TIME] เตือน[EVENT]ให้ปิดเตาด้วยนะ[/EVENT]|alert
+อีกประมาณ [TIME]3 นาที[/TIME] อย่าลืมเตือน[EVENT]ให้ปิดเตาด้วยนะ[/EVENT]|alert
 อีก [TIME]9 นาที[/TIME]หลังจากนี้[EVENT]ให้ปลุกด้วยนะ[/EVENT]|alert
 [DATE]ทุกวัน[/DATE]เวลา [TIME]8:00 น[/TIME]ให้เตือนว่า[EVENT]อย่าลืมกินข้าว[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE][TIME]เที่ยงคืน[/TIME]เตือน[EVENT]ให้สวดมนต์ด้วย[/EVENT]|alert
@@ -108,6 +108,8 @@
 เปิด[MUSIT]เพลงแมว[/MUSIT]|music
 เปิด[MUSIT]เพลงปีใหม่[/MUSIT]ให้ฟังหน่อย|music
 เปิด[MUSIT]เพลงความเชื่อ[/MUSIT]ของ [PERSON]bodyslam[/PERSON]|music
+ปิดเพลง|music
+หยุดเพลง|music
 อ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
 อ่านข่าว[DATE]เมื่อวาน[/DATE]ให้ฟังหน่อย|news
 อ่าน[TYPE]ข่าวการเมือง[/TYPE]ให้ฟังหน่อย|news
