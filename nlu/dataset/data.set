@@ -60,6 +60,7 @@
 [DATE]ทุกวัน[/DATE]เวลา [TIME]8:00 น[/TIME]ให้เตือนว่า[EVENT]อย่าลืมกินข้าว[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE][TIME]เที่ยงคืน[/TIME]เตือน[EVENT]ให้สวดมนต์ด้วย[/EVENT]|alert
 อย่าลืมแจ้งเตือนด้วย[TIME]ช่วงบ่ายสามโมงเย็น[/TIME][EVENT]เรามีนัดไปหาอาจารย์[/EVENT]|alert
+แจ้งเตือนเวลา [TIME]10.45 น.[/TIME] ว่า[EVENT]ให้หุ้งข้าว[/EVENT]|alert
 ตอนนี้เป็นเวลาเท่าไร|asktime
 วันนี้วันที่เท่าไร|asktime
 ตอนนี้เวลาเท่าไรนะ|asktime
@@ -67,6 +68,11 @@
 ตอนนี้กี่โมงแล้ว|asktime
 ตอนนี้จักโมงแล้ว|asktime
 กี่โมงกี่ยามแล้ว|asktime
+ตอนนี้เวลาเท่าไหร่แล้ว|asktime
+เพลาเท่าไรแล้ว|asktime
+ยามไหนแล้ว|asktime
+ขณะนี้เป็นเวลาเท่าไหร่|asktime
+กี่โมงแล้ว|asktime
 อีก [TIME]1 นาที[/TIME] [EVENT]เปิดพัดลม[/EVENT]|fan
 [DATE]ทุกวัน[/DATE]เวลา [TIME]19:00 น.[/TIME] [EVENT]ให้ปิดพัดลม[/EVENT]|fan
 อากาศร้อนแล้ว[EVENT]เปิดลม[/EVENT]หน่อย|fan
@@ -76,6 +82,7 @@
 นับถอยหลัง [TIME]10 นาที[/TIME] [EVENT]ปิดพัดลม[/EVENT]|fan
 เปิดพัดลม|fan
 ปิดพัดลม|fan
+จงปิดพัดลมหน่อย|fan
 อีก [TIME]5 นาที[/TIME][EVENT]เปิดไฟ[/EVENT]|light
 [DATE]ทุกวัน[/DATE] [TIME]10:00 น.[/TIME] เปิดไฟ|light
 ยกเลิกการตั้งเวลา[EVENT]เปิดไฟ[/EVENT][DATE]ทุกวัน[/DATE] [TIME]10:00 น.[/TIME]|light
@@ -96,6 +103,7 @@
 [TIME]เช้า[/TIME]แล้วให้[EVENT]ปิดไฟ[/EVENT]|light
 ปิดไฟ|light
 ปิดหลอดไฟ|light
+ไฟจ้าจงเปิด|light
 อยากฟัง[MUSIT]เพลงคืนความสุขให้คนในชาติ[/MUSIT]|music
 อยากร้อง[MUSIT]เพลงบัวลอย[/MUSIT]|music
 เปิด[MUSIT]เพลงแสงดาวแห่งศรัทธา[/MUSIT]ให้ฟังหน่อย|music
@@ -110,6 +118,11 @@
 เปิด[MUSIT]เพลงความเชื่อ[/MUSIT]ของ [PERSON]bodyslam[/PERSON]|music
 ปิดเพลง|music
 หยุดเพลง|music
+หยุดการเล่นเพลง|music
+เปิด[MUSIT]เพลงคุ๊กกี้เสี่ยงทาย[/MUSIT]|music
+อยากฟัง[MUSIT]เพลงคืนความสุขให้คนในชาติ[/MUSIT]|music
+ฟัง[MUSIT]เพลงคืนความสุข[/MUSIT]|music
+เล่น[MUSIT]เพลงมาร์ชโรงเรียนนางรอง[/MUSIT]|music
 อ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
 อ่านข่าว[DATE]เมื่อวาน[/DATE]ให้ฟังหน่อย|news
 อ่าน[TYPE]ข่าวการเมือง[/TYPE]ให้ฟังหน่อย|news
@@ -127,10 +140,15 @@
 อ่าน[EVENT]ข่าวพระราชสำนัก[/EVENT]ให้ฟังหน่อย|news
 อยากฟัง[TYPE]ข่าวในหลวง[/TYPE]|news
 อ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
+เปิด[TYPE]ข่าวสภาพอากาศ[/TYPE]ให้ฟังหน่อย|news
 อยากฟังธรรมะ[religion]ศีลห้า[/religion]|religion
 อยากฟังธรรมะ|religion
 อยากฟัง[religion]บทสวดมนต์[/religion]|religion
 อยากฟัง[religion]บทแผ่เมตตา[/religion]|religion
+ฟังธรรมะ[religion]หลวงพ่อโต[/religion]|religion
+ฟังธรรมะ[religion]ชาดก[/religion]|religion
+ฟัง[religion]บทสวดมนต์[/religion]|religion
+ฟัง[religion]บทเผยเมตตา[/religion]|religion
 [DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอย่างไร|weather
 [DATE]วันนี้[/DATE][TIME]ช่วงบ่าย[/TIME]อากาศจะเป็นยังไง|weather
 อากาศที่[LOG]บุรีรัมย์[/LOG]เป็นอย่างไรบ้าง|weather
