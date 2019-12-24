@@ -25,7 +25,7 @@ def features(text):
     elif 'ธรรมะ' in text:
         f['b'] = True
     return f
-train_data,test_data=train_test_split(data, test_size=0.1, random_state=42,shuffle= True)
+train_data,test_data=train_test_split(data, test_size=0.1, random_state=42,shuffle=True)
 model=MultinomialNB.train('sandy',train_data,test_data)
 print(model[1])
 def p(text):
