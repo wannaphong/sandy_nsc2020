@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import mysql.connector 
 import pyodbc
 mydb = mysql.connector.connect(host="localhost",user="root",passwd="",database="diary") #Connect to data base 

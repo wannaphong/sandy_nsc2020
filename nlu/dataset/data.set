@@ -65,6 +65,21 @@
 ยกเลิกการแจ้งเตือนเวลา [TIME]10.00 น.[/TIME]ของ[DATE]วันนี้[/DATE]|alert
 ยกเลิกการแจ้งเตือนของ[DATE]พรุ่งนี้[/DATE]ทั้งหมด|alert
 ยุติการแจ้งเตือนทั้งหมด|alert
+คำสั่งหยุดการแจ้งเตือนทั้งหมด|alert
+เวลา [TIME]13.50 น[/TIME][DATE]วันนี้[/DATE]อย่าลืมเตือนด้วยว่า[EVENT]ไปจ่ายตลาด[/EVENT]|alert
+อย่าลืมเตือน[EVENT]ให้ตื่นนอน[/EVENT]ตอน[TIME]ตีห้า[/TIME]|alert
+[DATE]วันมะรืนนี้[/DATE]ตอน [TIME]9.00 น[/TIME]อย่าลืม[EVENT]ไปจ่ายตลาด[/EVENT]|alert
+อย่าลืมแจ้งเตือน[EVENT]ให้จ่ายค่าไฟ[/EVENT]เวลา [TIME]13.00 น[/TIME][DATE]มะรืนนี้[/DATE]|alert
+[DATE]ทุกวัน[/DATE]เวลา [TIME]17.00 น[/TIME]ให้แจ้งเตือนว่า[EVENT]ได้เวลากินยาก่อนอาหาร[/EVENT]|alert
+[DATE]ทุกวัน[/DATE]ตอน[TIME]บ่ายสามโมง[/TIME]ให้เตือนว่า[EVENT]ออกกำลังด้วย[/EVENT]|alert
+วันที่ [DATE]5 มกราคม[/DATE] เวลา [TIME]9.00 น[/TIME]อย่าลืมเตือนให้[EVENT]ไปรับเงินเดือน[/EVENT]|alert
+[DATE]ทุกวันจันทร์[/DATE]เวลา [TIME]13.05 น.[/TIME]เตือนให้[EVENT]เปิดรายการสารคดี[/EVENT]|alert
+[DATE]ทุกวันพุธ[/DATE]เวลา [TIME]17.00 น[/TIME]แจ้งเตือนด้วยว่า[EVENT]มีของลดราคา[/EVENT]|alert
+[TIME]หัวค่ำ[/TIME][DATE]คืนนี้[/DATE]อย่าลืมเตือนให้[EVENT]ทำกับข้าว[/EVENT]|alert
+ตอน[TIME]เช้า[/TIME][DATE]พรุ่งนี้[/DATE]ห้ามลืมเตือนให้[EVENT]ไปงานบุญ[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE]เวลา[TIME]เก้าโมง[/TIME]เตือนว่า[EVENT]ต้องไปหาหมอ[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]สิบเอ็ดโมง[/TIME]มีนัด[EVENT]หาหมอ[/EVENT]|alert
+[TIME]บ่ายสอง[/TIME]มีนัด[EVENT]ไปเจอเพื่อน[/EVENT]|alert
 ตอนนี้เป็นเวลาเท่าไร|asktime
 วันนี้วันที่เท่าไร|asktime
 ตอนนี้เวลาเท่าไรนะ|asktime
@@ -77,6 +92,13 @@
 ยามไหนแล้ว|asktime
 ขณะนี้เป็นเวลาเท่าไหร่|asktime
 กี่โมงแล้ว|asktime
+เวลาอะไรอ่ะตอนนี้|asktime
+อยากรู้ว่าตอนเวลานี้เท่าไรแล้ว|asktime
+ตอนนี้เวลาเท่าไรอ่ะ|asktime
+อยากรู้เวลาตอนนี้|asktime
+ตอนนี้เวลาเท่าไรล่ะ|asktime
+วันนี้วันที่เท่าไร|asktime
+ตอนนี้เวลาจั๊กโมงแล้ว|asktime
 อีก [TIME]1 นาที[/TIME] [EVENT]เปิดพัดลม[/EVENT]|fan
 [DATE]ทุกวัน[/DATE]เวลา [TIME]19:00 น.[/TIME] [EVENT]ให้ปิดพัดลม[/EVENT]|fan
 อากาศร้อนแล้ว[EVENT]เปิดลม[/EVENT]หน่อย|fan
@@ -86,9 +108,10 @@
 นับถอยหลัง [TIME]10 นาที[/TIME] [EVENT]ปิดพัดลม[/EVENT]|fan
 เปิดพัดลม|fan
 ปิดพัดลม|fan
-จงปิดพัดลมหน่อย|fan
-ปิดพัดลมให้หน่อยนะ|fan
-เปิดพัดลมให้หน่อยนะ|fan
+จง[EVENT]ปิดพัดลม[/EVENT]หน่อย|fan
+[EVENT]ปิดพัดลม[/EVENT]ให้หน่อยนะ|fan
+[EVENT]เปิดพัดลม[/EVENT]ให้หน่อยนะ|fan
+อีก [TIME]5 นาที[/TIME]ให้[EVENT]เปิดพัดลม[/EVENT]|fan
 อีก [TIME]5 นาที[/TIME][EVENT]เปิดไฟ[/EVENT]|light
 [DATE]ทุกวัน[/DATE] [TIME]10:00 น.[/TIME] เปิดไฟ|light
 ยกเลิกการตั้งเวลา[EVENT]เปิดไฟ[/EVENT][DATE]ทุกวัน[/DATE] [TIME]10:00 น.[/TIME]|light
@@ -110,6 +133,8 @@
 ปิดไฟ|light
 ปิดหลอดไฟ|light
 ไฟจ้าจงเปิด|light
+ไป[EVENT]ปิดไฟ[/EVENT]|light
+[TIME]มืด[/TIME]แล้ว[EVENT]เปิดไฟ[/EVENT]หน่อย|light
 อยากฟัง[MUSIT]เพลงคืนความสุขให้คนในชาติ[/MUSIT]|music
 อยากร้อง[MUSIT]เพลงบัวลอย[/MUSIT]|music
 เปิด[MUSIT]เพลงแสงดาวแห่งศรัทธา[/MUSIT]ให้ฟังหน่อย|music
@@ -131,6 +156,18 @@
 เล่น[MUSIT]เพลงมาร์ชโรงเรียนนางรอง[/MUSIT]|music
 เพลงที่กำลังเล่นอยู่คือเพลงอะไร|music
 ตอนนี้เป็นเพลงอะไร|music
+เล่น[MUSIT]เพลงศรัทธา[/MUSIT]|music
+[DATE]ทุกวัน[/DATE] [TIME]6:30 น[/TIME]ให้เปิด[MUSIT]เพลงสวัสดี[/MUSIT]|music
+บรรเลง[MUSIT]เพลงไก่จ๋า[/MUSIT]|music
+เปิด[MUSIT]เพลงเด็กดี[/MUSIT]|music
+ปิดเสียงเพลง|music
+เปิดเสียง[MUSIT]เพลงรัก[/MUSIT]|music
+เปิด[MUSIT]เพลงแสงดาวแห่งศรัทธา[/MUSIT]|music
+ฟัง[MUSIT]เพลงอยู่ที่เรียนรู้[/MUSIT]|music
+เปลี่ยนเป็น[MUSIT]เพลงเพื่อชีวิต[/MUSIT]|music
+เปิด[MUSIT]เพลงศรัทธา[/MUSIT]ให้ฟังหน่อย|music
+หนวกหู ปิดเพลง|music
+เปิด[MUSIT]หมอลำ[/MUSIT]ให้ฟังหน่อย|music
 อ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
 อ่านข่าว[DATE]เมื่อวาน[/DATE]ให้ฟังหน่อย|news
 อ่าน[TYPE]ข่าวการเมือง[/TYPE]ให้ฟังหน่อย|news
@@ -149,6 +186,10 @@
 อยากฟัง[TYPE]ข่าวในหลวง[/TYPE]|news
 อ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
 เปิด[TYPE]ข่าวสภาพอากาศ[/TYPE]ให้ฟังหน่อย|news
+อ่านข่าว[DATE]เมื่อวาน[/DATE]|news
+อ่านข่าว[ORG]พรรคเพื่อไทย[/ORG]ให้ฟังหน่อย|news
+อ่าน[TYPE]ข่าวพระราชสำนัก[/TYPE][DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
+[TYPE]ข่าวบันเทิง[/TYPE][DATE]วันนี้[/DATE]มีอะไรบ้าง|news
 อยากฟังธรรมะ[religion]ศีลห้า[/religion]|religion
 อยากฟังธรรมะ|religion
 อยากฟัง[religion]บทสวดมนต์[/religion]|religion
@@ -157,6 +198,8 @@
 ฟังธรรมะ[religion]ชาดก[/religion]|religion
 ฟัง[religion]บทสวดมนต์[/religion]|religion
 ฟัง[religion]บทเผยเมตตา[/religion]|religion
+อยากฟังธรรมะ[religion]ตายแล้วไปไหน[/religion]|religion
+เปิดธรรมะให้ฟังหน่อย|religion
 [DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอย่างไร|weather
 [DATE]วันนี้[/DATE][TIME]ช่วงบ่าย[/TIME]อากาศจะเป็นยังไง|weather
 อากาศที่[LOG]บุรีรัมย์[/LOG]เป็นอย่างไรบ้าง|weather
@@ -171,6 +214,26 @@
 [DATE]คืนนี้[/DATE]อากาศจะหนาวไหม|weather
 [DATE]พรุ่งนี้[/DATE]สภาพอากาศที่[LOG]บุรีรัมย์[/LOG]จะเป็นอย่างไร|weather
 [DATE]พรุ่งนี้[/DATE]ที่[LOG]หนองคาย[/LOG]อากาศจะเป็นอย่างไร|weather
-[LOG]ระยอง[/LOG]พรุ่งนี้อากาศจะเป็นอะไร|weather
+[LOG]ระยอง[/LOG][DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอะไร|weather
 พยากรณ์อากาศ[DATE]วันพรุ่งนี้[/DATE]|weather
 พยากรณ์อากาศ[DATE]วันนี้[/DATE]|weather
+[DATE]พรุ่งนี้[/DATE][LOG]กรุงเทพ[/LOG]จะ[EVENT]ร้อน[/EVENT]ไหม|weather
+ที่[LOG]บุรีรัมย์[/LOG]อากาศเป็นอย่างไร[TIME]ตอนนี้[/TIME]|weather
+[TIME]ตอนนี้[/TIME]สภาพอากาศเป็นอย่างไรบ้าง|weather
+สภาพอากาศที่[LOG]ประเทศอังกฤษ[/LOG]เป็นอย่างไร|weather
+ตอน[TIME]เย็น[/TIME]อากาศจะเป็นยังไง|weather
+[TIME]เย็น[/TIME]นี้[EVENT]ฝนจะตก[/EVENT]ไหม|weather
+[TIME]เช้า[/TIME]นี้อากาศจะเป็นอย่างไร|weather
+[TIME]เย็น[/TIME]นี้อากาศจะยัง[EVENT]ร้อน[/EVENT]ไหม|weather
+[TIME]ค่ำ[/TIME]นี้อากาศจะเป็นอย่างไรบ้าง|weather
+[TIME]ตอนนี้[/TIME]อุณหภูมิเท่าไร|weather
+[TIME]ตอนนี้[/TIME]กี่องศานะ|weather
+[TIME]บ่ายโมง[/TIME]นี้[EVENT]ฝนจะตก[/EVENT]ไหม|weather
+[TIME]สิบโมงครึ่ง[/TIME][DATE]พรุ่งนี้[/DATE][EVENT]ฝนจะตก[/EVENT]ไหม|weather
+ช่วง[TIME]เช้า[/TIME]นี้[EVENT]ฟ้าจะมืด[/EVENT]ไหม|weather
+ใกล้[TIME]เย็น[/TIME]อากาศจะเป็นอย่างไร|weather
+[TIME]ตอนนี้[/TIME]อากาศเป็นไงบ้าง|weather
+[TIME]บ่ายโมงครึ่ง[/TIME]อากาศจะเป็นอย่างไร|weather
+[TIME]ตีสอง[/TIME]ฟ้าจะเป็นอย่างไร|weather
+สภาพอากาศ[TIME]ตอนนี้[/TIME]เป็นอย่างไร|weather
+[TIME]7 โมงเช้า[/TIME][DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอย่างไร|weather

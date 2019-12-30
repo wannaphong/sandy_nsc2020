@@ -12,6 +12,7 @@ from pydub import AudioSegment
 from pydub.playback import play
 from weather.weather import now as now_w
 from music.song import music
+from threading import Event
 m = music()
 def playsound(path):
     song = AudioSegment.from_file(path)
@@ -94,7 +95,8 @@ engine = PreciseEngine('C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe', 
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
 runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
 runner.start()
-while 1:
+"""while 1:
     time.sleep(100)
     if stauts=="exit":
-        break
+        break"""
+Event().wait()
