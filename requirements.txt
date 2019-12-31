@@ -1,4 +1,5 @@
 requests
+precise-runner
 prettyparse==0.1.4
 protobuf
 absl-py
