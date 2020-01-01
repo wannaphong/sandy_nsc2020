@@ -1,0 +1,30 @@
+import pyaudio
+p = pyaudio.PyAudio()
+for ii in range(p.get_device_count()):
+ print(p.get_device_info_by_index(ii).get('name'))
+
+sudo apt-get install jackd2 libjack-jackd2-0 qjackctl sonic-pi supercollider supercollider-server
+sudo apt-get install libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-dev
+sudo apt-get install bison libasound2-dev libportaudio-dev
+sudo apt-get install ffmpeg libavcodec-extra
+sudo apt-get install alsa-tools alsa-utils
+sudo apt-get install pulseaudio
+sudo apt-get install portaudio19-dev
+sudo pip3 install cython
+sudo apt -y install python3-dev python3-pyaudio sox python3-pip python-pip libatlas-base-dev flac libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-dev
+
+
+sudo apt-get install -y python3-pip libopenblas-dev python3-scipy libhdf5-dev python3-h5py portaudio19-dev
+
+numfacom_sandy
+-
+
+git clone http://people.csail.mit.edu/hubert/git/pyaudio.git
+cd pyaudio  
+sudo python3 setup.py install
+
+
+arecord -l
+
+pulseaudio --start
+jack_control start
