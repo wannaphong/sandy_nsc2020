@@ -80,6 +80,26 @@
 [DATE]พรุ่งนี้[/DATE]เวลา[TIME]เก้าโมง[/TIME]เตือนว่า[EVENT]ต้องไปหาหมอ[/EVENT]|alert
 [DATE]พรุ่งนี้[/DATE][TIME]สิบเอ็ดโมง[/TIME]มีนัด[EVENT]หาหมอ[/EVENT]|alert
 [TIME]บ่ายสอง[/TIME]มีนัด[EVENT]ไปเจอเพื่อน[/EVENT]|alert
+[TIME]14.00 น[/TIME]แจ้ง[EVENT]รดน้ำต้นไม้[/EVENT]|alert
+[DATE]วันนี้[/DATE]ตอน[TIME]สามโมงเย็น[/TIME]เตือน[EVENT]กินข้าวด้วยนะ[/EVENT]|alert
+[DATE]วันจันทร์หน้า[/DATE]ตอน [TIME]16.00 น[/TIME]อย่าลืมเตือน[EVENT]ให้รดน้ำต้นไม้[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]17.00 น[/TIME]เตือน[EVENT]มีนัดไปหาแฟน[/EVENT]|alert
+เตือน[EVENT]กินข้าว[/EVENT]เวลา [TIME]12.00 น[/TIME]|alert
+เตือน[EVENT]กินยา[/EVENT][DATE]ทุกวัน[/DATE]เวลา [TIME]19.00 น[/TIME]|alert
+เตือน[EVENT]ไปเที่ยวกับหลาน[/EVENT][DATE]พรุ่งนี้[/DATE]เวลา [TIME]8.00 น[/TIME]|alert
+[DATE]พรุ่งนี้[/DATE][TIME]บ่ายโมง 15[/TIME] แจ้งเตือน[EVENT]ไปรับลูก[/EVENT]|alert
+[DATE]พรุ่งนี้[/DATE] [TIME]09:09 น[/TIME]อย่าลืมเตือน[EVENT]ออกกำลังกายลดน้ำหนัก[/EVENT]|alert
+เตือน[PERSON]ลุง[/PERSON][EVENT]ให้ออกไปทิ้งขยะ[/EVENT]ตอน[EVENT]สองทุ่ม[/EVENT]|alert
+เตือนให้[PERSON]ดีน่า[/PERSON][EVENT]ซื้อดอกไม้[/EVENT]เมื่อเธอไปถึง[LOG]บ้าน[/LOG]|alert
+[EVENT]ตั้งนาฬิกาปลุก[/EVENT]เวลา[TIME]หกโมงครึ่ง[/TIME]|alert
+เตือน[EVENT]ให้ซื้อนม[/EVENT]ตอน [TIME]ห้าโมงครึ่ง[/TIME]|alert
+เตือน[EVENT]ไปวิ่ง[/EVENT]เวลา [TIME]16.00 น[/TIME]|alert
+เตือน[EVENT]ให้ไปรับหนังสือ[/EVENT]ตอน [TIME]18.00 น[/TIME]|alert
+เตือน[EVENT]ให้จองตั๋ว[/EVENT][DATE]พรุ่งนี้[/DATE]ตอน [TIME]ห้าโมงเย็น[/TIME]|alert
+เตือน[EVENT]ไปรับเงินผู้สูงอายุ[/EVENT][DATE]วันเสาร์นี้[/DATE]เวลา [TIME]7.00 น[/TIME]|alert
+เตือน[EVENT]ให้ไปซื้อข้าวสาร[/EVENT][DATE]มะรืนนี้[/DATE]เวลา [TIME]14:00 น[/TIME]|alert
+[DATE]มะรืนนี้[/DATE]เวลา[TIME]บ่ายสามโมง 17[/TIME] เตือน[EVENT]ให้ไปนอน[/EVENT]|alert
+อย่าลืม[EVENT]เอาขยะไปทิ้ง[/EVENT]ในอีก [TIME]4 ชั่วโมง[/TIME]|alert
 ตอนนี้เป็นเวลาเท่าไร|asktime
 วันนี้วันที่เท่าไร|asktime
 ตอนนี้เวลาเท่าไรนะ|asktime
@@ -99,6 +119,7 @@
 ตอนนี้เวลาเท่าไรล่ะ|asktime
 วันนี้วันที่เท่าไร|asktime
 ตอนนี้เวลาจั๊กโมงแล้ว|asktime
+อยากรู้เวลาตอนนี้เป็นอย่างไร|asktime
 อีก [TIME]1 นาที[/TIME] [EVENT]เปิดพัดลม[/EVENT]|fan
 [DATE]ทุกวัน[/DATE]เวลา [TIME]19:00 น.[/TIME] [EVENT]ให้ปิดพัดลม[/EVENT]|fan
 อากาศร้อนแล้ว[EVENT]เปิดลม[/EVENT]หน่อย|fan
@@ -135,6 +156,11 @@
 ไฟจ้าจงเปิด|light
 ไป[EVENT]ปิดไฟ[/EVENT]|light
 [TIME]มืด[/TIME]แล้ว[EVENT]เปิดไฟ[/EVENT]หน่อย|light
+เปิดหลอดไฟ|light
+ปิดหลอดไฟ|light
+เปิดดวงไฟ|light
+ปิดดวงไฟ|light
+เปิดดวงไฟ|light
 อยากฟัง[MUSIT]เพลงคืนความสุขให้คนในชาติ[/MUSIT]|music
 อยากร้อง[MUSIT]เพลงบัวลอย[/MUSIT]|music
 เปิด[MUSIT]เพลงแสงดาวแห่งศรัทธา[/MUSIT]ให้ฟังหน่อย|music
@@ -168,6 +194,9 @@
 เปิด[MUSIT]เพลงศรัทธา[/MUSIT]ให้ฟังหน่อย|music
 หนวกหู ปิดเพลง|music
 เปิด[MUSIT]หมอลำ[/MUSIT]ให้ฟังหน่อย|music
+อ่าน[TYPE]ข่าวหวย[/TYPE]|music
+เล่นเพลง [MUSIT]ความเชื่อ[/MUSIT]|music
+เปิด[MUSIT]เพลงเราสู้[/MUSIT]ของ[PERSON]ในหลวง[/PERSON]|music
 อ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
 อ่านข่าว[DATE]เมื่อวาน[/DATE]ให้ฟังหน่อย|news
 อ่าน[TYPE]ข่าวการเมือง[/TYPE]ให้ฟังหน่อย|news
@@ -190,6 +219,8 @@
 อ่านข่าว[ORG]พรรคเพื่อไทย[/ORG]ให้ฟังหน่อย|news
 อ่าน[TYPE]ข่าวพระราชสำนัก[/TYPE][DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
 [TYPE]ข่าวบันเทิง[/TYPE][DATE]วันนี้[/DATE]มีอะไรบ้าง|news
+อ่าน[TYPE]ข่าวหวย[/TYPE]|news
+ฟัง[TYPE]ข่าวเด่นประจำวัน[/TYPE]|news
 อยากฟังธรรมะ[religion]ศีลห้า[/religion]|religion
 อยากฟังธรรมะ|religion
 อยากฟัง[religion]บทสวดมนต์[/religion]|religion
@@ -200,6 +231,8 @@
 ฟัง[religion]บทเผยเมตตา[/religion]|religion
 อยากฟังธรรมะ[religion]ตายแล้วไปไหน[/religion]|religion
 เปิดธรรมะให้ฟังหน่อย|religion
+เล่นธรรมะ [religion]ศีล 5[/religion]|religion
+อยากฟังธรรมะ[religion]กตัญญูกตเวที[/religion]|religion
 [DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอย่างไร|weather
 [DATE]วันนี้[/DATE][TIME]ช่วงบ่าย[/TIME]อากาศจะเป็นยังไง|weather
 อากาศที่[LOG]บุรีรัมย์[/LOG]เป็นอย่างไรบ้าง|weather
@@ -237,3 +270,6 @@
 [TIME]ตีสอง[/TIME]ฟ้าจะเป็นอย่างไร|weather
 สภาพอากาศ[TIME]ตอนนี้[/TIME]เป็นอย่างไร|weather
 [TIME]7 โมงเช้า[/TIME][DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอย่างไร|weather
+อยากรู้สภาพอากาศ[TIME]ตอนนี้[/TIME]เป็นอย่างไร|weather
+สภาพอากาศ[DATE]วันมะรืน[/DATE]เป็นอย่างไรบ้าง|weather
+[DATE]มะรืนนี้[/DATE]สภาพอากาศเป็นอย่างไรบ้าง|weather
