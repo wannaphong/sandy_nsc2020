@@ -15,4 +15,27 @@ def now():
     """.format(cond=cond2txt(data['cond']),temp=int(data['tc']),temp_max=int(data['tc_max']),temp_min=int(data['tc_min']))
     return text
 
+def tomorrow():
+    global d
+    data=d.forecast_daily(day("tomorrow"))[0]['forecasts'][0]['data']
+    text = """
+    พรุ่งนี้ มีสภาพอากาศ{cond}
+    มีอุณหภูมิ {temp} องศาเซลเซียส
+    อุณหภูมิสูงสุด {temp_max} องศาเซลเซียส
+    อุณหภูมิต่ำสุด {temp_min} องศาเซลเซียส
+    """.format(cond=cond2txt(data['cond']),temp=int(data['tc']),temp_max=int(data['tc_max']),temp_min=int(data['tc_min']))
+    return text
+
 #print(now())
+
+def text2com(text):
+    if "สภาพอากาศ" in text or "อากาศ" in text:
+        pass
+    else:
+        return "ขออภัยค่ะ ระบบพยากรณ์อากาศยังไม่รองรับการใช้งานปัจจุบันคะ"
+    if "วันนี้" in text or "ตอนนี้" in text:
+        return now()
+    elif "พรุ่งนี้" in text:
+        return tomorrow()
+    else:
+        return "ขออภัยค่ะ ระบบพยากรณ์อากาศยังไม่รองรับการใช้งานปัจจุบันคะ"

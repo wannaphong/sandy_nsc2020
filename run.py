@@ -39,7 +39,7 @@ def process(text:str)->str:
         sent()
     elif "ข่าว" in text:
         text=gethotnews()
-    elif "อากาศ" in text and ("ตอนนี้" in text or "วันนี้" in text):
+    elif ("สภาพอากาศ" in text or "อากาศ" in text) and ("ตอนนี้" in text or "วันนี้" in text):
         text=now_w().replace('\n','')
     elif "ฟัง" in text and 'ต่อ' in text:
         m.play()
