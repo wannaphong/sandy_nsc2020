@@ -25,9 +25,6 @@ r = sr.Recognizer()
 def on_prediction(prob:float)->None:
     print(print(prob) if prob > 0.5 else '.', end='', flush=True)
 
-"""def on_activation():
-    print('Activation')
-    winsound.PlaySound("*", winsound.MB_OK)"""
 stauts=""
 '''
 def process(text:str)->str:
@@ -57,14 +54,15 @@ def process(text:str)->str:
         text="คุณพูดว่า "+text
     return text
 '''
-from sklearn.externals import joblib
 from pythainlu.intent_classification.MultinomialNB import nb
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
-clf =  joblib.load('modelclass.model')
+import dill
+with open('modelclass2.model', 'rb') as in_strm:
+    clf = dill.load(in_strm)[0]
 def process(text:str)->str:
     global clf,nb,wcom,ncom
-    tag=clf[0].predict(text)
+    tag=str(clf.predict([text])[0])
     if tag == "asktime":
         text=now()
     elif tag == "alert":
@@ -79,6 +77,9 @@ def process(text:str)->str:
         text = wcom(text)
     elif tag == "news":
         text = ncom(text)
+    elif tag == "sos":
+        text = "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
+        sent()
     else:
         text = "ระบบยังไม่รองรับ"
     return text

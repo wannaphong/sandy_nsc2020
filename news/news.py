@@ -92,7 +92,7 @@ def text2com(text):
         return get_news("environment")
     elif "เศรษฐกิจ" in text:
         return get_news("economy")
-    elif "ต่างประเทศ" in text or "ต่างชาติ":
+    elif "ต่างประเทศ" in text or "ต่างชาติ" in text:
         return get_news("foreign")
     elif "กีฬา" in text:
         return get_news("sport")

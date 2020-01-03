@@ -32,10 +32,8 @@ def p(text):
     global model
     print(MultinomialNB.predict(model[0],text))
 
-from sklearn.externals import joblib
 modelfull=MultinomialNB.train('sandy',data)
 import dill
-joblib.dump(modelfull[0], '../../modelclass.model')
 with open('../../modelclass2.model', 'wb') as out_strm: 
     dill.dump(modelfull, out_strm)
 while True:

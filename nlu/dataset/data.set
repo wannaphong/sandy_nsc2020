@@ -199,6 +199,15 @@
 อ่าน[TYPE]ข่าวหวย[/TYPE]|music
 เล่นเพลง [MUSIT]ความเชื่อ[/MUSIT]|music
 เปิด[MUSIT]เพลงเราสู้[/MUSIT]ของ[PERSON]ในหลวง[/PERSON]|music
+อยากฟัง[MUSIT]เพลงรักลุงตู่[/MUSIT]|music
+เปิด[TYPE]เพลงหมอลำ[/TYPE]|music
+เปิด[MUSIT]เพลงแมว[/MUSIT]|music
+ช่วยเปิด[MUSIT]เพลงความเชื่อ[/MUSIT]ให้หน่อย|music
+[MUSIT]ความเชื่อ[/MUSIT]เปิดเพลงนี้หน่อยสิ|music
+[MUSIT]ความเชื่อ[/MUSIT]เปิดเพลงนี้ให้หน่อยสิ|music
+[MUSIT]ความเชื่อ[/MUSIT]ช่วยเปิดเพลงนี้หน่อยสิ|music
+[MUSIT]ความเชื่อ[/MUSIT]กรุณาเปิดเพลงนี้หน่อยสิ|music
+คุณช่วยเปิด[TYPE]เพลงเก่าๆ[/TYPE]ให้ฟังหน่อย|music
 อ่านข่าว[DATE]วันนี้[/DATE]ให้ฟังหน่อย|news
 อ่านข่าว[DATE]เมื่อวาน[/DATE]ให้ฟังหน่อย|news
 อ่าน[TYPE]ข่าวการเมือง[/TYPE]ให้ฟังหน่อย|news
@@ -235,6 +244,10 @@
 เปิดธรรมะให้ฟังหน่อย|religion
 เล่นธรรมะ [religion]ศีล 5[/religion]|religion
 อยากฟังธรรมะ[religion]กตัญญูกตเวที[/religion]|religion
+ขอความช่วยเหลือหน่อย|sos
+ขอความช่วยเหลือผ่านไลน์หน่อย|sos
+ตอนนี้รู้สึกไม่สบายช่วยด้วย|sos
+ช่วยด้วย|sos
 [DATE]พรุ่งนี้[/DATE]อากาศจะเป็นอย่างไร|weather
 [DATE]วันนี้[/DATE][TIME]ช่วงบ่าย[/TIME]อากาศจะเป็นยังไง|weather
 อากาศที่[LOG]บุรีรัมย์[/LOG]เป็นอย่างไรบ้าง|weather

@@ -30,6 +30,8 @@ def process(text:str)->str:
         text = wcom(text)
     elif tag == "news":
         text = ncom(text)
+    elif tag == "sos":
+        text = "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
     else:
         text = "ระบบยังไม่รองรับ"
     return text
