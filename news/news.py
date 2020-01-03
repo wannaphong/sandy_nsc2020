@@ -49,7 +49,7 @@ def get_news(ty="breakingnews"):
         t+=" "+i#.replace('',')
         t+="   "
         j+=1
-    t+="สำหรับข่าวเด่นประจำวันจบแล้วค่ะ"
+    t+="สำหรับ"+n+"จบแล้วค่ะ"
     return t
 
 def gethotnews():

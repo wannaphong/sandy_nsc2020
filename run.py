@@ -7,6 +7,7 @@ from tts import TTS
 from sos import sent
 from vad import run
 from news.news import gethotnews
+from pythainlp.tokenize import word_tokenize
 import sys
 from pydub import AudioSegment
 from pydub.playback import play
@@ -28,6 +29,7 @@ def on_prediction(prob:float)->None:
     print('Activation')
     winsound.PlaySound("*", winsound.MB_OK)"""
 stauts=""
+'''
 def process(text:str)->str:
     global m
     if "เวลา" in text:
@@ -53,6 +55,32 @@ def process(text:str)->str:
         m.stop()
     else:
         text="คุณพูดว่า "+text
+    return text
+'''
+from sklearn.externals import joblib
+from pythainlu.intent_classification.MultinomialNB import nb
+from weather.weather import text2com as wcom
+from news.news import text2com as ncom
+clf =  joblib.load('modelclass.model')
+def process(text:str)->str:
+    global clf,nb,wcom,ncom
+    tag=clf[0].predict(text)
+    if tag == "asktime":
+        text=now()
+    elif tag == "alert":
+        text = "ระบบการแจ้งเตือน ยังไม่พร้อมใช้งาน"
+    elif tag == "fan" or tag == "light":
+        text = "ระบบ IoT ยังไม่พร้อมใช้งาน"
+    elif tag == "music":
+        text = "ระบบฟังเพลง"
+    elif tag == "religion":
+        text = "ระบบฟังธรรมะ"
+    elif tag == "weather":
+        text = wcom(text)
+    elif tag == "news":
+        text = ncom(text)
+    else:
+        text = "ระบบยังไม่รองรับ"
     return text
 
 def sound(text):

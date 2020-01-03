@@ -100,6 +100,7 @@
 เตือน[EVENT]ให้ไปซื้อข้าวสาร[/EVENT][DATE]มะรืนนี้[/DATE]เวลา [TIME]14:00 น[/TIME]|alert
 [DATE]มะรืนนี้[/DATE]เวลา[TIME]บ่ายสามโมง 17[/TIME] เตือน[EVENT]ให้ไปนอน[/EVENT]|alert
 อย่าลืม[EVENT]เอาขยะไปทิ้ง[/EVENT]ในอีก [TIME]4 ชั่วโมง[/TIME]|alert
+อย่าลืมเตือน[EVENT]เอาขยะไปทิ้ง[/EVENT]ในอีก [TIME]3 ชม.[/TIME]|alert
 ตอนนี้เป็นเวลาเท่าไร|asktime
 วันนี้วันที่เท่าไร|asktime
 ตอนนี้เวลาเท่าไรนะ|asktime
@@ -120,6 +121,7 @@
 วันนี้วันที่เท่าไร|asktime
 ตอนนี้เวลาจั๊กโมงแล้ว|asktime
 อยากรู้เวลาตอนนี้เป็นอย่างไร|asktime
+เวลาตอนนี้|asktime
 อีก [TIME]1 นาที[/TIME] [EVENT]เปิดพัดลม[/EVENT]|fan
 [DATE]ทุกวัน[/DATE]เวลา [TIME]19:00 น.[/TIME] [EVENT]ให้ปิดพัดลม[/EVENT]|fan
 อากาศร้อนแล้ว[EVENT]เปิดลม[/EVENT]หน่อย|fan
@@ -273,3 +275,4 @@
 อยากรู้สภาพอากาศ[TIME]ตอนนี้[/TIME]เป็นอย่างไร|weather
 สภาพอากาศ[DATE]วันมะรืน[/DATE]เป็นอย่างไรบ้าง|weather
 [DATE]มะรืนนี้[/DATE]สภาพอากาศเป็นอย่างไรบ้าง|weather
+[DATE]สัปดาห์หน้า[/DATE]สภาพอากาศจะเป็นอย่างไร|weather
