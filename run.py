@@ -63,6 +63,7 @@ with open('modelclass2.model', 'rb') as in_strm:
 def process(text:str)->str:
     global clf,nb,wcom,ncom
     tag=str(clf.predict([text])[0])
+    print(tag)
     if tag == "asktime":
         text=now()
     elif tag == "alert":
