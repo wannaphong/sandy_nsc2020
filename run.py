@@ -58,18 +58,18 @@ from pythainlu.intent_classification.MultinomialNB import nb
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
-from music.song import song,tum,m
+from music.song import song,tum#,m
 import dill
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)[0]
 def process(text:str)->tuple:
-    global clf,nb,wcom,ncom,acom,song,tum,n
+    global clf,nb,wcom,ncom,acom,song,tum,n,sound
     tag=str(clf.predict([text])[0])
     print(tag)
     print(clf.predict_proba([text]).max())
-    if clf.predict_proba([text]).max()<0.3:
-        text = "ระบบยังไม่รองรับคำสั่งนี้"
-    elif tag == "asktime":
+    #if clf.predict_proba([text]).max()<0.3:
+    #    text = "ระบบยังไม่รองรับคำสั่งนี้"
+    if tag == "asktime":
         text=now()
     elif tag == "alert":
         text = acom(text)#"ระบบการแจ้งเตือน ยังไม่พร้อมใช้งาน"
@@ -83,6 +83,7 @@ def process(text:str)->tuple:
         text = wcom(text)
     elif tag == "news":
         text = ncom(text)
+        sound("กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ")
     elif tag == "sos":
         text = "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
         sent()
@@ -126,10 +127,10 @@ def on_activation():
     except Exception as e:
         print(e)
 
-engine = PreciseEngine('C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe', 'jao-sandy.pb') 
+engine = PreciseEngine('precise-engine', 'jao-sandy.pb') #C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe
 # PreciseEngine(ที่ตั้งโฟลเดอร์ Scripts ของ precise-engine ,  ไฟล์ model)
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
-runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.6, trigger_level=3)
+runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=6)
 runner.start()
 """while 1:
     time.sleep(100)

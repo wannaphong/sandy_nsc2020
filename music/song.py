@@ -43,6 +43,7 @@ class music:
         self.player.next()
 
 m=music()
+s=music()
 
 def song(text:str)->str:
     global m
@@ -57,23 +58,29 @@ def song(text:str)->str:
     elif 'ปิด' in text and ('เพลง' in text or 'เสียง' in text):
         text="ปิดเพลงเรียบร้อยแล้วค่ะ"
         m.stop()
+    elif 'เปลี่ยน' in text and 'เพลง' in text:
+        text=text.split('เพลง')[1]
+        m.change(text)
     else:
         text="ระบบยังไม่รองรับ กรุณาสั่งงานใหม่ค่ะ "+text
     return text
 
 def tum(text:str)->str:
-    global m
+    global s
     
     if "ฟัง" in text and 'ต่อ' in text: 
         text="เล่นธรรมะต่อแล้วค่ะ"
-        m.play()
+        s.play()
     elif 'เปิด' in text and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
-        m.change(text)
+        s.change(text)
         #text=text
     elif 'ปิด' in text and ('ธรรมะ' in text or 'เสียง' in text):
         text="ปิดธรรมะเรียบร้อยแล้วค่ะ"
-        m.stop()
+        s.stop()
+    elif 'เปลี่ยน' in text and 'ธรรมะ' in text:
+        text=text.split('ธรรมะ')[1]
+        s.change(text)
     else:
         text="ระบบยังไม่รองรับ กรุณาสั่งงานใหม่ค่ะ "+text
     return text
