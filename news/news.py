@@ -2,7 +2,7 @@
 from .thaipbs import *
 from pythainlp.util import num_to_thaiword
 
-def get_news(ty="breakingnews"):
+def get_news(ty="breakingnews",text=""):
     if ty == "breakingnews":
         temp=breakingnews()
         n= "ข่าวเด่น"
@@ -36,7 +36,7 @@ def get_news(ty="breakingnews"):
     t=n+"ประจำวันนี้"
     l= temp.get_today()
     
-    if len(l)==0:
+    if len(l)==0 or "เมื่อวาน" in text:
         l=temp.yesterday()
         t=n+"เมื่อวานนี้ "
     
@@ -81,21 +81,21 @@ def text2com(text):
     else:
         return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันคะ"
     if "การเมือง" in text:
-        return get_news("politics")
+        return get_news("politics",text)
     elif "สังคม" in text:
-        return get_news("social")
+        return get_news("social",text)
     elif "อาชญากรรม" in text:
-        return get_news("crime")
+        return get_news("crime",text)
     elif "ภูมิภาค" in text:
-        return get_news("region")
+        return get_news("region",text)
     elif "สิ่งแวดล้อม" in text:
-        return get_news("environment")
+        return get_news("environment",text)
     elif "เศรษฐกิจ" in text:
-        return get_news("economy")
+        return get_news("economy",text)
     elif "ต่างประเทศ" in text or "ต่างชาติ" in text:
-        return get_news("foreign")
+        return get_news("foreign",text)
     elif "กีฬา" in text:
-        return get_news("sport")
+        return get_news("sport",text)
     elif "วันนี้" in text or "ตอนนี้" in text or "สรุป" in text:
         return gethotnews()
     else:
