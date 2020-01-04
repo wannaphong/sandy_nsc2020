@@ -57,11 +57,12 @@ def process(text:str)->str:
 from pythainlu.intent_classification.MultinomialNB import nb
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
+from alert import text2com as acom
 import dill
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)[0]
 def process(text:str)->tuple:
-    global clf,nb,wcom,ncom
+    global clf,nb,wcom,ncom,acom
     tag=str(clf.predict([text])[0])
     print(tag)
     if clf.predict_proba([text]).max()<0.3:
@@ -69,7 +70,7 @@ def process(text:str)->tuple:
     elif tag == "asktime":
         text=now()
     elif tag == "alert":
-        text = "ระบบการแจ้งเตือน ยังไม่พร้อมใช้งาน"
+        text = acom(text)#"ระบบการแจ้งเตือน ยังไม่พร้อมใช้งาน"
     elif tag == "fan" or tag == "light":
         text = "ระบบ IoT ยังไม่พร้อมใช้งาน"
     elif tag == "music":
