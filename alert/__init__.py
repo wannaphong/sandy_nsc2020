@@ -16,6 +16,9 @@ def add(date:str,time:str,text:str)->None:
     db.insert({'date': str(d),'text':text})
     print(d)
 
+def text2com(text):
+    return text
+
 if __name__ == "__main__":
     date = input("วัน : ")
     t = input("เวลา (1:10) :")
