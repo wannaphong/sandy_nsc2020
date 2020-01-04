@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from tinydb import TinyDB, Query
-from pythainlp.util import thai_day2datetime
+from pythainlp.util import thai_day2datetime, thai_time2time
 import pytz
 import datetime as dt
 import pytz
+from pythainlp.tag.named_entity import ThaiNameTagger
+ner = ThaiNameTagger()
 db = TinyDB('./db.json')
 timezone = pytz.timezone('Asia/Bangkok')
 def add(date:str,time:str,text:str)->None:
@@ -17,6 +19,8 @@ def add(date:str,time:str,text:str)->None:
     print(d)
 
 def text2com(text):
+    global ner
+    print(ner.get_ner(text))
     return text
 
 if __name__ == "__main__":
