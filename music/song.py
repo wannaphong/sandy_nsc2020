@@ -41,3 +41,39 @@ class music:
 
     def next(self):
         self.player.next()
+
+m=music()
+
+def song(text:str)->str:
+    global m
+    
+    if "ฟัง" in text and 'ต่อ' in text: 
+        text="เล่นเพลงต่อแล้วค่ะ"
+        m.play()
+    elif 'เปิด' in text and 'เพลง' in text:
+        text=text.split('เพลง')[1]
+        m.change(text)
+        #text=text
+    elif 'ปิด' in text and ('เพลง' in text or 'เสียง' in text):
+        text="ปิดเพลงเรียบร้อยแล้วค่ะ"
+        m.stop()
+    else:
+        text="ระบบยังไม่รองรับ กรุณาสั่งงานใหม่ค่ะ "+text
+    return text
+
+def tum(text:str)->str:
+    global m
+    
+    if "ฟัง" in text and 'ต่อ' in text: 
+        text="เล่นธรรมะต่อแล้วค่ะ"
+        m.play()
+    elif 'เปิด' in text and 'ธรรมะ' in text:
+        text=text.split('ธรรมะ')[1]
+        m.change(text)
+        #text=text
+    elif 'ปิด' in text and ('ธรรมะ' in text or 'เสียง' in text):
+        text="ปิดธรรมะเรียบร้อยแล้วค่ะ"
+        m.stop()
+    else:
+        text="ระบบยังไม่รองรับ กรุณาสั่งงานใหม่ค่ะ "+text
+    return text
