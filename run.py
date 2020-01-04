@@ -58,7 +58,7 @@ from pythainlu.intent_classification.MultinomialNB import nb
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
-from music import song,tum,m
+from music.song import song,tum,m
 import dill
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)[0]
