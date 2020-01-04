@@ -20,7 +20,7 @@ def add(date:str,time:str,text:str)->None:
 
 def text2com(text):
     global ner
-    print(ner.get_ner(text))
+    print(ner.get_ner(text,pos=False,tag=True))
     return text
 
 if __name__ == "__main__":
