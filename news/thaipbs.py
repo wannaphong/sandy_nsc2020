@@ -3,6 +3,7 @@ import feedparser
 from dateutil import parser
 import datetime
 import re
+from pythainlp.tokenize import sent_tokenize
 
 def stripHTMLTags(html):
   """
@@ -59,7 +60,7 @@ class news(object):
           #print(datetime.datetime.now(offset).date())
           #print(i[0].date())
           if (datetime.datetime.now(offset)- datetime.timedelta(days=1)).date() == i[0].date():
-            self.today.append(self.clean(i[1]))
+            self.today.append('\n'.join(sent_tokenize(self.clean(i[1]))))
         return self.today
     def get_today(self):
         self.today = []
@@ -68,7 +69,7 @@ class news(object):
           #print(datetime.datetime.now(offset).date())
           #print(i[0].date())
           if (datetime.datetime.now(offset)- datetime.timedelta(days=0)).date() == i[0].date():
-            self.today.append(self.clean(i[1]))
+            self.today.append('\n'.join(sent_tokenize(self.clean(i[1]))))
         return self.today
 
 class politics(news):

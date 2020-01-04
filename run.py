@@ -60,7 +60,7 @@ from news.news import text2com as ncom
 import dill
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)[0]
-def process(text:str)->str:
+def process(text:str)->tuple:
     global clf,nb,wcom,ncom
     tag=str(clf.predict([text])[0])
     print(tag)
@@ -85,7 +85,8 @@ def process(text:str)->str:
         sent()
     else:
         text = "ระบบยังไม่รองรับ"
-    return text
+    print(text)
+    return (text,tag)
 
 def sound(text):
     global t
@@ -114,7 +115,7 @@ def on_activation():
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
-        sound(tt)
+        sound(tt[0])
         if tt=="ลาก่อนค่ะ":
             stauts="exit"#sys.exit(0)
     except sr.RequestError as e:

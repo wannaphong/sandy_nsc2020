@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from sklearn.externals import joblib
+#from sklearn.externals import joblib
 from pythainlu.intent_classification.MultinomialNB import nb
 from weather.weather import text2com as wcom
 from gettime.nowtime import now

@@ -49,7 +49,9 @@ def get_news(ty="breakingnews",text=""):
         t+=" "+i#.replace('',')
         t+="   "
         j+=1
-    t+="สำหรับ"+n+"จบแล้วค่ะ"
+    t+="\n"+"สำหรับ"+n+"จบแล้วค่ะ"
+    #sent = sent_tokenize(t)
+    #t = '\n'.join(sent)
     return t
 
 def gethotnews():
@@ -99,4 +101,4 @@ def text2com(text):
     elif "วันนี้" in text or "ตอนนี้" in text or "สรุป" in text:
         return gethotnews()
     else:
-        return "ขออภัยค่ะ ระบบพยากรณ์อากาศยังไม่รองรับการใช้งานปัจจุบันคะ"
+        return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันคะ"
