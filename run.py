@@ -63,12 +63,18 @@ from music.song import song,tum,m,s
 import dill
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)[0]
+
+from general import general
+
 def process(text:str)->tuple:
     global clf,nb,wcom,ncom,acom,song,tum,n,sound
     tag=str(clf.predict([text])[0])
     print(tag)
     print(clf.predict_proba([text]).max())
-    if clf.predict_proba([text]).max()<0.3:
+    g = general(text)
+    if g[1]:
+        text = g[0]
+    elif clf.predict_proba([text]).max()<0.3:
         text = "ระบบยังไม่รองรับคำสั่งนี้"
     elif tag == "asktime":
         text=now(text)
