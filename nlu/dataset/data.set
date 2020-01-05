@@ -129,6 +129,14 @@
 เวลาในตอนนี้|asktime
 เวลาตอนนี้|asktime
 ตอนนี้เวลาเท่าไรล่ะนะ|asktime
+วันนี้วันอะไร|asktime
+วันเวลาตอนนี้|asktime
+เวลาวันนี้ตอนนี้|asktime
+วันนี้วันที่เท่าไหร่|asktime
+ขณะนี้วันที่เท่าไหร่|asktime
+วันนี้วันอะไร|asktime
+ถามเวลาตอนนี้|asktime
+ถามวันเวลาตอนนี้|asktime
 อีก [TIME]1 นาที[/TIME] [EVENT]เปิดพัดลม[/EVENT]|fan
 [DATE]ทุกวัน[/DATE]เวลา [TIME]19:00 น.[/TIME] [EVENT]ให้ปิดพัดลม[/EVENT]|fan
 อากาศร้อนแล้ว[EVENT]เปิดลม[/EVENT]หน่อย|fan
@@ -180,6 +188,8 @@
 เปิดดวงไฟ|light
 อีก [TIME]18 นาที[/TIME][EVENT]เปิดไฟ[/EVENT]|light
 อีก [TIME]90 นาที[/TIME][EVENT]ปิดไฟ[/EVENT]ด้วยนะ|light
+เปิดไฟให้หน่อย|light
+ปิดไฟให้หน่อย|light
 อยากฟัง[MUSIT]เพลงคืนความสุขให้คนในชาติ[/MUSIT]|music
 อยากร้อง[MUSIT]เพลงบัวลอย[/MUSIT]|music
 เปิด[MUSIT]เพลงแสงดาวแห่งศรัทธา[/MUSIT]ให้ฟังหน่อย|music
