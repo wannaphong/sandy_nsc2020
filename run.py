@@ -70,7 +70,7 @@ def process(text:str)->tuple:
     print(clf.predict_proba([text]).max())
     if clf.predict_proba([text]).max()<0.3:
         text = "ระบบยังไม่รองรับคำสั่งนี้"
-    if tag == "asktime":
+    elif tag == "asktime":
         text=now(text)
     elif tag == "alert":
         text = acom(text)#"ระบบการแจ้งเตือน ยังไม่พร้อมใช้งาน"

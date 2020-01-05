@@ -4,6 +4,7 @@ from pythainlp.util import thai_time,thai_strftime
 
 def now(text):
     _n=datetime.now()
+    print("t :",text)
     if "วัน" in text and "เวลา" in text:
         text = "วันนี้"+thai_strftime(_n, "%A %d %B %Y ")+"เวลา "+thai_time(str(_n.strftime('%H:%M')),"6h")+"ค่ะ"
     elif "วัน" in text:
