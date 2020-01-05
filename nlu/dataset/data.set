@@ -137,6 +137,7 @@
 วันนี้วันอะไร|asktime
 ถามเวลาตอนนี้|asktime
 ถามวันเวลาตอนนี้|asktime
+วันตอนนี้เป็นเท่าไหร่|asktime
 อีก [TIME]1 นาที[/TIME] [EVENT]เปิดพัดลม[/EVENT]|fan
 [DATE]ทุกวัน[/DATE]เวลา [TIME]19:00 น.[/TIME] [EVENT]ให้ปิดพัดลม[/EVENT]|fan
 อากาศร้อนแล้ว[EVENT]เปิดลม[/EVENT]หน่อย|fan
