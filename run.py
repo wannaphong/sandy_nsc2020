@@ -67,8 +67,8 @@ def process(text:str)->tuple:
     tag=str(clf.predict([text])[0])
     print(tag)
     print(clf.predict_proba([text]).max())
-    #if clf.predict_proba([text]).max()<0.3:
-    #    text = "ระบบยังไม่รองรับคำสั่งนี้"
+    if clf.predict_proba([text]).max()<0.3:
+        text = "ระบบยังไม่รองรับคำสั่งนี้"
     if tag == "asktime":
         text=now()
     elif tag == "alert":

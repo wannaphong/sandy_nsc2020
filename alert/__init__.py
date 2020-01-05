@@ -51,16 +51,18 @@ def text2com(text):
         if i in text:
             #print(text.split(i)[1])
             alert = text.split(i)[1]
-            print(alert)
+            #print(alert)
             #break
     print(alert)
+    if d == None and (alert != None and alert != '') and (t!=None and t!=''):
+        d="วันนี้"
     
     if alert == None and alert == '':
         text = 'ระบบแจ้งเตือนไม่รองรับคำสั่งของคุณ\nกรุณาลองคำสั่งอื่นนะคะ'
-    elif d!=None and t!=None:
+    elif (d!=None and d!='') and (t!=None and t!=''):
         add(d,t,alert)
         text = "เพิ่มการแจ้งเตือน "+d+" เวลา "+t+" มีการแจ้งเตือนว่า"+alert+" เรียบร้อยแล้วค่ะ"
-    elif t!=None:
+    elif (t!=None and t!=''):
         add('วันนี้',t,alert)
         text = "เพิ่มการแจ้งเตือน "+d+" เวลา "+t+" มีการแจ้งเตือนว่า"+alert+" เรียบร้อยแล้วค่ะ"
     else:
