@@ -1,4 +1,5 @@
 import ast
+from game import game
 
 UNARY_OPS = (ast.UAdd, ast.USub)
 BINARY_OPS = (ast.Add, ast.Sub, ast.Mult, ast.Div, ast.Mod)
@@ -28,5 +29,8 @@ def general(text:str):
     check=False
     if is_arithmetic(text):
         text = "คำตอบ คือ "+str(eval(text))+" ค่ะ"
+        check=True
+    elif "เล่นเกม" in text:
+        game()
         check=True
     return (text,check)
