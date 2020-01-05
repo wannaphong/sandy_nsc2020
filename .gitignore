@@ -5,7 +5,8 @@ __pycache__/
 
 # C extensions
 *.so
-
+news.mp3
+t.mp3
 # Distribution / packaging
 .Python
 build/
@@ -102,9 +103,5 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-t.mp3
-recording.wav
 text_to_speech_thai/
 key.key
-t.mp3
-recording.wav

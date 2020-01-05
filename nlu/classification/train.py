@@ -1,8 +1,11 @@
 from pythainlu.intent_classification import naive_bayes,MultinomialNB
 from pythainlp.tokenize import word_tokenize
 from sklearn.model_selection import train_test_split
-with open("../dataset/data-nottag.set",'r',encoding='utf-8') as f:
-    data=[tuple(i.strip().split('|')) for i in f.readlines()]
+file = "../dataset/data-nottag.set"
+import pandas as pd
+colnames=['text', 'tag']
+user1 = pd.read_csv(file, names=colnames, header=None,sep="|")
+data= [tuple(x) for x in user1.to_records(index=False)]
 def features(text):
     wordlist = word_tokenize(text)
     f={}
@@ -36,8 +39,12 @@ modelfull=MultinomialNB.train('sandy',data)
 import dill
 with open('../../modelclass2.model', 'wb') as out_strm: 
     dill.dump(modelfull, out_strm)
+
+
+'''
 while True:
     text = input("text : ")
     if text=="exit":
         break
     p([text])
+'''

@@ -269,6 +269,7 @@
 [TYPE]ข่าวบันเทิง[/TYPE][DATE]วันนี้[/DATE]มีอะไรบ้าง|news
 อ่าน[TYPE]ข่าวหวย[/TYPE]|news
 ฟัง[TYPE]ข่าวเด่นประจำวัน[/TYPE]|news
+อ่าน[TYPE]ข่าวกีฬา[/TYPE][DATE]วันนี้[/DATE]|news
 อยากฟังธรรมะ[religion]ศีลห้า[/religion]|religion
 อยากฟังธรรมะ|religion
 อยากฟัง[religion]บทสวดมนต์[/religion]|religion
@@ -301,6 +302,7 @@
 อยากฟังต่อ|religion
 ช่วยเปิดให้ฟังต่อหน่อยสิ|religion
 กรุณาฟังต่อ|religion
+เปลี่ยนธรรมะ[religion]เดินจงกรม[/religion]|religion
 ขอความช่วยเหลือหน่อย|sos
 ขอความช่วยเหลือผ่านไลน์หน่อย|sos
 ตอนนี้รู้สึกไม่สบายช่วยด้วย|sos
@@ -388,3 +390,8 @@
 สภาพอากาศ[DATE]วันมะรืน[/DATE]เป็นอย่างไรบ้าง|weather
 [DATE]มะรืนนี้[/DATE]สภาพอากาศเป็นอย่างไรบ้าง|weather
 [DATE]สัปดาห์หน้า[/DATE]สภาพอากาศจะเป็นอย่างไร|weather
+พยากรณ์อากาศ[DATE]วันนี้[/DATE]|weather
+พยากรณ์อากาศ[TIME]ตอนนี้[/TIME]|weather
+พยากรณ์สภาพอากาศ[DATE]วันนี้[/DATE]|weather
+พยากรณ์สภาพอากาศ[DATE]วันพรุ่งนี้[/DATE]|weather
+พยากรณ์สภาพอากาศ[DATE]พรุ่งนี้[/DATE]|weather

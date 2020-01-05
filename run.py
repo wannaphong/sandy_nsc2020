@@ -3,10 +3,11 @@ import time
 from gettime.nowtime import now
 from precise_runner import PreciseEngine, PreciseRunner
 import speech_recognition as sr
-from tts import TTS
+from tts import TTS,gTTS1
 from sos import sent
 from vad import run
 from news.news import gethotnews
+import vlc
 from pythainlp.tokenize import word_tokenize
 import sys
 from pydub import AudioSegment
@@ -58,7 +59,7 @@ from pythainlu.intent_classification.MultinomialNB import nb
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
-from music.song import song,tum#,m
+from music.song import song,tum,m,s
 import dill
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)[0]
@@ -102,10 +103,18 @@ def sound(text):
         pass
     else:
         t.listen(text)
+
+instance = vlc.Instance()
+on_news = False
+#สร้าง MediaPlayer พร้อม instance พื้นฐาน
+player = instance.media_player_new()
 def on_activation():
     global stauts
-    global m
+    global m,s,player,on_news
     m.pause()
+    s.pause()
+    if on_news:
+        player.stop()
     sound("ค่ะ")
     global r
     print("hotword detected")
@@ -119,7 +128,14 @@ def on_activation():
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
-        sound(tt[0])
+        if tt[1] == 'news' and "ขออภัยค่ะ" not in tt[0]:
+            gTTS1(tt[0],'news.mp3')
+            media = instance.media_new('news.mp3')
+            player.set_media(media)
+            player.play()
+            on_news=True
+        else:
+            sound(tt[0])
         if tt=="ลาก่อนค่ะ":
             stauts="exit"#sys.exit(0)
     except sr.RequestError as e:
