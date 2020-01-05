@@ -5,7 +5,7 @@ from pythainlp.util import num_to_thaiword
 def get_news(ty="breakingnews",text=""):
     if ty == "breakingnews":
         temp=breakingnews()
-        n= "ข่าวเด่น"
+        n= "เด่น"
     elif ty == "politics":
         temp = politics()
         n = "การเมือง"
@@ -26,19 +26,19 @@ def get_news(ty="breakingnews",text=""):
         n = "เศรษฐกิจ"
     elif ty == "foreign":
         temp = foreign()
-        n= "ข่าวต่างประเทศ"
+        n= "ต่างประเทศ"
     elif ty == "sport":
         temp = sport()
         n="กีฬา"
     else:
         temp=breakingnews()
-        n= "ข่าวเด่น"
-    t=n+"ประจำวันนี้"
+        n= "เด่น"
+    t="ข่าว"+n+"ประจำวันนี้"
     l= temp.get_today()
     
     if len(l)==0 or "เมื่อวาน" in text:
         l=temp.yesterday()
-        t=n+"เมื่อวานนี้ "
+        t="ข่าว"+n+"เมื่อวานนี้ "
     
     j=1
     for i in l:
@@ -49,7 +49,7 @@ def get_news(ty="breakingnews",text=""):
         t+=" "+i#.replace('',')
         t+="   "
         j+=1
-    t+="\n"+"สำหรับ"+n+"จบแล้วค่ะ"
+    t+="\n"+"สำหรับ"+"ข่าว"+n+"จบแล้วค่ะ"
     #sent = sent_tokenize(t)
     #t = '\n'.join(sent)
     return t
@@ -81,7 +81,7 @@ def text2com(text):
     if "ข่าว" in text:
         pass
     else:
-        return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันคะ"
+        return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
     if "การเมือง" in text:
         return get_news("politics",text)
     elif "สังคม" in text:
@@ -98,7 +98,7 @@ def text2com(text):
         return get_news("foreign",text)
     elif "กีฬา" in text:
         return get_news("sport",text)
-    elif "วันนี้" in text or "ตอนนี้" in text or "สรุป" in text:
+    elif "วันนี้" in text or "ตอนนี้" in text or "สรุป" in text or 'เด่น' in text:
         return gethotnews()
     else:
-        return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันคะ"
+        return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
