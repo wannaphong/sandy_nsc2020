@@ -21,6 +21,18 @@ def add(date:str,time:str,text:str)->None:
     db.insert({'date': str(d),'text':text})
     print(d)
 
+"""
+รับวันในสัปดาห์
+>>> import datetime
+>>> datetime.datetime.today()
+datetime.datetime(2012, 3, 23, 23, 24, 55, 173504)
+>>> datetime.datetime.today().weekday()
+4
+from pythainlp.util import thai_strftime
+>>> thai_strftime(datetime.datetime.today(), "%A")
+'วันอังคาร'
+"""
+
 N = Query()
 def look(day="วันนี้"):
     global db,N,timezone
