@@ -27,7 +27,16 @@ def look(day="วันนี้"):
     d=str(timezone.localize(thai_day2datetime(day))).split()[0]
     text = ""
     s = db.search(N.date.search(d))
-    print(s)
+    #print(s)
+    if len(s)==0:
+        return "ไม่มีการแจ้งเตือน"+day+"ค่ะ"
+    text += "รายการแจ้งเตือน"+day+"มีดังนี้"+"\n"
+    j=1
+    for i in s:
+        t = i["date"].split()[1].replace("+07:00","")
+        text += "รายการที่ "+str(j)+" เวลา "+t+" มีการแจ้งเตือนว่า "+i["text"]+" ค่ะ\n"
+        j+=1
+    return text
 
 
 def text2com(text):
@@ -79,7 +88,7 @@ def text2com(text):
     else:
         text = 'ระบบแจ้งเตือนไม่รองรับคำสั่งของคุณ\nกรุณาลองคำสั่งอื่นนะคะ'
     return text
-
+"""
 if __name__ == "__main__":
     date = input("วัน : ")
     t = input("เวลา (1:10) :")
@@ -87,3 +96,4 @@ if __name__ == "__main__":
     add(date, t, text)
     print("เพิ่มเรียบร้อย\n\n")
     print()
+"""
