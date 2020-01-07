@@ -21,6 +21,15 @@ def add(date:str,time:str,text:str)->None:
     db.insert({'date': str(d),'text':text})
     print(d)
 
+N = Query()
+def look(day="วันนี้"):
+    global db,N,timezone
+    d=str(timezone.localize(thai_day2datetime(day))).split()[0]
+    text = ""
+    s = db.search(N.date.search(d))
+    print(s)
+
+
 def text2com(text):
     global ner,tokenizer,thai_day2datetime,thai_time2time,add
     tag_ner = ner.get_ner(text,pos=False,tag=True)
@@ -58,6 +67,8 @@ def text2com(text):
         d="วันนี้"
     
     if alert == None and alert == '':
+        # ดูการแจ้งเตือนทั้งหมด
+        # ยกเลิกการแจ้งเตือน
         text = 'ระบบแจ้งเตือนไม่รองรับคำสั่งของคุณ\nกรุณาลองคำสั่งอื่นนะคะ'
     elif (d!=None and d!='') and (t!=None and t!=''):
         add(d,t,alert)

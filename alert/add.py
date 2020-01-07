@@ -12,4 +12,4 @@ time_obj = t # %H:%M:%S
 print(date_obj)
 print(time_obj)
 print(text)
-db.insert({'date': date_obj,'time': time_obj,'text':text, 'alert': True,'duplicate':''})
+db.insert({'date': str(date_obj),'time': time_obj,'text':text, 'alert': True,'duplicate':''})
