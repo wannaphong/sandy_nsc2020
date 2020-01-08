@@ -100,7 +100,7 @@ def text2com(text):
     elif (t!=None and t!=''):
         add('วันนี้',t,alert)
         text = "เพิ่มการแจ้งเตือน "+d+" เวลา "+t+" มีการแจ้งเตือนว่า"+alert+" เรียบร้อยแล้วค่ะ"
-    elif "แจ้งเตือน" in text and (d!=None and d!=''):
+    elif "แจ้งเตือน" in text or "เตือน" in text and (d!=None and d!=''):
         try:
             text = look(d)
         except:
