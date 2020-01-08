@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from tinydb import TinyDB, Query
 from pythainlp.util import thai_day2datetime, thai_time2time, thai_time
+from pythainlp.util import thai_strftime
 import pytz
 import datetime as dt
 import pytz
@@ -32,6 +33,8 @@ from pythainlp.util import thai_strftime
 >>> thai_strftime(datetime.datetime.today(), "%A")
 'วันอังคาร'
 """
+def find_day(date):
+    return thai_strftime(date, "%A")
 
 N = Query()
 def look(day="วันนี้"):
