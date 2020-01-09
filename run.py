@@ -55,7 +55,7 @@ def process(text:str)->str:
         text="คุณพูดว่า "+text
     return text
 '''
-from pythainlu.intent_classification.MultinomialNB import nb
+from MultinomialNB import nb #pythainlu.intent_classification.
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
