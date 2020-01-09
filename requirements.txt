@@ -25,3 +25,4 @@ tensorboard==1.14.0
 gtts
 pynput
 emoji
+sklearn-crfsuite
