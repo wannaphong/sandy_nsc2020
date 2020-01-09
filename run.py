@@ -114,9 +114,10 @@ instance = vlc.Instance()
 on_news = False
 #สร้าง MediaPlayer พร้อม instance พื้นฐาน
 player = instance.media_player_new()
+on_run =False
 def on_activation():
     global stauts
-    global m,s,player,on_news
+    global m,s,player,on_news,on_run
     m.pause()
     s.pause()
     if on_news:
@@ -148,14 +149,54 @@ def on_activation():
         print(e)
     except Exception as e:
         print(e)
+    finally:
+        on_run=False
 
 engine = PreciseEngine('precise-engine', 'jao-sandy.pb') #C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe
 # PreciseEngine(ที่ตั้งโฟลเดอร์ Scripts ของ precise-engine ,  ไฟล์ model)
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
+from pynput.keyboard import Key, Listener
+num_button = 0
+def on_press(key):
+    global num_button
+    #print('{0} pressed'.format(
+    #    key))
+    if key == Key.media_volume_up:
+        num_button+=1
+
+def on_release(key):
+    global num_button
+    if num_button==1:
+        on_activation()
+        num_button=0
+    #if key == Key.esc:
+    #    # Stop listener
+    #    return Falser
+n_temp = 0
+def run_key(key):
+    global on_run,n_temp
+    print("k")
+    try:
+        if key == Key.media_volume_up:
+            on_release(key)
+    except Exception as e:
+        print(e)
+    #return True
+
+# Collect events until released
 runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=4)
+listener = Listener(
+    on_press=on_press,
+    on_release=run_key,suppress=True)
+listener.start()
 runner.start()
+
+
+#runner.start()
 """while 1:
     time.sleep(100)
     if stauts=="exit":
         break"""
+
+
 Event().wait()
