@@ -48,7 +48,7 @@ s=music()
 def song(text:str)->str:
     global m
     
-    if "ฟัง" in text and 'ต่อ' in text: 
+    if ("ฟัง" or "เล่น")in text and 'เพลง'and 'ต่อ' in text: 
         text="เล่นเพลงต่อแล้วค่ะ"
         m.play()
     elif 'เปิด' in text and 'เพลง' in text:
