@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+"""
+แสนดี : คู่บ้านผู้สูงอายุ
+"""
 # python พื้นฐาน
 import time
 import sys
