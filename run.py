@@ -29,7 +29,7 @@ from news.news import text2com as ncom
 from alert import text2com as acom
 from pynput.keyboard import Key, Listener
 
-m = music()
+#m = music()
 def playsound(path):
     song = AudioSegment.from_file(path)
     play(song)
