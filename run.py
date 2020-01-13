@@ -27,7 +27,7 @@ from nn import nb #pythainlu.intent_classification.
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
-from pynput.keyboard import Key, Listener
+#from pynput.keyboard import Key, Listener
 
 #m = music()
 def playsound(path):
@@ -139,6 +139,7 @@ engine = PreciseEngine('precise-engine', 'jao-sandy.pb') #C:\\Users\\TC\\Anacond
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
 
 num_button = 0
+'''
 def on_press(key):
     global num_button
     #print('{0} pressed'.format(
@@ -164,13 +165,13 @@ def run_key(key):
     except Exception as e:
         print(e)
     #return True
-
+'''
 # Collect events until released
 runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=4)
-listener = Listener(
+'''listener = Listener(
     on_press=on_press,
     on_release=run_key,suppress=True)
-listener.start()
+listener.start()'''
 runner.start()
 
 
