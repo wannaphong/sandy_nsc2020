@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #from sklearn.externals import joblib
-from pythainlu.intent_classification.MultinomialNB import nb
+from nn import nb
 from weather.weather import text2com as wcom
 from gettime.nowtime import now
 from news.news import text2com as ncom
@@ -8,7 +8,7 @@ import dill
 from sos import sent
 from alert import text2com as acom
 with open('modelclass2.model', 'rb') as in_strm:
-    clf = dill.load(in_strm)[0]
+    clf = dill.load(in_strm)
 #clf =  joblib.load('modelclass.model')
 def process(text:str)->tuple:
     global clf,nb,wcom,ncom,acom

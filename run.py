@@ -23,7 +23,7 @@ from pydub.playback import play
 from weather.weather import now as now_w
 from music.song import music,song,tum,m,s
 from general import general
-from MultinomialNB import nb #pythainlu.intent_classification.
+from nn import nb #pythainlu.intent_classification.
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
@@ -42,9 +42,7 @@ def on_prediction(prob:float)->None:
 
 stauts=""
 with open('modelclass2.model', 'rb') as in_strm:
-    clf = dill.load(in_strm)[0]
-
-
+    clf = dill.load(in_strm)
 
 def process(text:str)->tuple:
     global clf,nb,wcom,ncom,acom,song,tum,n,sound
