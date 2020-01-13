@@ -27,34 +27,6 @@ def on_prediction(prob:float)->None:
     print(print(prob) if prob > 0.5 else '.', end='', flush=True)
 
 stauts=""
-'''
-def process(text:str)->str:
-    global m
-    if "เวลา" in text:
-        text=now()
-    elif "ออก" in text or "ลาก่อน" in text:
-        text="ลาก่อนค่ะ"
-    elif "ช่วยเหลือ" in text or "ฉุกเฉิน" in text:
-        text="กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
-        sent()
-    elif "ข่าว" in text:
-        text=gethotnews()
-    elif ("สภาพอากาศ" in text or "อากาศ" in text) and ("ตอนนี้" in text or "วันนี้" in text):
-        text=now_w().replace('\n','')
-    elif "ฟัง" in text and 'ต่อ' in text:
-        m.play()
-        text=""
-    elif 'เปิด' in text and 'เพลง' in text:
-        text=text.split('เพลง')[1]
-        m.change(text)
-        #text=text
-    elif 'ปิด' in text and ('เพลง' in text or 'เสียง' in text):
-        text="ปิดเรียบร้อยแล้วค่ะ"
-        m.stop()
-    else:
-        text="คุณพูดว่า "+text
-    return text
-'''
 from MultinomialNB import nb #pythainlu.intent_classification.
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
