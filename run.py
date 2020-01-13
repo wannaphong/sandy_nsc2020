@@ -1,20 +1,32 @@
 # -*- coding: utf-8 -*-
+
+# python พื้นฐาน
 import time
-from gettime.nowtime import now
+import sys
+from threading import Event
+import dill
+# Hotword
 from precise_runner import PreciseEngine, PreciseRunner
+# AER, TTS
 import speech_recognition as sr
 from tts import TTS,gTTS1
+# ฟังก์ชัน
+from gettime.nowtime import now # ถามวันเวลา
 from sos import sent
 from vad import run
 from news.news import gethotnews
 import vlc
-from pythainlp.tokenize import word_tokenize
-import sys
 from pydub import AudioSegment
 from pydub.playback import play
 from weather.weather import now as now_w
-from music.song import music
-from threading import Event
+from music.song import music,song,tum,m,s
+from general import general
+from MultinomialNB import nb #pythainlu.intent_classification.
+from weather.weather import text2com as wcom
+from news.news import text2com as ncom
+from alert import text2com as acom
+from pynput.keyboard import Key, Listener
+
 m = music()
 def playsound(path):
     song = AudioSegment.from_file(path)
@@ -27,25 +39,21 @@ def on_prediction(prob:float)->None:
     print(print(prob) if prob > 0.5 else '.', end='', flush=True)
 
 stauts=""
-from MultinomialNB import nb #pythainlu.intent_classification.
-from weather.weather import text2com as wcom
-from news.news import text2com as ncom
-from alert import text2com as acom
-from music.song import song,tum,m,s
-import dill
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)[0]
 
-from general import general
+
 
 def process(text:str)->tuple:
     global clf,nb,wcom,ncom,acom,song,tum,n,sound
     tag=str(clf.predict([text])[0])
-    print(tag)
-    print(clf.predict_proba([text]).max())
+    print("ฟังก์ชัน : "+tag)
+    print("ความน่าจะเป็นของฟังก์ชัน : "+str(clf.predict_proba([text]).max()))
     g = general(text)
     if g[1]:
         text = g[0]
+    elif "ออก" in text and "โปรแกรม" in text:
+        text = "ลาก่อนค่ะ"
     elif text == "เจ้าแสนดี" or text == "แสนดี":
         text = "สวัสดีค่ะ"
     elif clf.predict_proba([text]).max()<0.3:
@@ -70,7 +78,7 @@ def process(text:str)->tuple:
         sent()
     else:
         text = "ระบบยังไม่รองรับ"
-    print(text)
+    print("ข้อความจากฟังก์ชัน : "+text)
     return (text,tag)
 
 def sound(text):
@@ -115,10 +123,10 @@ def on_activation():
             player.set_media(media)
             player.play()
             on_news=True
+        elif tt=="ลาก่อนค่ะ":
+            sys.exit(0)
         else:
             sound(tt[0])
-        if tt=="ลาก่อนค่ะ":
-            stauts="exit"#sys.exit(0)
     except sr.RequestError as e:
         print(e)
     except Exception as e:
@@ -129,7 +137,7 @@ def on_activation():
 engine = PreciseEngine('precise-engine', 'jao-sandy.pb') #C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe
 # PreciseEngine(ที่ตั้งโฟลเดอร์ Scripts ของ precise-engine ,  ไฟล์ model)
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
-from pynput.keyboard import Key, Listener
+
 num_button = 0
 def on_press(key):
     global num_button
@@ -167,10 +175,5 @@ runner.start()
 
 
 #runner.start()
-"""while 1:
-    time.sleep(100)
-    if stauts=="exit":
-        break"""
-
 
 Event().wait()
