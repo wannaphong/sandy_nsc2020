@@ -59,14 +59,14 @@ def song(text:str)->str:
         m.change(text)
         #text=text
     elif 'ปิด' in text and ('เพลง' in text or 'เสียง' in text):
+        m.stop()
         text="ปิดเพลงเรียบร้อยแล้วค่ะ"
         tt.listen(text)
-        m.stop()
         text=""
     elif 'หยุด' in text and ('เพลง' in text or 'เล่น' in text):
+        m.pause()
         text="หยุดเพลงเรียบร้อยแล้วค่ะ หากต้องการฟังต่อให้สั่ง ฟังต่อได้เลยนะคะ"
         tt.listen(text)
-        m.pause()
         text=""
     elif 'เปลี่ยน' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
