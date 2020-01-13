@@ -9,7 +9,7 @@ timezone = pytz.timezone('Asia/Bangkok')
 tt = ''
 while True:
     o=str(timezone.localize(dt.datetime.now()).replace(second=0, microsecond=0))
-    t=db.search(N.date == o)
+    t=db.search((N.date == o) & (N.alert == True))#db.search(N.date == o)
     if t!=[] and tt!=o:
         print(t[0]['text'])
         tt=o

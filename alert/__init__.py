@@ -19,8 +19,28 @@ def add(date:str,time:str,text:str)->None:
     minute = int(t[1])
     d = timezone.localize(thai_day2datetime(date)).replace(hour=hour, minute=minute, second=0, microsecond=0)
     if d == None: pass
-    db.insert({'date': str(d),'text':text})
+    db.insert({'date': str(d),'text':text,'alert':True})
     print(d)
+
+def stop_all():
+    """
+    ปิดการแจ้งเตือนทั้งหมด
+    """
+    global db
+    db.update({'alert': False})
+    return "ปิดการแจ้งเตือนทั้งหมดแล้วค่ะ"
+
+def stop(date:str,time:str=None):
+    """
+    ปิดการแจ้งเตือนเฉพาะวัน/เวลา
+    """
+    global db,timezone
+    t= time.split(":")
+    hour = int(t[0])
+    minute = int(t[1])
+    d = timezone.localize(thai_day2datetime(date)).replace(hour=hour, minute=minute, second=0, microsecond=0)
+    db.update({'alert': False}, N.date == d)
+    return "ปิดการแจ้งเตือนเวลา "+time+" นาฬิกาของ"+date+" แล้วค่ะ"
 
 """
 รับวันในสัปดาห์
@@ -41,7 +61,7 @@ def look(day="วันนี้"):
     global db,N,timezone
     d=str(timezone.localize(thai_day2datetime(day))).split()[0]
     text = ""
-    s = db.search(N.date.search(d))
+    s = db.search((N.date == d) & (N.alert == True))#((N.date.search(d)) & (N.alert == True))
     #print(s)
     if len(s)==0:
         return "ไม่มีการแจ้งเตือน"+day+"ค่ะ"
@@ -100,6 +120,15 @@ def text2com(text):
     elif (t!=None and t!=''):
         add('วันนี้',t,alert)
         text = "เพิ่มการแจ้งเตือน "+d+" เวลา "+t+" มีการแจ้งเตือนว่า"+alert+" เรียบร้อยแล้วค่ะ"
+    elif ("ยกเลิก" in text or "หยุด" in text) and ("แจ้งเตือน" in text or "เตือน" in text):
+        if d!=None and d!='' and (t!=None and t!=''):
+            text=stop(d,t)
+        elif d!=None and d!='':
+            text=stop(d,None)
+        elif t!=None and t!='':
+            text=stop("วันนี้",t)
+        elif "ทั้งหมด" in text:
+            text=stop_all()
     elif "แจ้งเตือน" in text or "เตือน" in text and (d!=None and d!=''):
         try:
             text = look(d)
