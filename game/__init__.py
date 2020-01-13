@@ -1,5 +1,6 @@
 from .vad import run
 from .tts import TTS
+import random
 import speech_recognition as sr2
 
 t = TTS()
@@ -29,9 +30,12 @@ data=[
 ]
 
 def game():
-    global t,r
+    global t,r,data
     t.listen("เกมส์ปริศนาทายคำ\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น\nถ้าคุณขอยอมแพ้ให้พูดว่าเฉลยหรือยอมแพ้")
-    t.listen("สัตว์อะไรอยู่ในน้ำ คนชอบเรียกผิด")
+    q=random.choice(data)
+    qa=q[0]
+    a=q[1]
+    t.listen(qa)
     while True:
         run()
         with sr2.WavFile("recording.wav") as source:
@@ -39,14 +43,14 @@ def game():
             audio =  r.record(source)
             print(audio)
         text=r.recognize_google(audio,language = "th-TH")
-        if 'วาฬ' in text:
-            t.listen("ถูกต้องแล้วค่ะ\nข้อต่อไปกัน\n\n\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น")
+        if a in text:
+            t.listen("ถูกต้องแล้วค่ะ")#\nข้อต่อไปกัน\n\n\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น")
             break
         elif "เฉลย" in text or "ยอมแพ้" in text:
-            t.listen("วาฬค่ะ")
+            t.listen(a+"ค่ะ")
             break
         elif "ทวน" in text:
-            t.listen("สัตว์อะไรอยู่ในน้ำ คนชอบเรียกผิด")
+            t.listen(qa)
         elif "เลิกเล่น" in text:
             t.listen("กำลังออกจากเกม")
             break
