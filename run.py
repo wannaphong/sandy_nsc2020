@@ -74,6 +74,8 @@ def process(text:str)->tuple:
     g = general(text)
     if g[1]:
         text = g[0]
+    elif text == "เจ้าแสนดี" or text == "แสนดี":
+        text = "สวัสดีค่ะ"
     elif clf.predict_proba([text]).max()<0.3:
         text = "ระบบยังไม่รองรับคำสั่งนี้"
     elif tag == "asktime":
