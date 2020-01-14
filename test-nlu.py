@@ -5,6 +5,7 @@ from weather.weather import text2com as wcom
 from gettime.nowtime import now
 from news.news import text2com as ncom
 import dill
+from music.song import music,song,tum,m,s
 from sos import sent
 from alert import text2com as acom
 with open('modelclass2.model', 'rb') as in_strm:
@@ -24,7 +25,7 @@ def process(text:str)->tuple:
     elif tag == "fan" or tag == "light":
         text = "ระบบ IoT ยังไม่พร้อมใช้งาน"
     elif tag == "music":
-        text = "ระบบฟังเพลง"
+        text = song(text)#"ระบบฟังเพลง"
     elif tag == "religion":
         text = "ระบบฟังธรรมะ"
     elif tag == "weather":

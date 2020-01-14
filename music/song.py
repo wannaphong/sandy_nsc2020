@@ -9,7 +9,7 @@ tt = TTS()
 
 class music:
     def __init__(self):
-        self.m="stop"
+        self.m=None
         self.status = True
         self.Instance = vlc.Instance()
         self.player = self.Instance.media_list_player_new()
@@ -27,7 +27,10 @@ class music:
         self.player.set_media_list(self.MediaList)
         self.play()
 
-    
+    def setVolume(self, Volume):
+        """Set the volume
+        """
+        self.player.audio_set_volume(Volume)
     def play(self):
         self.player.play()
         self.m = "play" 
@@ -42,13 +45,19 @@ class music:
 
     def next(self):
         self.player.next()
+    
+    def get_now(self):
+        return self.player.get_media_player().get_title()#get_media_player().get_media().get_mrl()
 
 m=music()
 s=music()
 
 def song(text:str)->str:
     global m
-    if 'เปิด' in text and 'เพลง' in text:
+    if m.m ==  None and 'เปิด' not in text:
+        return "คุณยังไม่เล่นเพลง"
+    
+    elif ('เปิด' in text or'เล่น'in text)and 'เพลง' in text:
         text=text.split('เพลง')[1]
         m.change(text)
     
@@ -57,7 +66,6 @@ def song(text:str)->str:
         tt.listen(text)
         m.play()
         text=""
-    
     elif 'ปิด' in text and ('เพลง' in text or 'เสียง' in text):
         m.stop()
         text="ปิดเพลงเรียบร้อยแล้วค่ะ"
@@ -71,10 +79,15 @@ def song(text:str)->str:
     elif 'เปลี่ยน' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
         m.change(text)
-    elif ('ตอนนี้'in text or 'กำลัง'in text) and 'เล่นเพลง' in text and ('อะไรอยู่'in text or 'อะไร'in text):
-        text=text.split('เพลง')[1]
+    #elif ('ตอนนี้'in text or 'กำลัง'in text) and 'เล่นเพลง' in text and ('อะไรอยู่'in text or 'อะไร'in text):
+        
+    elif 'เพลง' in text and'ถัดไป' in text:
+        m.next()
+        text="เล่นเพลงถัดไปแล้วค่ะ"
+        m.play()
+        
     else:
-        text=text+"ระบบยังไม่รองรับค่ะ งั้นเล่นเพลงต่อเลยนะคะ "
+        text="ระบบยังไม่รองรับคำสั่ง"+text+"ค่ะ  งั้นเล่นเพลงต่อเลยนะคะ "
         tt.listen(text)
         m.play()
         text=""
@@ -83,19 +96,41 @@ def song(text:str)->str:
 def tum(text:str)->str:
     global s
     
-    if ("ฟัง" or "เล่น")in text and 'ธรรมะ'and 'ต่อ' in text: 
-        text="เล่นธรรมะต่อแล้วค่ะ"
-        s.play()
-    elif 'เปิด' in text and 'ธรรมะ' in text:
+    if s.m ==  None and 'เปิด' not in text:
+        return "คุณยังไม่เล่นเพลง"
+    
+    elif ('เปิด' in text or'เล่น'in text) and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
         s.change(text)
-        #text=text
+    
+    elif ("ฟัง" in text or "เล่น"in text) and 'ธรรมะ'and 'ต่อ' in text: 
+        text="เล่นธรรมะต่อแล้วค่ะ"
+        tt.listen(text)
+        s.play()
+        text=""
     elif 'ปิด' in text and ('ธรรมะ' in text or 'เสียง' in text):
-        text="ปิดธรรมะเรียบร้อยแล้วค่ะ"
         s.stop()
+        text="ปิดธรรมะเรียบร้อยแล้วค่ะ"
+        tt.listen(text)
+        text=""
+    elif 'หยุด' in text and ('ธรรมะ' in text or 'เล่น' in text):
+        s.pause()
+        text="หยุดธรรมะเรียบร้อยแล้วค่ะ หากต้องการฟังธรรมะต่อให้สั่ง ฟังต่อได้เลยนะคะ"
+        tt.listen(text)
+        text=""
     elif 'เปลี่ยน' in text and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
         s.change(text)
+    #elif ('ตอนนี้'in text or 'กำลัง'in text) and 'เล่นเพลง' in text and ('อะไรอยู่'in text or 'อะไร'in text):
+        
+    elif 'ธรรมะ' in text and'ถัดไป' in text:
+        s.next()
+        text="เล่นธรรมะถัดไปแล้วค่ะ"
+        s.play()
+        
     else:
-        text="ระบบยังไม่รองรับ กรุณาสั่งงานใหม่ค่ะ "+text
+        text="ระบบยังไม่รองรับค่ะคำสั่ง"+text+"ค่ะ  งั้นเล่นธรรมะต่อเลยนะคะ "
+        tt.listen(text)
+        s.play()
+        text=""
     return text
