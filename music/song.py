@@ -48,16 +48,16 @@ s=music()
 
 def song(text:str)->str:
     global m
+    if 'เปิด' in text and 'เพลง' in text:
+        text=text.split('เพลง')[1]
+        m.change(text)
     
-    if ("ฟัง" in text or "เล่น"in text) and 'เพลง'and 'ต่อ' in text: 
+    elif ("ฟัง" in text or "เล่น"in text) and 'เพลง'and 'ต่อ' in text: 
         text="เล่นเพลงต่อแล้วค่ะ"
         tt.listen(text)
         m.play()
         text=""
-    elif 'เปิด' in text and 'เพลง' in text:
-        text=text.split('เพลง')[1]
-        m.change(text)
-        #text=text
+    
     elif 'ปิด' in text and ('เพลง' in text or 'เสียง' in text):
         m.stop()
         text="ปิดเพลงเรียบร้อยแล้วค่ะ"
