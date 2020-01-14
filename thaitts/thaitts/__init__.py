@@ -8,6 +8,7 @@ from pythainlp.tokenize import word_tokenize
 from pythainlp.util import normalize
 from pydub import AudioSegment
 from pydub.playback import play
+from .ai4thai import ai4thai
 def playsound(path):
     song = AudioSegment.from_file(path)
     play(song)
@@ -43,4 +44,7 @@ class TTS(object):
                 print("ไม่สามารถพูดได้ : "+str(text))
         elif play and self.engine=="g":
             gTTS1(text,"t.mp3")
+            playsound('t.mp3')
+        elif play and self.engine == "ai4thai":
+            ai4thai(text,"t.mp3")
             playsound('t.mp3')
