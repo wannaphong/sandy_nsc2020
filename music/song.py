@@ -4,7 +4,7 @@ from vlc import *
 import urllib.request
 import urllib.parse
 import re
-from tts import TTS
+from .tts import TTS
 tt = TTS()
 
 class music:
