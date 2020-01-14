@@ -4,7 +4,7 @@ from vlc import *
 import urllib.request
 import urllib.parse
 import re
-from .tts import TTS
+from thaitts import TTS
 tt = TTS()
 
 class music:
@@ -57,7 +57,7 @@ def song(text:str)->str:
     if m.m ==  None and 'เปิด' not in text:
         return "คุณยังไม่เล่นเพลง"
     
-    elif ('เปิด' in text or'เล่น'in text)and 'เพลง' in text:
+    elif 'เปิด' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
         m.change(text)
     
@@ -71,6 +71,7 @@ def song(text:str)->str:
         text="ปิดเพลงเรียบร้อยแล้วค่ะ"
         tt.listen(text)
         text=""
+        m=music()
     elif 'หยุด' in text and ('เพลง' in text or 'เล่น' in text):
         m.pause()
         text="หยุดเพลงเรียบร้อยแล้วค่ะ หากต้องการฟังต่อให้สั่ง ฟังต่อได้เลยนะคะ"
@@ -97,9 +98,9 @@ def tum(text:str)->str:
     global s
     
     if s.m ==  None and 'เปิด' not in text:
-        return "คุณยังไม่เล่นเพลง"
+        return "คุณยังไม่สั่งเล่นธรรมะ"
     
-    elif ('เปิด' in text or'เล่น'in text) and 'ธรรมะ' in text:
+    elif 'เปิด' in text  and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
         s.change(text)
     
@@ -113,6 +114,7 @@ def tum(text:str)->str:
         text="ปิดธรรมะเรียบร้อยแล้วค่ะ"
         tt.listen(text)
         text=""
+        s=music()
     elif 'หยุด' in text and ('ธรรมะ' in text or 'เล่น' in text):
         s.pause()
         text="หยุดธรรมะเรียบร้อยแล้วค่ะ หากต้องการฟังธรรมะต่อให้สั่ง ฟังต่อได้เลยนะคะ"
