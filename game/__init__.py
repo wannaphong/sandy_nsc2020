@@ -1,5 +1,6 @@
-from .vad import run
-from .tts import TTS
+# -*- coding: utf-8 -*-
+from pyvadrun import run
+from thaitts import TTS
 import random
 import speech_recognition as sr2
 

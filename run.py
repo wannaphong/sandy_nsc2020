@@ -11,11 +11,11 @@ import dill
 from precise_runner import PreciseEngine, PreciseRunner
 # AER, TTS
 import speech_recognition as sr
-from tts import TTS,gTTS1
+from thaitts import TTS,gTTS1
 # ฟังก์ชัน
 from gettime.nowtime import now # ถามวันเวลา
 from sos import sent
-from vad import run
+from pyvadrun import run
 from news.news import gethotnews
 import vlc
 from pydub import AudioSegment

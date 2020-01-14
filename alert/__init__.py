@@ -137,7 +137,7 @@ def text2com(text):
     else:
         text = 'ระบบแจ้งเตือนไม่รองรับคำสั่งของคุณ\nกรุณาลองคำสั่งอื่นนะคะ'
     return text
-"""
+
 if __name__ == "__main__":
     date = input("วัน : ")
     t = input("เวลา (1:10) :")
@@ -145,4 +145,3 @@ if __name__ == "__main__":
     add(date, t, text)
     print("เพิ่มเรียบร้อย\n\n")
     print()
-"""
