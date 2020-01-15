@@ -74,7 +74,7 @@ stream = pa.open(format=FORMAT,
                  # input_device_index=2,
                  frames_per_buffer=CHUNK_SIZE)
 signal.signal(signal.SIGINT, handle_int)
-def run():
+def run(filename="recording.wav"):
     
     
     global leave,got_a_sentence
@@ -149,7 +149,7 @@ def run():
             raw_data.pop()
         raw_data.reverse()
         raw_data = normalize(raw_data)
-        record_to_file("recording.wav", raw_data, 2)
+        record_to_file(filename, raw_data, 2)
         leave = True
     #stream.close()
     got_a_sentence = False

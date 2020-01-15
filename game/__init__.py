@@ -27,7 +27,8 @@ data=[
     ("อยู่ในน้ำเป็นปลา อยู่สุขศาลาเป็นคน","หมอ",""),
     ("โตเท่าภูเขา เบานิดเดียว","เมฆ",""),
     ("สุกเต็มต้น เก็บกินไม่ได้","แดด","เป็นแสงแดด"),
-    ("ต้นสีบาทพาดข้างรั้ว","ผักตำลึง","")
+    ("ต้นสีบาทพาดข้างรั้ว","ผักตำลึง",""),
+    ("อะไรเอ่ย มีหาง มีปาก มีตา กินปลาเป็นอาหาร","แห","")
 ]
 
 def game():
@@ -38,14 +39,14 @@ def game():
     a=q[1]
     t.listen(qa)
     while True:
-        run()
-        with sr2.WavFile("recording.wav") as source:
+        run("g.wav")
+        with sr2.WavFile("g.wav") as source:
             print("รับเสียง")
             audio =  r.record(source)
             print(audio)
         text=r.recognize_google(audio,language = "th-TH")
         if a in text:
-            t.listen("ถูกต้องแล้วค่ะ")#\nข้อต่อไปกัน\n\n\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น")
+            t.listen("ถูกต้องแล้วค่ะ คุณเก่งมาก ๆ เลยค่ะ")#\nข้อต่อไปกัน\n\n\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น")
             break
         elif "เฉลย" in text or "ยอมแพ้" in text:
             t.listen(a+"ค่ะ")
