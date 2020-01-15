@@ -48,7 +48,7 @@ class news(object):
         self.data = feedparser.parse(self.url)
         self.news = []
         for i in self.data.entries:
-          self.news.append((parser.parse(i.published),i.summary))
+          self.news.append((parser.parse(i.published),i.summary,i.title))
     def get_news(self):
         return self.news
     def clean(self,t:str):
@@ -60,7 +60,7 @@ class news(object):
           #print(datetime.datetime.now(offset).date())
           #print(i[0].date())
           if (datetime.datetime.now(offset)- datetime.timedelta(days=1)).date() == i[0].date():
-            self.today.append('\n'.join(sent_tokenize(self.clean(i[1]))))
+            self.today.append('\n'.join(sent_tokenize(i[2]+"\n"+self.clean(i[1]))))
         return self.today
     def get_today(self):
         self.today = []
@@ -69,7 +69,7 @@ class news(object):
           #print(datetime.datetime.now(offset).date())
           #print(i[0].date())
           if (datetime.datetime.now(offset)- datetime.timedelta(days=0)).date() == i[0].date():
-            self.today.append('\n'.join(sent_tokenize(self.clean(i[1]))))
+            self.today.append('\n'.join(sent_tokenize(i[2]+"\n"+self.clean(i[1]))))
         return self.today
 
 class politics(news):

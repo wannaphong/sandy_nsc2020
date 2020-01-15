@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from .thaipbs import *
+from .allnews import s
 from pythainlp.util import num_to_thaiword
 
 
@@ -103,5 +104,7 @@ def text2com(text):
         return get_news("sport",text)
     elif "วันนี้" in text or "ตอนนี้" in text or "สรุป" in text or 'เด่น' in text:
         return gethotnews()
+    elif "ข่าว" in text and (text.split("ข่าว")[-1] !=[] and text.split("ข่าว")[-1] !=['']):
+        return s(text.split("ข่าว")[-1])
     else:
         return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
