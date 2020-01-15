@@ -26,3 +26,4 @@ gtts
 pynput
 emoji
 sklearn-crfsuite
+pytube

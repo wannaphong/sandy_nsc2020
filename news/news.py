@@ -2,6 +2,9 @@
 from .thaipbs import *
 from pythainlp.util import num_to_thaiword
 
+
+
+
 def get_news(ty="breakingnews",text=""):
     if ty == "breakingnews":
         temp=breakingnews()

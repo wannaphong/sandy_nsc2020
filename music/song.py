@@ -5,6 +5,7 @@ import urllib.request
 import urllib.parse
 import re
 from thaitts import TTS
+
 tt = TTS()
 
 class music:
@@ -22,8 +23,10 @@ class music:
         self.search_results = re.findall(r'href=\"\/watch\?v=(.{11})', self.html_content.read().decode())
         
         self.MediaList= self.Instance.media_list_new()
-        for i in list((self.search_results)) :
-            self.MediaList.add_media("https://www.youtube.com/watch?v=" + i)
+        for i in list(self.search_results):
+            self.video = pafy.new("https://www.youtube.com/watch?v=" + i)
+            self.streams = self.video.streams
+            self.MediaList.add_media(self.streams[-1].url)
         self.player.set_media_list(self.MediaList)
         self.play()
 
