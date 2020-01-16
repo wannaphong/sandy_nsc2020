@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 from .thaipbs import *
 from pythainlp import word_tokenize # ทำการเรียกตัวตัดคำ
-from pythainlp.word_vector import sentence_vectorizer # ทำการเรียก thai2vec
+#from pythainlp.word_vector import sentence_vectorizer # ทำการเรียก thai2vec
 from sklearn.metrics.pairwise import cosine_similarity  # ใช้หาค่าความคล้ายคลึง
 from sklearn.feature_extraction.text import TfidfVectorizer
 vectorizer = TfidfVectorizer(tokenizer=word_tokenize)
 all_news=[]
 dn="now"
-def sentence_similarity_old(s1,s2):
-    return cosine_similarity(sentence_vectorizer(str(s1)),sentence_vectorizer(str(s2)))[0][0]
+#def sentence_similarity_old(s1,s2):
+#    return cosine_similarity(sentence_vectorizer(str(s1)),sentence_vectorizer(str(s2)))[0][0]
 
 def sentence_similarity(text1, text2):
     # Thank you - https://stackoverflow.com/a/24129170/11952699

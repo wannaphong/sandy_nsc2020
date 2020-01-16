@@ -5,8 +5,27 @@ import urllib.request
 import urllib.parse
 import re
 from thaitts import TTS
+import youtube_dl
 
 tt = TTS()
+
+def youtube(url):
+    ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s%(ext)s'})
+    with ydl:
+        result = ydl.extract_info(url,download=False)
+    if 'formats' in result:
+        video = result['formats'][0]
+    else:
+        video = result
+    #print(video)
+    return video['url']
+
+def del_d(listdata):
+    temp=[]
+    for i in listdata:
+        if i not in temp:
+            temp.append(i)
+    return temp
 
 class music:
     def __init__(self):
@@ -23,10 +42,10 @@ class music:
         self.search_results = re.findall(r'href=\"\/watch\?v=(.{11})', self.html_content.read().decode())
         
         self.MediaList= self.Instance.media_list_new()
-        for i in list(self.search_results):
-            self.video = pafy.new("https://www.youtube.com/watch?v=" + i)
-            self.streams = self.video.streams
-            self.MediaList.add_media(self.streams[-1].url)
+        for i in del_d(list(self.search_results))[:5]:
+            #self.video = pafy.new("https://www.youtube.com/watch?v=" + i)
+            #self.streams = self.video.streams
+            self.MediaList.add_media(youtube("https://www.youtube.com/watch?v=" + i))#self.streams[-1].url)
         self.player.set_media_list(self.MediaList)
         self.play()
 
@@ -63,6 +82,7 @@ def song(text:str)->str:
     elif 'เปิด' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
         m.change(text)
+        m.play()
     
     elif ("ฟัง" in text or "เล่น"in text) and 'เพลง'and 'ต่อ' in text: 
         text="เล่นเพลงต่อแล้วค่ะ"
