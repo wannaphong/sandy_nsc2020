@@ -110,8 +110,9 @@ def song(text:str)->str:
     elif 'เพลง' in text and'ถัดไป' in text:
         m.next()
         text="เล่นเพลงถัดไปแล้วค่ะ"
+        tt.listen(text)
         m.play()
-        
+        text=""
     else:
         text="ระบบยังไม่รองรับคำสั่ง"+text+"ค่ะ  งั้นเล่นเพลงต่อเลยนะคะ "
         tt.listen(text)
