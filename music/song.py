@@ -43,7 +43,7 @@ class music:
         self.search_results = re.findall(r'href=\"\/watch\?v=(.{11})', self.html_content.read().decode())
         
         self.MediaList= self.Instance.media_list_new()
-        for i in del_d(list(self.search_results))[:5]:
+        for i in del_d(list(self.search_results))[:3]:
             #self.video = pafy.new("https://www.youtube.com/watch?v=" + i)
             #self.streams = self.video.streams
             self.MediaList.add_media(youtube("https://www.youtube.com/watch?v=" + i))#self.streams[-1].url)
