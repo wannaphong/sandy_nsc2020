@@ -83,9 +83,7 @@ def song(text:str)->str:
     elif 'เปิด' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
         m.change(text)
-        tt.listen(text)
         m.play()
-        text=""
     elif ("ฟัง" in text or "เล่น"in text) and 'เพลง'and 'ต่อ' in text: 
         text="เล่นเพลงต่อแล้วค่ะ"
         tt.listen(text)
@@ -99,7 +97,7 @@ def song(text:str)->str:
         m=music()
     elif 'หยุด' in text and ('เพลง' in text or 'เล่น' in text):
         m.pause()
-        text="หยุดเพลงเรียบร้อยแล้วค่ะ หากต้องการฟังต่อให้สั่ง ฟังเพลงต่อได้เลยนะคะ"
+        text="หยุดเพลงเรียบร้อยแล้วค่ะหากต้องการฟังต่อให้สั่งฟังเพลงต่อได้เลยนะคะ"
         tt.listen(text)
         text=""
     elif 'เปลี่ยน' in text and 'เพลง' in text:
@@ -124,14 +122,13 @@ def tum(text:str)->str:
     global s
     
     if s.m ==  None and 'เปิด' not in text:
-        return "คุณยังไม่สั่งเปิดธรรมะ"
+        return "คุณยังไม่สั่งเปิดธรรมะค่ะ"
     
     elif 'เปิด' in text  and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
         s.change(text)
-        tt.listen(text)
-        m.play()
-        text=""
+        s.play()
+    
     
     elif ("ฟัง" in text or "เล่น"in text) and 'ธรรมะ'and 'ต่อ' in text: 
         text="เล่นธรรมะต่อแล้วค่ะ"
@@ -146,13 +143,16 @@ def tum(text:str)->str:
         s=music()
     elif 'หยุด' in text and ('ธรรมะ' in text or 'เล่น' in text):
         s.pause()
-        text="หยุดธรรมะเรียบร้อยแล้วค่ะ หากต้องการฟังธรรมะต่อให้สั่ง ฟังธรรมะต่อได้เลยนะคะ"
+        text="หยุดธรรมะเรียบร้อยแล้วค่ะหากต้องการฟังธรรมะต่อให้สั่งฟังธรรมะต่อได้เลยนะคะ"
         tt.listen(text)
         text=""
     elif 'เปลี่ยน' in text and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
         s.change(text)
-    #elif ('ตอนนี้'in text or 'กำลัง'in text) and 'เล่นเพลง' in text and ('อะไรอยู่'in text or 'อะไร'in text):
+        tt.listen(text)
+        s.play()
+        text=""
+    
         
     elif 'ธรรมะ' in text and'ถัดไป' in text:
         s.next()

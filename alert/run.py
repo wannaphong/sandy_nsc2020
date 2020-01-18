@@ -4,8 +4,9 @@ from thaitts import TTS
 import pytz
 import datetime as dt
 import time
-tts=TTS()
+_tts=TTS()
 def alert_run():
+    global _tts
     db = TinyDB('./db.json')
     N = Query()
     timezone = pytz.timezone('Asia/Bangkok')
@@ -16,7 +17,7 @@ def alert_run():
         if t!=[] and tt!=o:
             temp=o.split("+")[0].split(" ")[-1]
             a="มีการแจ้งเตือน {atime} มีการแจ้งเตือนว่า {text}".format(text=t[0]['text'],atime=str(temp))
-            tts.listen(a)
+            _tts.listen(a)
             print(a)
             tt=o
 
