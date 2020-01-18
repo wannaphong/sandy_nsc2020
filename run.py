@@ -29,6 +29,7 @@ from news.news import text2com as ncom
 from alert import text2com as acom
 from alert.run import alert_run
 from iot import text2com as iotcom
+from diary import check_word as diarycom
 #from pynput.keyboard import Key, Listener
 
 #m = music()
@@ -54,6 +55,8 @@ def process(text:str)->tuple:
     g = general(text)
     if g[1]:
         text = g[0]
+    elif "บันทึก" in text or "ไดอารี่" in text or "ไดอารี" in text:
+        text = diarycom(text)
     elif "ออก" in text and "โปรแกรม" in text:
         text = "ลาก่อนค่ะ"
     elif text == "เจ้าแสนดี" or text == "แสนดี":
