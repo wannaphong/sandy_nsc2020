@@ -1,10 +1,25 @@
 # -*- coding: utf-8 -*-
 from tinydb import TinyDB, Query
+from datetime import datetime
+import pytz
 db = TinyDB('./diary.json')
+timezone = pytz.timezone('Asia/Bangkok')
 
 print("ฟังก์ชั่นบันทึกและอ่านไดอารี่")
 
-def check_word(w):
+def add(title:str,note:str)->None:
+    """
+    บันทึกไดอารี
+    """
+    global db,timezone
+    t= timezone.localize(datetime.now())
+    db.insert({'date': str(t),'title':title,'note':note})
+    return "บันทึกเรียบร้อยแล้วค่ะ"
+
+
+def check_word(text):
+    if ("จด" in text or "บันทึก" in text) and ("อ่าน" not in text and "ค้น" not in text):
+
     if w != "" :
         if w == "อ่านไดอารี่ทั้งหมด":           
             read_diary()
@@ -20,7 +35,7 @@ def check_word(w):
 def read_diary():#อ่านไดอารี่ทั้งหมด 
     for i in result:
         print(i)
-
+"""
 def  select_diary():   
     mycursor.execute("select * from  diary_data WHERE date_diary='2019-12-06'")
     select = mycursor.fetchall() #fetch data 
@@ -37,3 +52,4 @@ def insert_daiary():
     
 #call function 
 check_word("อ่านไดอารี่ทั้งหมด")
+"""
