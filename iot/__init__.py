@@ -2,7 +2,9 @@
 import requests
 
 def event(n):
-    requests.get("https://maker.ifttt.com/trigger/{e}/with/key/dHXY-7BWw4HBYNiCa6kaJQ".format(e=n))
+    url = "https://maker.ifttt.com/trigger/{e}/with/key/dtdTlG_QqZNeap3ird6gWE".format(e=n)
+    #print(url)
+    return requests.get(url)
 
 def light(e):
     if e=="on":
