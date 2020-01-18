@@ -26,14 +26,16 @@ def go2add():
     run("d1.wav")
     with sr2.WavFile("d1.wav") as source:
         print("รับเสียง")
-        title =  r.record(source)
-        print(title)
+        audio =  r.record(source)
+    title=r.recognize_google(audio,language = "th-TH")
+    print(title)
     tts.listen("หลังจากนี้จะเป็นการบันทึกข้อความ ถ้าบันทึกเสร็จแล้วให้หยุดพูดสัก 2 ถึง 3 วินาทีนะคะ")
     run("d2.wav")
     with sr2.WavFile("d2.wav") as source:
         print("รับเสียง")
-        note =  r.record(source)
-        print(note)
+        audio =  r.record(source)
+    note=r.recognize_google(audio,language = "th-TH")
+    print(note)
     return add(title,note)
 
 
