@@ -27,6 +27,7 @@ from nn import nb #pythainlu.intent_classification.
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
+from iot import text2com as iotcom
 #from pynput.keyboard import Key, Listener
 
 #m = music()
@@ -45,7 +46,7 @@ with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)
 
 def process(text:str)->tuple:
-    global clf,nb,wcom,ncom,acom,song,tum,n,sound
+    global clf,nb,wcom,ncom,acom,song,tum,n,sound,iotcom
     tag=str(clf.predict([text])[0])
     print("ฟังก์ชัน : "+tag)
     print("ความน่าจะเป็นของฟังก์ชัน : "+str(clf.predict_proba([text]).max()))
@@ -63,7 +64,7 @@ def process(text:str)->tuple:
     elif tag == "alert":
         text = acom(text)#"ระบบการแจ้งเตือน ยังไม่พร้อมใช้งาน"
     elif tag == "fan" or tag == "light":
-        text = "ระบบ IoT ยังไม่พร้อมใช้งาน"
+        text = iotcom(text,tag)
     elif tag == "music":
         text = song(text)#"ระบบฟังเพลง"
     elif tag == "religion":
