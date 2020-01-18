@@ -77,13 +77,14 @@ s=music()
 def song(text:str)->str:
     global m
     if m.m ==  None and 'เปิด' not in text:
-        return "คุณยังไม่เล่นเพลง"
+        return "คุณยังไม่สั่งเปิดเพลงค่ะ"
     
     elif 'เปิด' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
         m.change(text)
+        tt.listen(text)
         m.play()
-    
+        text=""
     elif ("ฟัง" in text or "เล่น"in text) and 'เพลง'and 'ต่อ' in text: 
         text="เล่นเพลงต่อแล้วค่ะ"
         tt.listen(text)
@@ -97,7 +98,7 @@ def song(text:str)->str:
         m=music()
     elif 'หยุด' in text and ('เพลง' in text or 'เล่น' in text):
         m.pause()
-        text="หยุดเพลงเรียบร้อยแล้วค่ะ หากต้องการฟังต่อให้สั่ง ฟังต่อได้เลยนะคะ"
+        text="หยุดเพลงเรียบร้อยแล้วค่ะ หากต้องการฟังต่อให้สั่ง ฟังเพลงต่อได้เลยนะคะ"
         tt.listen(text)
         text=""
     elif 'เปลี่ยน' in text and 'เพลง' in text:
@@ -121,11 +122,14 @@ def tum(text:str)->str:
     global s
     
     if s.m ==  None and 'เปิด' not in text:
-        return "คุณยังไม่สั่งเล่นธรรมะ"
+        return "คุณยังไม่สั่งเปิดธรรมะ"
     
     elif 'เปิด' in text  and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
         s.change(text)
+        tt.listen(text)
+        m.play()
+        text=""
     
     elif ("ฟัง" in text or "เล่น"in text) and 'ธรรมะ'and 'ต่อ' in text: 
         text="เล่นธรรมะต่อแล้วค่ะ"
@@ -140,7 +144,7 @@ def tum(text:str)->str:
         s=music()
     elif 'หยุด' in text and ('ธรรมะ' in text or 'เล่น' in text):
         s.pause()
-        text="หยุดธรรมะเรียบร้อยแล้วค่ะ หากต้องการฟังธรรมะต่อให้สั่ง ฟังต่อได้เลยนะคะ"
+        text="หยุดธรรมะเรียบร้อยแล้วค่ะ หากต้องการฟังธรรมะต่อให้สั่ง ฟังธรรมะต่อได้เลยนะคะ"
         tt.listen(text)
         text=""
     elif 'เปลี่ยน' in text and 'ธรรมะ' in text:
@@ -151,7 +155,9 @@ def tum(text:str)->str:
     elif 'ธรรมะ' in text and'ถัดไป' in text:
         s.next()
         text="เล่นธรรมะถัดไปแล้วค่ะ"
+        tt.listen(text)
         s.play()
+        text=""
         
     else:
         text="ระบบยังไม่รองรับค่ะคำสั่ง"+text+"ค่ะ  งั้นเล่นธรรมะต่อเลยนะคะ "
