@@ -64,7 +64,9 @@ def text2com(text):
         d=PyTMD(key,Place(province='หนองคาย'))
     if "วันนี้" in text or "ตอนนี้" in text:
         return now()
-    else:#if "พรุ่งนี้" in text:
+    elif "พรุ่งนี้" in text:
         return tomorrow()
+    else:
+        return now()
     #else:
     #    return "ขออภัยค่ะ ระบบพยากรณ์อากาศยังไม่รองรับการใช้งานปัจจุบันคะ"
