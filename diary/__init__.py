@@ -3,7 +3,7 @@ from tinydb import TinyDB, Query
 from datetime import datetime
 from thaitts import TTS
 import speech_recognition as sr2
-from pyvadrun import run
+from pyvadrun import run as _run
 import pytz
 db = TinyDB('./diary.json')
 timezone = pytz.timezone('Asia/Bangkok')
@@ -22,15 +22,16 @@ def add(title:str,note:str)->None:
     return "บันทึกเรียบร้อยแล้วค่ะ"
 
 def go2add():
+    global _run
     tts.listen("กรุณาพูดหัวข้อการบันทึกในครั้งนี้ค่ะ แล้วหยุดสัก 2 3 วินาทีนะคะ")
-    run("d1.wav")
+    _run("d1.wav")
     with sr2.WavFile("d1.wav") as source:
         print("รับเสียง")
         audio =  r.record(source)
     title=r.recognize_google(audio,language = "th-TH")
     print(title)
     tts.listen("หลังจากนี้จะเป็นการบันทึกข้อความ ถ้าบันทึกเสร็จแล้วให้หยุดพูดสัก 2 ถึง 3 วินาทีนะคะ")
-    run("d2.wav")
+    _run("d2.wav")
     with sr2.WavFile("d2.wav") as source:
         print("รับเสียง")
         audio =  r.record(source)
