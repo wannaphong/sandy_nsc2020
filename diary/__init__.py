@@ -1,13 +1,7 @@
 # -*- coding: utf-8 -*-
-import mysql.connector 
-import pyodbc
-mydb = mysql.connector.connect(host="localhost",user="root",passwd="",database="diary") #Connect to data base 
+from tinydb import TinyDB, Query
+db = TinyDB('./diary.json')
 
-mycursor = mydb.cursor() 
-mycursor.execute("select * from  diary_data")
-result = mycursor.fetchall() #fetch data 
-
-    
 print("ฟังก์ชั่นบันทึกและอ่านไดอารี่")
 
 def check_word(w):
@@ -20,7 +14,6 @@ def check_word(w):
 
         elif w == "อ่านไดอารี่ประจำวัน":
                 select_diary()
-
     else : print("ฉันไม่เข้าใจในสิ่งที่คุณพูด หรือ พูดใหม่อีกครั้ง ")
 
 
