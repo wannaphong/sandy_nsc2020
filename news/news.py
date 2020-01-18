@@ -82,9 +82,7 @@ def get():
 #print(gethotnews())
 def text2com(text):
     global politics,get_news
-    if "ข่าว" in text:
-        pass
-    else:
+    if "ข่าว" not in text:
         return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
     if "การเมือง" in text:
         return get_news("politics",text)

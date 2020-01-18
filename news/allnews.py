@@ -31,7 +31,7 @@ def s(text,day="now"):
         dn=day
     t=[sentence_similarity(text,i) for i in all_news]#[0][0]
     p =max(t)
-    print("ค่าความน่าจะเป็นของข่าวที่เกี่ยวข้องมากที่สุด : "+p)
+    print("ค่าความน่าจะเป็นของข่าวที่เกี่ยวข้องมากที่สุด : "+str(p))
     if p<0.02:
         return "ไม่พบข่าวค่ะ"
     return all_news[t.index(max(t))]
