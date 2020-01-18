@@ -5,7 +5,7 @@
 # python พื้นฐาน
 import time
 import sys
-from threading import Event
+from threading import Event, Thread
 import dill
 # Hotword
 from precise_runner import PreciseEngine, PreciseRunner
@@ -27,6 +27,7 @@ from nn import nb #pythainlu.intent_classification.
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
+from alert.run import alert_run
 from iot import text2com as iotcom
 #from pynput.keyboard import Key, Listener
 
@@ -174,8 +175,9 @@ runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_act
     on_release=run_key,suppress=True)
 listener.start()'''
 runner.start()
-
-
+thread1 = Thread(target = alert_run)
+thread1.start()
+thread1.join()
 #runner.start()
 
 Event().wait()
