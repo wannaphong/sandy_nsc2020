@@ -51,11 +51,14 @@ def process(text:str)->tuple:
     global clf,nb,wcom,ncom,acom,song,tum,n,sound,iotcom
     tag=str(clf.predict([text])[0])
     print("ฟังก์ชัน : "+tag)
-    print("ความน่าจะเป็นของฟังก์ชัน : "+str(clf.predict_proba([text]).max()))
+    _p = clf.predict_proba([text]).max()
+    print("ความน่าจะเป็นของฟังก์ชัน : "+str(_p))
     g = general(text)
     if g[1]:
         text = g[0]
-    elif "บันทึก" in text or "ไดอารี่" in text or "ไดอารี" in text:
+    elif _p<0.5:
+        text = "ระบบยังไม่รองรับ"+text
+    elif ("บันทึก" in text or "ไดอารี่" in text) or "ไดอารี" in text:
         text = diarycom(text)
     elif "ออก" in text and "โปรแกรม" in text:
         text = "ลาก่อนค่ะ"
