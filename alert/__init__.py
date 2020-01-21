@@ -42,6 +42,15 @@ def stop(date:str,time:str=None):
     db.update({'alert': False}, N.date == d)
     return "ปิดการแจ้งเตือนเวลา "+time+" นาฬิกาของ"+date+" แล้วค่ะ"
 
+def stop_day(date:str,time:str=None):
+    """
+    ปิดการแจ้งเตือนเฉพาะวัน
+    """
+    global db,timezone
+    d = timezone.localize(thai_day2datetime(date)).replace(hour=hour, minute=minute, second=0, microsecond=0)
+    db.update({'alert': False}, N.date == d)
+    return "ปิดการแจ้งเตือนเวลา "+time+" นาฬิกาของ"+date+" แล้วค่ะ"
+
 """
 รับวันในสัปดาห์
 >>> import datetime
@@ -109,10 +118,13 @@ def text2com(text):
     print(alert)
     if d == None and (alert != None and alert != '') and (t!=None and t!=''):
         d="วันนี้"
-    
-    if alert == None and alert == '':
-        # ดูการแจ้งเตือนทั้งหมด
-        # ยกเลิกการแจ้งเตือน
+    if (alert == None or alert == '') and (d!=None and d!='') and ("ยกเลิก" in text or "ปิด" in text and "แจ้งเตือน" in text):
+        if (t!=None and t!=''):
+            text = stop(d,t)
+        # ปิดการแจ้งเตือนทั้งวัน
+    elif ("ยกเลิก" in text or "ปิด" in text and "แจ้งเตือน" in text) and "ทั้งหมด" in text:
+        text = stop_all() # ยกเลิกการแจ้งเตือน
+    elif alert == None and alert == '':
         text = 'ระบบแจ้งเตือนไม่รองรับคำสั่งของคุณ\nกรุณาลองคำสั่งอื่นนะคะ'
     elif (d!=None and d!='') and (t!=None and t!=''):
         add(d,t,alert)

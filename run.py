@@ -59,7 +59,7 @@ def process(text:str)->tuple:
     elif ("บันทึก" in text or "ไดอารี่" in text) or "ไดอารี" in text:
         text = diarycom(text)
     elif _p<0.5:
-        text = "ระบบยังไม่รองรับ"+text
+        text = "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ"
     elif "ออก" in text and "โปรแกรม" in text:
         text = "ลาก่อนค่ะ"
     elif text == "เจ้าแสนดี" or text == "แสนดี":
