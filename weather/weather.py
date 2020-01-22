@@ -46,7 +46,9 @@ def text2com(text):
     else:
         return "ขออภัยค่ะ ระบบพยากรณ์อากาศยังไม่รองรับการใช้งานปัจจุบันคะ"
     if len(tt)>0:
-        if tt[0]=="โคราช":
+        if tt[0] ==[] or tt[0] == '':
+            temp = "หนองคาย"
+        elif tt[0]=="โคราช":
             temp = "นครราชสีมา"
         else:
             temp = get_close_matches(tt[0], province_list,cutoff=0.6)[0]
