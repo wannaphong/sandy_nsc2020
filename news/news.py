@@ -2,9 +2,16 @@
 from .thaipbs import *
 from .allnews import s
 from pythainlp.util import num_to_thaiword
+from pythainlp.tokenize import sent_tokenize
+'''
+from thaitts import TTS
+t=TTS()
 
-
-
+import vlc
+instance = vlc.Instance()
+#สร้าง MediaPlayer พร้อม instance พื้นฐาน
+_player = instance.media_player_new()
+'''
 
 def get_news(ty="breakingnews",text=""):
     if ty == "breakingnews":
@@ -81,28 +88,33 @@ def get():
     n=gethotnews()
 #print(gethotnews())
 def text2com(text):
-    global politics,get_news
+    global politics,get_newst#,instance,_player
     if "ข่าว" not in text:
-        return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
+        temp= "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
     if "การเมือง" in text:
-        return get_news("politics",text)
+        temp= get_news("politics",text)
     elif "สังคม" in text:
-        return get_news("social",text)
+        temp= get_news("social",text)
     elif "อาชญากรรม" in text:
-        return get_news("crime",text)
+        temp= get_news("crime",text)
     elif "ภูมิภาค" in text:
-        return get_news("region",text)
+        temp= get_news("region",text)
     elif "สิ่งแวดล้อม" in text:
-        return get_news("environment",text)
+        temp= get_news("environment",text)
     elif "เศรษฐกิจ" in text:
-        return get_news("economy",text)
+        temp= get_news("economy",text)
     elif "ต่างประเทศ" in text or "ต่างชาติ" in text:
-        return get_news("foreign",text)
+        temp= get_news("foreign",text)
     elif "กีฬา" in text:
-        return get_news("sport",text)
+        temp= get_news("sport",text)
     elif "วันนี้" in text or "ตอนนี้" in text or "สรุป" in text or 'เด่น' in text:
-        return gethotnews()
+        temp= gethotnews()
     elif "ข่าว" in text and (text.split("ข่าว")[-1] !=[] and text.split("ข่าว")[-1] !=['']):
-        return s(text.split("ข่าว")[-1])
+        temp= s(text.split("ข่าว")[-1])
     else:
-        return "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
+        temp= "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
+    #t.gTTS1(temp,'news.mp3')
+    #media = instance.media_new('news.mp3')
+    #_player.set_media(media)
+    #_player.play()
+    return temp#''

@@ -147,7 +147,6 @@ engine = PreciseEngine('precise-engine', 'jao-sandy.pb') #C:\\Users\\TC\\Anacond
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
 
 num_button = 0
-'''
 def on_press(key):
     global num_button
     #print('{0} pressed'.format(
