@@ -39,5 +39,5 @@ class LINE:
 def sent():
     line = LINE("mbkJVhbGsc6aOSk9gn1MxZ7b9bQTlrsVnaLqxDQmd4M")
     line.sendtext("มีคนในบ้านต้องการความช่วยเหลือด่วนครับ")
-    line.sendtext("ช่วยมาที่บ้านด่วนครับ")
+    line.sendtext("ช่วยมาที่บ้านด้วยครับ")
     line.sendsticker(1,4)
