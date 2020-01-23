@@ -30,7 +30,7 @@ def del_d(listdata):
 
 class music:
     def __init__(self):
-        self.m="stop"
+        self.m=None
         self.status = True
         self.Instance = vlc.Instance()
         self.player = self.Instance.media_list_player_new()
