@@ -73,7 +73,7 @@ class music:
         return self.player.get_media_player().get_title()#get_media_player().get_media().get_mrl()
 
 m=music()
-s=music()
+#s=music()
 
 def song(text:str)->str:
     global m
@@ -119,51 +119,51 @@ def song(text:str)->str:
     return text
 
 def tum(text:str)->str:
-    global s
+    global m
     
-    if s.m ==  None and 'เปิด' not in text:
+    if m.m ==  None and 'เปิด' not in text:
         return "คุณยังไม่สั่งเปิดธรรมะค่ะ"
     
     elif 'เปิด' in text  and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
-        s.change(text)
-        s.play()
+        m.change(text)
+        m.play()
     
     
     elif ("ฟัง" in text or "เล่น"in text) and 'ธรรมะ'and 'ต่อ' in text: 
         text="เล่นธรรมะต่อแล้วค่ะ"
         tt.listen(text)
-        s.play()
+        m.play()
         text=""
     elif 'ปิด' in text and ('ธรรมะ' in text or 'เสียง' in text):
-        s.stop()
+        m.stop()
         text="ปิดธรรมะเรียบร้อยแล้วค่ะ"
         tt.listen(text)
         text=""
-        s=music()
+        m=music()
     elif 'หยุด' in text and ('ธรรมะ' in text or 'เล่น' in text):
-        s.pause()
+        m.pause()
         text="หยุดธรรมะเรียบร้อยแล้วค่ะหากต้องการฟังธรรมะต่อให้สั่งฟังธรรมะต่อได้เลยนะคะ"
         tt.listen(text)
         text=""
     elif 'เปลี่ยน' in text and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
-        s.change(text)
+        m.change(text)
         tt.listen(text)
-        s.play()
+        m.play()
         text=""
     
         
     elif 'ธรรมะ' in text and'ถัดไป' in text:
-        s.next()
+        m.next()
         text="เล่นธรรมะถัดไปแล้วค่ะ"
         tt.listen(text)
-        s.play()
+        m.play()
         text=""
         
     else:
         text="ระบบยังไม่รองรับค่ะคำสั่ง"+text+"ค่ะ  งั้นเล่นธรรมะต่อเลยนะคะ "
         tt.listen(text)
-        s.play()
+        m.play()
         text=""
     return text
