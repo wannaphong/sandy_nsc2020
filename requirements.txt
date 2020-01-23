@@ -27,3 +27,4 @@ pynput
 emoji
 sklearn-crfsuite
 pytube
+ffmpeg-python

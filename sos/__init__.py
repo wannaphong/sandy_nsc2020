@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
-import numpy as np
 import time
 import requests, urllib.parse
 import io
-from PIL import Image
+#from PIL import Image
 
 
 class LINE:
@@ -12,7 +11,7 @@ class LINE:
         self.LINE_HEADERS = {'Authorization': 'Bearer ' + token}
         self.session = requests.Session()
 
-    def sendimage(self, image, msg='image'):
+    """def sendimage(self, image, msg='image'):
         f = io.BytesIO()
         Image.fromarray(image).save(f, 'png')
         data = f.getvalue()
@@ -20,7 +19,7 @@ class LINE:
                                      headers=self.LINE_HEADERS,
                                      params={"message": msg},
                                      files={"imageFile": data})
-        return response.text
+        return response.text"""
 
     def sendtext(self, msg):
         response = self.session.post(self.url,
