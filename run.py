@@ -2,53 +2,68 @@
 """
 แสนดี : คู่บ้านผู้สูงอายุ
 """
+from warnings import simplefilter
+# ignore all future warnings
+simplefilter(action='ignore', category=UserWarning)
 # python พื้นฐาน
 import time
 import sys
 from threading import Event, Thread
 import dill
+print("1")
 # Hotword
 from precise_runner import PreciseEngine, PreciseRunner
+engine = PreciseEngine('precise-engine', 'jao-sandy.pb')
+print("2")
 # AER, TTS
 import speech_recognition as sr
-from thaitts import TTS,gTTS1
+from thaitts import TTS,playsound
+print("3")
 # ฟังก์ชัน
 from gettime.nowtime import now # ถามวันเวลา
 from sos import sent
 from pyvadrun import run
-from news.news import gethotnews
+print("4")
+#from news.news import gethotnews
 import vlc
 from pydub import AudioSegment
 from pydub.playback import play
 from weather.weather import now as now_w
-from music.song import music,song,tum,m,s
+from music.song import song,tum,m#,s
 from general import general
-from nn import nb #pythainlu.intent_classification.
+#from nn import nb #pythainlu.intent_classification.
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
 from alert.run import alert_run
 from iot import text2com as iotcom
 from diary import check_word as diarycom
+print("5")
 #from pynput.keyboard import Key, Listener
 
 #m = music()
+'''
 def playsound(path):
+    global play
     song = AudioSegment.from_file(path)
     play(song)
+'''
+stauts=""
+with open('modelclass2.model', 'rb') as in_strm:
+    clf = dill.load(in_strm)
 print('start')
 t=TTS()
+print(6)
 r = sr.Recognizer()
+print(7)
 #t.listen("NSC 2020 แสนดีผู้ช่วยผู้สูงอายุ กำลังเริ่มต้นการทำงาน")
 def on_prediction(prob:float)->None:
     print(print(prob) if prob > 0.5 else '.', end='', flush=True)
 
-stauts=""
-with open('modelclass2.model', 'rb') as in_strm:
-    clf = dill.load(in_strm)
+print(8)
 
 def process(text:str)->tuple:
-    global clf,nb,wcom,ncom,acom,song,tum,n,sound,iotcom
+    global clf,wcom,ncom,acom,song,tum,n,sound,iotcom
     tag=str(clf.predict([text])[0])
     print("ฟังก์ชัน : "+tag)
     _p = clf.predict_proba([text]).max()
@@ -99,19 +114,20 @@ def sound(text):
         pass
     else:
         t.listen(text)
-
-instance = vlc.Instance()
-on_news = False
+print(9)
+#instance = vlc.Instance()
+#on_news = False
 #สร้าง MediaPlayer พร้อม instance พื้นฐาน
-player = instance.media_player_new()
+print(10)
+#_player = instance.media_player_new()
 on_run =False
 def on_activation():
-    global stauts
-    global m,s,player,on_news,on_run
+    global t
+    global m,on_run,_player#instance,on_news
     m.pause()
-    s.pause()
-    if on_news:
-        player.stop()
+    #s.pause()
+    #if on_news:
+    #    _player.stop()
     sound("ค่ะ")
     global r
     print("hotword detected")
@@ -125,61 +141,36 @@ def on_activation():
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
-        if tt[1] == 'news' and "ขออภัยค่ะ" not in tt[0]:
-            gTTS1(tt[0],'news.mp3')
-            media = instance.media_new('news.mp3')
-            player.set_media(media)
-            player.play()
-            on_news=True
-        elif tt=="ลาก่อนค่ะ":
-            sys.exit(0)
-        else:
-            sound(tt[0])
+        #if tt[1] == 'news' and "ขออภัยค่ะ" not in tt[0]:
+        #    t.gTTS1(tt[0],'news.mp3')
+        #    media = instance.media_new('news.mp3')
+        #    _player.set_media(media)
+        #    _player.play()
+        #    on_news=True
+        #elif tt=="ลาก่อนค่ะ":
+        #    sys.exit(0)
+        #else:
+        #    sound(tt[0])
+        sound(tt[0])
     except sr.RequestError as e:
         print(e)
     except Exception as e:
         print(e)
     finally:
         on_run=False
-
-engine = PreciseEngine('precise-engine', 'jao-sandy.pb') #C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe
+#C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe
 # PreciseEngine(ที่ตั้งโฟลเดอร์ Scripts ของ precise-engine ,  ไฟล์ model)
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
-
-num_button = 0
-def on_press(key):
-    global num_button
-    #print('{0} pressed'.format(
-    #    key))
-    if key == Key.media_volume_up:
-        num_button+=1
-
-def on_release(key):
-    global num_button
-    if num_button==1:
-        on_activation()
-        num_button=0
-    #if key == Key.esc:
-    #    # Stop listener
-    #    return Falser
-n_temp = 0
-def run_key(key):
-    global on_run,n_temp
-    print("k")
-    try:
-        if key == Key.media_volume_up:
-            on_release(key)
-    except Exception as e:
-        print(e)
-    #return True
-'''
 # Collect events until released
+print(11)
 runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=4)
 '''listener = Listener(
     on_press=on_press,
     on_release=run_key,suppress=True)
 listener.start()'''
+print(12)
 runner.start()
+print(13)
 thread1 = Thread(target = alert_run)
 thread1.start()
 thread1.join()
