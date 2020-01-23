@@ -44,7 +44,7 @@ def check_word(text):
     if ("จด" in text or "บันทึก" in text) and ("อ่าน" not in text and "ค้น" not in text):
         return go2add()
     elif "ค้น" in text:
-        return pass
+        pass
     return "ฉันไม่เข้าใจในสิ่งที่คุณพูด หรือ พูดใหม่อีกครั้ง "
 
 
