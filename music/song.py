@@ -43,12 +43,11 @@ class music:
         self.search_results = re.findall(r'href=\"\/watch\?v=(.{11})', self.html_content.read().decode())
         
         self.MediaList= self.Instance.media_list_new()
-        for i in del_d(list(self.search_results))[:3]:
-            #self.video = pafy.new("https://www.youtube.com/watch?v=" + i)
-            #self.streams = self.video.streams
-            self.MediaList.add_media(youtube("https://www.youtube.com/watch?v=" + i))#self.streams[-1].url)
+        for i in list((self.search_results)) :
+            self.MediaList.add_media("https://www.youtube.com/watch?v=" + i)
         self.player.set_media_list(self.MediaList)
         self.play()
+
 
     def setVolume(self, Volume):
         """Set the volume
@@ -69,8 +68,8 @@ class music:
     def next(self):
         self.player.next()
     
-    def get_now(self):
-        return self.player.get_media_player().get_title()#get_media_player().get_media().get_mrl()
+    #def get_now(self):
+        #return self.player.get_media_player().get_title()#get_media_player().get_media().get_mrl()
 
 m=music()
 #s=music()
