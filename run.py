@@ -42,12 +42,6 @@ print("5")
 #from pynput.keyboard import Key, Listener
 
 #m = music()
-'''
-def playsound(path):
-    global play
-    song = AudioSegment.from_file(path)
-    play(song)
-'''
 stauts=""
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)
@@ -73,14 +67,12 @@ def process(text:str)->tuple:
         text = g[0]
     elif ("บันทึก" in text or "ไดอารี่" in text) or "ไดอารี" in text:
         text = diarycom(text)
-    elif _p<0.5:
+    elif _p<=0.6:
         text = "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ"
     elif "ออก" in text and "โปรแกรม" in text:
         text = "ลาก่อนค่ะ"
     elif text == "เจ้าแสนดี" or text == "แสนดี":
         text = "สวัสดีค่ะ"
-    elif clf.predict_proba([text]).max()<0.3:
-        text = "ระบบยังไม่รองรับคำสั่งนี้"
     elif tag == "asktime":
         text=now(text)
     elif tag == "alert":
@@ -163,11 +155,7 @@ def on_activation():
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
 # Collect events until released
 print(11)
-runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation)#, sensitivity=0.5, trigger_level=4)
-'''listener = Listener(
-    on_press=on_press,
-    on_release=run_key,suppress=True)
-listener.start()'''
+runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
 print(12)
 runner.start()
 print(13)
