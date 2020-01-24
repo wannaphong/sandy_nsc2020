@@ -25,26 +25,27 @@ def thaitts(text,url,filename):
         r.close()
         raise RuntimeError("ไม่สามารถรันได้")
 
-def gTTS1(text,filename):
-    tts = gTTS(text=text,lang="th")
-    tts.save(filename)
 
 class TTS(object):
     def __init__(self,engine="g"):
         self.engine=engine
         self.thaitts="http://127.0.0.1:5000/tts?text="
+    def gTTS1(self,text,filename):
+        tts = gTTS(text=text,lang="th")
+        tts.save(filename)
     def listen(self,text,play=True):
         text=normalize(text)
-        self.list=word_tokenize(text)
         if play and self.engine=="thaitts":
+            self.list=word_tokenize(text)
             try:
                 thaitts(" ".join(self.list),self.thaitts,"./t.wav")
                 playsound('./t.wav')
             except:
                 print("ไม่สามารถพูดได้ : "+str(text))
         elif play and self.engine=="g":
-            gTTS1(text,"t.mp3")
+            self.gTTS1(text,"t.mp3")
             playsound('t.mp3')
         elif play and self.engine == "ai4thai":
             ai4thai(text,"t.mp3")
             playsound('t.mp3')
+
