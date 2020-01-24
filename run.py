@@ -163,7 +163,7 @@ def on_activation():
 # หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
 # Collect events until released
 print(11)
-runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=4)
+runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation)#, sensitivity=0.5, trigger_level=4)
 '''listener = Listener(
     on_press=on_press,
     on_release=run_key,suppress=True)
