@@ -103,5 +103,5 @@ venv.bak/
 
 # mypy
 .mypy_cache/
-text_to_speech_thai/
-key.key
+src/text_to_speech_thai/
+src/key.key
