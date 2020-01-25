@@ -5,7 +5,7 @@ from weather.weather import text2com as wcom
 from gettime.nowtime import now
 from news.news import text2com as ncom
 import dill
-from music.song import music,song,tum,m,s
+from music.song import music,song,tum,m#,s
 from sos import sent
 from alert import text2com as acom
 with open('modelclass2.model', 'rb') as in_strm:
