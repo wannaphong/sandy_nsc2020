@@ -19,8 +19,9 @@ def get_all(day="now"):
     global all_news,breakingnews,politics,social,crime,region,environment,economy,foreign,sport
     n = [breakingnews(),politics(),social(),crime(),region(),environment(),economy(),foreign(),sport()]
     for i in n:
-        if day == "now":
-            all_news+=[j for j in i.get_today()]
+        _n=i.get_today()
+        if day == "now" and len(_n)>0:
+            all_news+=[j for j in _n]
         else:
             all_news+=[j for j in i.yesterday()]
 get_all()
@@ -29,12 +30,13 @@ def s(text,day="now"):
     if dn!=day:
         get_all(day)
         dn=day
-    t=[sentence_similarity(text,i) for i in all_news]#[0][0]
-    p =max(t)
+    _t=[sentence_similarity(text,i) for i in all_news]#[0][0]
+    #print(_t)
+    p =max(_t)
     print("ค่าความน่าจะเป็นของข่าวที่เกี่ยวข้องมากที่สุด : "+str(p))
     if p<0.02:
         return "ไม่พบข่าวค่ะ"
-    return all_news[t.index(max(t))]
+    return all_news[_t.index(max(_t))]
 """
 while True:
     t = input("ชื่อข่าว : ")

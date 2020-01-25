@@ -41,10 +41,10 @@ def text2com(text):
     tag_ner = ner.get_ner(text,pos=False,tag=True)
     tt = tokenizer.tokenize(tag_ner)
     print("จังหวัดที่ตรวจพบ : "+str(tt))
-    if "สภาพอากาศ" in text or "อากาศ" in text or "อุณหภูมิ":
+    if "สภาพอากาศ" in text or "อากาศ" in text or "อุณหภูมิ" in text:
         pass
     else:
-        return "ขออภัยค่ะ ระบบพยากรณ์อากาศยังไม่รองรับการใช้งานปัจจุบันคะ"
+        return "ขออภัยค่ะ ระบบพยากรณ์อากาศยังไม่รองรับการใช้งานปัจจุบันค่ะ"
     if len(tt)>0:
         if tt[0] ==[] or tt[0] == '':
             temp = "หนองคาย"

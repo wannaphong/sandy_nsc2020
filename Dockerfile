@@ -6,7 +6,7 @@ RUN [ "cross-build-start" ]
 
 RUN apt-get update
 
-RUN apt-get -y install vlc cython3 git sox swig3.0 python3-pyaudio libatlas-base-dev libportaudio-dev python3-dev ffmpeg libavcodec-extra libopenblas-dev python3-scipy libhdf5-dev python3-h5py python3-numpy
+RUN apt-get -y install vlc cython3 pkg-config git sox swig3.0 python3-matplotlib python3-pyaudio libatlas-base-dev libportaudio-dev python3-dev ffmpeg libavcodec-extra libopenblas-dev python3-scipy libhdf5-dev python3-h5py python3-numpy
 
 WORKDIR /root/  
 
