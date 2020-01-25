@@ -14,7 +14,7 @@ COPY src/* /root/service/
 
 RUN python -m pip install -U pip
 
-RUN pip install -r /root/service/requirements.txt
+RUN pip install -r /root/service/requirements-pi.txt
 
 WORKDIR /root/service/thaitts
 RUN pip install -e .
