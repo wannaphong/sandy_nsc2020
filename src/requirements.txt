@@ -8,7 +8,7 @@ pyaudio
 webrtcvad
 pydub
 tinydb
-pythainlp
+https://github.com/PyThaiNLP/pythainlp/archive/f361560b36a74ce8771878f406a6f68ec62efa10.zip
 feedparser
 pandas
 speechrecognition
@@ -28,3 +28,4 @@ emoji
 sklearn-crfsuite
 pytube
 ffmpeg-python
+mycroft-precise
