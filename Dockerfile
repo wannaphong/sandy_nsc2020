@@ -22,8 +22,8 @@ RUN pip3 install -e .
 WORKDIR /root/service/pyvadrun
 RUN pip3 install -e .
 
-WORKDIR /root/ 
+WORKDIR /root/service
 
 RUN [ "cross-build-end" ]
 
-CMD [ "python3", "/root/service/run.py"]
+CMD [ "python3", "run.py"]
