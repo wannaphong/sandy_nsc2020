@@ -4,7 +4,7 @@ ENTRYPOINT []
 
 RUN [ "cross-build-start" ]
 
-RUN apt-get update && apt-get -y install git sox swig3.0 python3-pyaudio libatlas-base-dev libportaudio-dev python3-dev python3-pip ffmpeg libavcodec-extra libopenblas-dev python3-scipy libhdf5-dev python3-h5py python3-numpy
+RUN apt-get update && apt-get -y install vlc git sox swig3.0 python3-pyaudio libatlas-base-dev libportaudio-dev python3-dev python3-pip ffmpeg libavcodec-extra libopenblas-dev python3-scipy libhdf5-dev python3-h5py python3-numpy
 
 RUN pip install cython
 
