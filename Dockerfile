@@ -12,6 +12,8 @@ WORKDIR /root/
 
 COPY src/* /root/service/
 
+RUN python -m pip install -U pip
+
 RUN pip install -r /root/service/requirements.txt
 
 WORKDIR /root/service/thaitts
