@@ -4,8 +4,8 @@ from thaitts import TTS
 import random
 import speech_recognition as sr2
 
-t = TTS()
-r = sr2.Recognizer()
+_t = TTS()
+_r = sr2.Recognizer()
 
 data=[
     ("อะไรเอ่ย หัวเป็นหนามถามไม่พูด", "พระพุทธรูป",""),
@@ -32,31 +32,34 @@ data=[
 ]
 
 def game():
-    global t,r,data
-    t.listen("เกมส์ปริศนาทายคำ\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น\nถ้าคุณขอยอมแพ้ให้พูดว่าเฉลยหรือยอมแพ้")
+    global _t,_r,data
+    _t.listen("เกมส์ปริศนาทายคำ\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น\nถ้าคุณขอยอมแพ้ให้พูดว่าเฉลยหรือยอมแพ้")
     q=random.choice(data)
     qa=q[0]
     a=q[1]
-    t.listen(qa)
+    _t.listen(qa)
+    _n=0
     while True:
         run("g.wav")
         with sr2.WavFile("g.wav") as source:
             print("รับเสียง")
-            audio =  r.record(source)
-            print(audio)
-        text=r.recognize_google(audio,language = "th-TH")
+            audio =  _r.record(source)
+        text=_r.recognize_google(audio,language = "th-TH")
         if a in text:
-            t.listen("ถูกต้องแล้วค่ะ คุณเก่งมาก ๆ เลยค่ะ")#\nข้อต่อไปกัน\n\n\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น")
+            _t.listen("ถูกต้องแล้วค่ะ คุณเก่งมาก ๆ เลยค่ะ")#\nข้อต่อไปกัน\n\n\nหากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น")
             break
         elif "เฉลย" in text or "ยอมแพ้" in text:
-            t.listen(a+"ค่ะ")
+            _t.listen(a+"ค่ะ")
             break
         elif "ทวน" in text:
-            t.listen(qa)
+            _t.listen(qa)
         elif "เลิกเล่น" in text:
-            t.listen("กำลังออกจากเกม")
+            _t.listen("กำลังออกจากเกม")
             break
+        elif _n==1:
+            _t.listen('ยังไม่ถูกค่ะ')
+            _t.listen("หากคุณต้องการเลิกเล่น ให้พูดว่าเลิกเล่น\nถ้าคุณขอยอมแพ้ให้พูดว่าเฉลยหรือยอมแพ้")
         else:
-            t.listen('ยังไม่ถูกค่ะ')
-    t.listen("จบเกมแล้วค่ะ")
+            _t.listen('ยังไม่ถูกค่ะ')
+    _t.listen("จบเกมแล้วค่ะ")
         

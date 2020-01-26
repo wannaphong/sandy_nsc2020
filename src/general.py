@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import ast
 from game import game
 
@@ -33,4 +34,5 @@ def general(text:str):
     elif "เล่นเกม" in text:
         game()
         check=True
+        text=""
     return (text,check)
