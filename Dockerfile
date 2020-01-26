@@ -14,7 +14,7 @@ COPY src/* /root/service/
 
 RUN python -m pip install -U pip
 
-RUN pip install -r /root/service/requirements-pi.txt
+RUN pip install --extra-index-url https://www.piwheels.org/simple -r /root/service/requirements-pi.txt
 
 WORKDIR /root/service/thaitts
 RUN pip install -e .
