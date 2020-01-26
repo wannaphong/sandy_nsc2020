@@ -10,7 +10,9 @@ RUN apt-get -y install libatlas3-base libgfortran5 vlc cython3 pkg-config git so
 
 WORKDIR /root/  
 
-COPY src/* /root/service/
+COPY src/ /root/service/
+
+RUN ls -la /root/service/*
 
 RUN python -m pip install -U pip
 
