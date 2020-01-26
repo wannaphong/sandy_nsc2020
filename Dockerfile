@@ -1,4 +1,4 @@
-FROM balenalib/raspberrypi3-python:3.6-latest
+FROM balenalib/raspberrypi3-python:3.7-latest
 
 ENTRYPOINT []
 
