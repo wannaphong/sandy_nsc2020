@@ -70,7 +70,7 @@ def look(day="วันนี้"):
     global db,N,timezone
     d=str(timezone.localize(thai_day2datetime(day))).split()[0]
     text = ""
-    s = db.search((N.date == d) & (N.alert == True))#((N.date.search(d)) & (N.alert == True))
+    s = db.search((N.date.search(d)) & (N.alert == True))#((N.date.search(d)) & (N.alert == True))
     #print(s)
     if len(s)==0:
         return "ไม่มีการแจ้งเตือน"+day+"ค่ะ"
