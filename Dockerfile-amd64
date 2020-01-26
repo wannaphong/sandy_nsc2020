@@ -2,6 +2,8 @@ FROM ubuntu:bionic
 
 ENTRYPOINT []
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && apt-get -y install build-essential
 
 RUN apt-get install -y python3-pip python3-dev \
