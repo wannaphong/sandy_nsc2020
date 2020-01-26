@@ -1,3 +1,4 @@
+https://www.piwheels.org/simple/numpy/numpy-1.18.1-cp37-cp37m-linux_armv7l.whl
 requests
 precise-runner
 prettyparse==0.1.4
@@ -19,7 +20,7 @@ pafy
 youtube-dl
 termcolor
 gast
-https://www.piwheels.org/simple/tensorflow/tensorflow-1.14.0-cp36-none-linux_armv7l.whl
+https://www.piwheels.org/simple/tensorflow/tensorflow-1.14.0-cp37-none-linux_armv7l.whl
 tensorflow-estimator==1.14.0
 tensorboard==1.14.0
 gtts
