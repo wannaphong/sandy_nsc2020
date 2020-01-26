@@ -52,13 +52,13 @@ def look(day="วันนี้"):
     j=1
     for i in s:
         t = i["date"].split()[1].replace("+07:00","").split('.')[0]
-        text += "รายการที่ "+str(j)+" เวลา "+t+" มีการบันทึกว่า "+i["title"]+" ค่ะ\n"
+        text += "รายการที่ "+str(j)+" เวลา "+t+" หัวข้อ"+i["title"]+" มีการบันทึกว่า "+i["note"]+" ค่ะ\n"
         j+=1
     return text
 
 
 def check_word(text):
-    if "จด" in text and "บันทึก" in text and "วันนี้" not in text:
+    if ("จด" in text or "เขียน" in text) and "บันทึก" in text and "วันนี้" not in text:
         return go2add()
     elif ("ค้น" in text or "อ่าน" in text) and "วันนี้" in text:
         return look(day="วันนี้")
