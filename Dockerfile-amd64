@@ -1,0 +1,32 @@
+FROM ubuntu:bionic
+
+ENTRYPOINT []
+
+RUN apt-get update && apt-get -y install build-essential
+
+RUN apt-get install -y python3-pip python3-dev \
+  && cd /usr/local/bin \
+  && ln -s /usr/bin/python3 python \
+  && pip3 install --upgrade pip
+
+RUN apt-get -y install libatlas3-base libgfortran5 vlc cython3 pkg-config git sox swig3.0 python3-matplotlib python3-pyaudio libatlas-base-dev libportaudio-dev ffmpeg libavcodec-extra libopenblas-dev python3-scipy libhdf5-dev python3-h5py
+
+WORKDIR /root/  
+
+COPY src/ /root/service/
+
+RUN ls -la /root/service/*
+
+RUN python -m pip install -U pip
+
+RUN pip install -r /root/service/requirements-pi.txt
+
+WORKDIR /root/service/thaitts
+RUN pip install -e .
+
+WORKDIR /root/service/pyvadrun
+RUN pip install -e .
+
+WORKDIR /root/service
+
+CMD [ "python", "run.py"]
