@@ -4,6 +4,7 @@ from datetime import datetime
 from thaitts import TTS
 import speech_recognition as sr2
 from pyvadrun import run as _run
+from pythainlp.util import thai_day2datetime, thai_time2time, thai_time
 import pytz
 db = TinyDB('./diary.json')
 timezone = pytz.timezone('Asia/Bangkok')
@@ -20,7 +21,7 @@ def add(title:str,note:str)->None:
     t= timezone.localize(datetime.now())
     db.insert({'date': str(t),'title':title,'note':note})
     return "บันทึกเรียบร้อยแล้วค่ะ"
-
+N = Query()
 def go2add():
     global _run
     tts.listen("กรุณาพูดหัวข้อการบันทึกในครั้งนี้ค่ะ แล้วหยุดสัก 2 3 วินาทีนะคะ")
@@ -39,13 +40,29 @@ def go2add():
     print(note)
     return add(title,note)
 
+def look(day="วันนี้"):
+    global db,N,timezone
+    d=str(timezone.localize(thai_day2datetime(day))).split()[0]
+    text = ""
+    s = db.search(N.date.search(d))#((N.date.search(d)) & (N.alert == True))
+    #print(s)
+    if len(s)==0:
+        return "ไม่มีการบันทึก"+day+"ค่ะ"
+    text += "รายการบันทึกความจำ"+day+"มีดังนี้"+"\n"
+    j=1
+    for i in s:
+        t = i["date"].split()[1].replace("+07:00","").split('.')[0]
+        text += "รายการที่ "+str(j)+" เวลา "+t+" หัวข้อ"+i["title"]+" มีการบันทึกว่า "+i["note"]+" ค่ะ\n"
+        j+=1
+    return text
+
 
 def check_word(text):
-    if ("จด" in text or "บันทึก" in text) and ("อ่าน" not in text and "ค้น" not in text):
+    if ("จด" in text or "เขียน" in text) and "บันทึก" in text and "วันนี้" not in text:
         return go2add()
-    elif "ค้น" in text:
-        pass
-    return "ฉันไม่เข้าใจในสิ่งที่คุณพูด หรือ พูดใหม่อีกครั้ง "
+    elif ("ค้น" in text or "อ่าน" in text) and "วันนี้" in text:
+        return look(day="วันนี้")
+    return "ฉันไม่เข้าใจในสิ่งที่คุณพูด ให้พูดใหม่อีกครั้งค่ะ "
 
 
 def read_diary():#อ่านไดอารี่ทั้งหมด 

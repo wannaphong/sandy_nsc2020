@@ -10,20 +10,20 @@ import time
 import sys
 from threading import Event, Thread
 import dill
-print("1")
+print("1 : import hotword")
 # Hotword
 from precise_runner import PreciseEngine, PreciseRunner
 engine = PreciseEngine('precise-engine', 'jao-sandy.pb')
-print("2")
+print("2 : import AER, TTS")
 # AER, TTS
 import speech_recognition as sr
 from thaitts import TTS,playsound
-print("3")
+print("3 : import ฟังก์ชัน")
 # ฟังก์ชัน
 from gettime.nowtime import now # ถามวันเวลา
 from sos import sent
 from pyvadrun import run
-print("4")
+print("4 : import vlc")
 #from news.news import gethotnews
 import vlc
 from pydub import AudioSegment
@@ -38,16 +38,15 @@ from alert import text2com as acom
 from alert.run import alert_run
 from iot import text2com as iotcom
 from diary import check_word as diarycom
-print("5")
+print("5 : nlu")
 #from pynput.keyboard import Key, Listener
 
 #m = music()
 stauts=""
 with open('modelclass2.model', 'rb') as in_strm:
     clf = dill.load(in_strm)
-print('start')
 t=TTS()
-print(6)
+print("6 : ASR")
 r = sr.Recognizer()
 print(7)
 #t.listen("NSC 2020 แสนดีผู้ช่วยผู้สูงอายุ กำลังเริ่มต้นการทำงาน")
@@ -102,7 +101,13 @@ def sound(text):
         playsound('./sound/ค่ะ.mp3')
     elif text == "ลาก่อนค่ะ":
         playsound('./sound/bye.mp3')
-    elif text=='':
+    elif text == "กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ":
+        playsound('./sound/news1.mp3')
+    elif text == "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ":
+        playsound('./sound/sos1.mp3')
+    elif text == "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ":
+        playsound('./sound/notsup.mp3')
+    elif text == "":
         pass
     else:
         t.listen(text)
