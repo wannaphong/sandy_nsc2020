@@ -5,10 +5,8 @@ from vlc import *
 import urllib.request
 import urllib.parse
 import re
-from thaitts import TTS
 import youtube_dl
 
-tt = TTS()
 
 def youtube(url):
     ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s%(ext)s'})
@@ -43,8 +41,12 @@ class music:
         self.search_results = re.findall(r'href=\"\/watch\?v=(.{11})', self.html_content.read().decode())
         
         self.MediaList= self.Instance.media_list_new()
-        for i in list((self.search_results)) :
-            self.MediaList.add_media("https://www.youtube.com/watch?v=" + i)
+        self.list_new=[]
+        for i in list(self.search_results):
+            if i not in self.list_new:
+                self.list_new.append(i)
+        for i in self.list_new[:3]:
+            self.MediaList.add_media(youtube("https://www.youtube.com/watch?v=" + i))
         self.player.set_media_list(self.MediaList)
         self.play()
 
@@ -85,20 +87,14 @@ def song(text:str)->str:
         m.play()
     elif ("ฟัง" in text or "เล่น"in text) and 'เพลง'and 'ต่อ' in text: 
         text="เล่นเพลงต่อแล้วค่ะ"
-        tt.listen(text)
         m.play()
-        text=""
     elif 'ปิด' in text and ('เพลง' in text or 'เสียง' in text):
         m.stop()
         text="ปิดเพลงเรียบร้อยแล้วค่ะ"
-        tt.listen(text)
-        text=""
         m=music()
     elif 'หยุด' in text and ('เพลง' in text or 'เล่น' in text):
         m.pause()
         text="หยุดเพลงเรียบร้อยแล้วค่ะหากต้องการฟังต่อให้สั่งฟังเพลงต่อได้เลยนะคะ"
-        tt.listen(text)
-        text=""
     elif 'เปลี่ยน' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
         m.change(text)
@@ -107,14 +103,10 @@ def song(text:str)->str:
     elif 'เพลง' in text and'ถัดไป' in text:
         m.next()
         text="เล่นเพลงถัดไปแล้วค่ะ"
-        tt.listen(text)
         m.play()
-        text=""
     else:
         text="ระบบยังไม่รองรับคำสั่ง"+text+"ค่ะ  งั้นเล่นเพลงต่อเลยนะคะ "
-        tt.listen(text)
         m.play()
-        text=""
     return text
 
 def tum(text:str)->str:
@@ -131,38 +123,26 @@ def tum(text:str)->str:
     
     elif ("ฟัง" in text or "เล่น"in text) and 'ธรรมะ'and 'ต่อ' in text: 
         text="เล่นธรรมะต่อแล้วค่ะ"
-        tt.listen(text)
         m.play()
-        text=""
     elif 'ปิด' in text and ('ธรรมะ' in text or 'เสียง' in text):
         m.stop()
         text="ปิดธรรมะเรียบร้อยแล้วค่ะ"
-        tt.listen(text)
-        text=""
         m=music()
     elif 'หยุด' in text and ('ธรรมะ' in text or 'เล่น' in text):
         m.pause()
         text="หยุดธรรมะเรียบร้อยแล้วค่ะหากต้องการฟังธรรมะต่อให้สั่งฟังธรรมะต่อได้เลยนะคะ"
-        tt.listen(text)
-        text=""
     elif 'เปลี่ยน' in text and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
         m.change(text)
-        tt.listen(text)
         m.play()
-        text=""
     
         
     elif 'ธรรมะ' in text and'ถัดไป' in text:
         m.next()
         text="เล่นธรรมะถัดไปแล้วค่ะ"
-        tt.listen(text)
         m.play()
-        text=""
         
     else:
         text="ระบบยังไม่รองรับค่ะคำสั่ง"+text+"ค่ะ  งั้นเล่นธรรมะต่อเลยนะคะ "
-        tt.listen(text)
         m.play()
-        text=""
     return text
