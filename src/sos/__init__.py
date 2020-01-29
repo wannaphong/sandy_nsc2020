@@ -3,6 +3,7 @@ import time
 import requests, urllib.parse
 import io
 #from PIL import Image
+from pysandy import getlinenotify
 
 
 class LINE:
@@ -36,7 +37,7 @@ class LINE:
         return response.text
 
 def sent():
-    line = LINE("mbkJVhbGsc6aOSk9gn1MxZ7b9bQTlrsVnaLqxDQmd4M")
+    line = LINE(getlinenotify())
     line.sendtext("มีคนในบ้านต้องการความช่วยเหลือด่วนครับ")
     line.sendtext("ช่วยมาที่บ้านด้วยครับ")
     line.sendsticker(1,4)

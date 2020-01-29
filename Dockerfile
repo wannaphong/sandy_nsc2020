@@ -24,6 +24,10 @@ RUN pip install -e .
 WORKDIR /root/service/pyvadrun
 RUN pip install -e .
 
+WORKDIR /root/service/pysandy
+RUN pip install -e .
+
+
 WORKDIR /root/service
 
 RUN [ "cross-build-end" ]
