@@ -22,6 +22,16 @@ def add(title:str,note:str)->None:
     db.insert({'date': str(t),'title':title,'note':note})
     return "บันทึกเรียบร้อยแล้วค่ะ"
 N = Query()
+
+def search_audio():
+    global _run
+    tts.listen("กรุณาพูดข้อความที่ต้องการค้นหาค่ะ")
+    _run("ds1.wav")
+    with sr2.WavFile("ds1.wav") as source:
+        print("รับเสียง")
+        audio =  r.record(source)
+
+
 def go2add():
     global _run
     tts.listen("กรุณาพูดหัวข้อการบันทึกในครั้งนี้ค่ะ แล้วหยุดสัก 2 3 วินาทีนะคะ")
@@ -40,7 +50,7 @@ def go2add():
     print(note)
     return add(title,note)
 
-def look(day="วันนี้"):
+def look(day:str="วันนี้"):
     global db,N,timezone
     d=str(timezone.localize(thai_day2datetime(day))).split()[0]
     text = ""
@@ -57,7 +67,7 @@ def look(day="วันนี้"):
     return text
 
 
-def check_word(text):
+def check_word(text:str):
     if ("จด" in text or "เขียน" in text) and "บันทึก" in text and "วันนี้" not in text:
         return go2add()
     elif ("ค้น" in text or "อ่าน" in text) and "วันนี้" in text:

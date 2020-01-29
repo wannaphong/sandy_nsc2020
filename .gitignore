@@ -105,3 +105,8 @@ venv.bak/
 .mypy_cache/
 src/text_to_speech_thai/
 src/key.key
+src/diary.json
+src/d1.wav
+src/d2.wav
+src/db.json
+src/diary.json
