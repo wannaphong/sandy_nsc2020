@@ -40,7 +40,19 @@ from iot import text2com as iotcom
 from diary import check_word as diarycom
 print("5 : nlu")
 #from pynput.keyboard import Key, Listener
-
+import urllib
+from urllib.request import urlopen
+def is_internet():
+    """
+    Query internet using python
+    :return:
+    """
+    try:
+        urlopen('https://sandy.numfa.com', timeout=1)
+        return True
+    except Exception as Error:
+        print(Error)
+        return False
 #m = music()
 stauts=""
 with open('modelclass2.model', 'rb') as in_strm:
@@ -88,8 +100,8 @@ def process(text:str)->tuple:
         text = ncom(text)
         sound("กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ")
     elif tag == "sos":
-        text = "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
-        sent()
+        #text = "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
+        text = sent()
     else:
         text = "ระบบยังไม่รองรับ"
     print("ข้อความจากฟังก์ชัน : "+text)
@@ -107,6 +119,8 @@ def sound(text):
         playsound('./sound/sos1.mp3')
     elif text == "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ":
         playsound('./sound/notsup.mp3')
+    elif text == "nointernet":
+        playsound('./sound/notnet.mp3')
     elif text == "":
         pass
     else:
@@ -125,6 +139,9 @@ def on_activation():
     #s.pause()
     #if on_news:
     #    _player.stop()
+    if is_internet()==False:
+        sound("nointernet")
+        return ''
     sound("ค่ะ")
     global r
     print("hotword detected")
@@ -155,10 +172,7 @@ def on_activation():
         print(e)
     finally:
         on_run=False
-#C:\\Users\\TC\\Anaconda3\\Scripts\\precise-engine.exe
-# PreciseEngine(ที่ตั้งโฟลเดอร์ Scripts ของ precise-engine ,  ไฟล์ model)
-# หากรันบน Linux ใช้ precise-engine/precise-engine ใน precise-engine
-# Collect events until released
+
 print(11)
 runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
 print(12)

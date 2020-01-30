@@ -37,7 +37,10 @@ class LINE:
         return response.text
 
 def sent():
+    if getlinenotify()=='':
+        return "ระบบขอความช่วยเหลือผ่านนไลน์ยังไม่เปิดใช้งาน กรุณาตั้งค่าก่อนตามคู่มือการใช้งานค่ะ"
     line = LINE(getlinenotify())
     line.sendtext("มีคนในบ้านต้องการความช่วยเหลือด่วนครับ")
     line.sendtext("ช่วยมาที่บ้านด้วยครับ")
     line.sendsticker(1,4)
+    return "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
