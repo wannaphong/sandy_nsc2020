@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
 from pythainlp.util import thai_time,thai_strftime
+from datetime import timedelta
 
 def now(text):
     _n=datetime.now()
     print("t :",text)
-    if "วัน" in text and "เวลา" in text:
+    if 'พรุ่งนี้' in text:
+        text="วันพรุ่งนี้เป็น"+thai_strftime(_n+ timedelta(days=1) , "%A %d %B %Y ")+"ค่ะ"
+    elif "วัน" in text and "เวลา" in text:
         text = "วันนี้"+thai_strftime(_n, "%A %d %B %Y ")+"เวลา "+thai_time(str(_n.strftime('%H:%M')),"6h")+"ค่ะ"
     elif "วัน" in text:
         text = "วันนี้"+thai_strftime(_n, "%A %d %B %Y ")+"ค่ะ"
