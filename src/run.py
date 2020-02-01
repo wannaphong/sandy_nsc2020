@@ -2,13 +2,11 @@
 """
 แสนดี : คู่บ้านผู้สูงอายุ
 """
-from pyvlc import quitfile
 from warnings import simplefilter
 # ignore all future warnings
 simplefilter(action='ignore', category=UserWarning)
 # python พื้นฐาน
 import time
-import sys
 from threading import Event, Thread
 import dill
 print("1 : import hotword")
@@ -25,14 +23,10 @@ from gettime.nowtime import now # ถามวันเวลา
 from sos import sent
 from pyvadrun import run
 print("4 : import vlc")
-#from news.news import gethotnews
-import vlc
-from pydub import AudioSegment
-from pydub.playback import play
+from pyvlc import quitfile
 from weather.weather import now as now_w
 from music.song import song,tum,m#,s
 from general import general
-#from nn import nb #pythainlu.intent_classification.
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
 from alert import text2com as acom
@@ -40,7 +34,6 @@ from alert.run import alert_run
 from iot import text2com as iotcom
 from diary import check_word as diarycom
 print("5 : nlu")
-#from pynput.keyboard import Key, Listener
 import urllib
 from urllib.request import urlopen
 def is_internet():
@@ -86,7 +79,7 @@ def process(text:str)->tuple:
     elif text == "เจ้าแสนดี" or text == "แสนดี":
         text = "สวัสดีค่ะ"
     elif tag == "asktime":
-        text=now(text)
+        text = now(text)
     elif tag == "alert":
         text = acom(text)#"ระบบการแจ้งเตือน ยังไม่พร้อมใช้งาน"
     elif tag == "fan" or tag == "light":
@@ -101,7 +94,6 @@ def process(text:str)->tuple:
         text = ncom(text)
         sound("กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ")
     elif tag == "sos":
-        #text = "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ"
         text = sent()
     else:
         text = "ระบบยังไม่รองรับ"
@@ -138,9 +130,6 @@ def on_activation():
     global t,on_news
     global m,on_run,_player#instance,on_news
     m.pause()
-    #s.pause()
-    #if on_news:
-    #    _player.stop()
     if is_internet()==False:
         sound("nointernet")
         return ''
@@ -164,16 +153,6 @@ def on_activation():
             on_news=True
         else:
             sound(tt[0])
-        #if tt[1] == 'news' and "ขออภัยค่ะ" not in tt[0]:
-        #    t.gTTS1(tt[0],'news.mp3')
-        #    media = instance.media_new('news.mp3')
-        #    _player.set_media(media)
-        #    _player.play()
-        #    on_news=True
-        #elif tt=="ลาก่อนค่ะ":
-        #    sys.exit(0)
-        #else:
-        #    sound(tt[0])
         
     except sr.RequestError as e:
         print(e)

@@ -5,7 +5,6 @@ import io
 #from PIL import Image
 from pysandy import getlinenotify
 
-
 class LINE:
     def __init__(self, token):
         self.url = 'https://notify-api.line.me/api/notify'
