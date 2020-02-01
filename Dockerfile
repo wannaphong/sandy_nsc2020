@@ -6,7 +6,7 @@ RUN [ "cross-build-start" ]
 
 RUN apt-get update && apt-get -y install build-essential
 
-RUN apt-get -y install libatlas3-base libgfortran5 vlc cython3 pkg-config git sox swig3.0 python3-matplotlib python3-pyaudio libatlas-base-dev libportaudio-dev python3-dev ffmpeg libavcodec-extra libopenblas-dev python3-scipy libhdf5-dev python3-h5py
+RUN apt-get -y install libatlas3-base libgfortran5 vlc cython3 pkg-config git sox swig3.0 python3-matplotlib python3-pandas python3-pyaudio libatlas-base-dev libportaudio-dev python3-dev ffmpeg libavcodec-extra libopenblas-dev python3-scipy libhdf5-dev python3-h5py
 
 WORKDIR /root/  
 
