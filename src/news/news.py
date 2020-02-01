@@ -3,6 +3,8 @@ from .thaipbs import *
 from .allnews import s
 from pythainlp.util import num_to_thaiword
 from pythainlp.tokenize import sent_tokenize
+from thaitts import TTS
+from pyvlc import playfile
 '''
 from thaitts import TTS
 t=TTS()
@@ -12,6 +14,11 @@ instance = vlc.Instance()
 #สร้าง MediaPlayer พร้อม instance พื้นฐาน
 _player = instance.media_player_new()
 '''
+t=TTS()
+
+def playnews(txt):
+    t.gTTS1(txt,'news.mp3')
+    playfile('news.mp3')
 
 def get_news(ty="breakingnews",text=""):
     if ty == "breakingnews":
@@ -117,4 +124,5 @@ def text2com(text):
     #media = instance.media_new('news.mp3')
     #_player.set_media(media)
     #_player.play()
-    return temp#''
+    playnews(temp)
+    return True#''

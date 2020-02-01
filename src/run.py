@@ -2,6 +2,7 @@
 """
 แสนดี : คู่บ้านผู้สูงอายุ
 """
+from pyvlc import quitfile
 from warnings import simplefilter
 # ignore all future warnings
 simplefilter(action='ignore', category=UserWarning)
@@ -132,8 +133,9 @@ print(9)
 print(10)
 #_player = instance.media_player_new()
 on_run =False
+on_news=False
 def on_activation():
-    global t
+    global t,on_news
     global m,on_run,_player#instance,on_news
     m.pause()
     #s.pause()
@@ -142,6 +144,9 @@ def on_activation():
     if is_internet()==False:
         sound("nointernet")
         return ''
+    if on_news==True:
+        quitfile()
+        on_news=False
     sound("ค่ะ")
     global r
     print("hotword detected")
@@ -155,6 +160,10 @@ def on_activation():
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
+        if tt[1] == 'news':
+            on_news=True
+        else:
+            sound(tt[0])
         #if tt[1] == 'news' and "ขออภัยค่ะ" not in tt[0]:
         #    t.gTTS1(tt[0],'news.mp3')
         #    media = instance.media_new('news.mp3')
@@ -165,7 +174,7 @@ def on_activation():
         #    sys.exit(0)
         #else:
         #    sound(tt[0])
-        sound(tt[0])
+        
     except sr.RequestError as e:
         print(e)
     except Exception as e:

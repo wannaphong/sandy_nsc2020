@@ -27,6 +27,8 @@ RUN pip install -e .
 WORKDIR /root/service/pysandy
 RUN pip install -e .
 
+WORKDIR /root/service/pyvlc
+RUN pip install -e .
 
 WORKDIR /root/service
 
