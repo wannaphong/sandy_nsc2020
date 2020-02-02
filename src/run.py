@@ -5,6 +5,8 @@
 from warnings import simplefilter
 # ignore all future warnings
 simplefilter(action='ignore', category=UserWarning)
+from music.song import song,tum,m#,s
+m.play_other("./sound/open.mp4")
 # python พื้นฐาน
 import time
 from threading import Event, Thread
@@ -28,7 +30,7 @@ print("4 : import vlc")
 #
 print("import ฟังก์ชัน")
 from weather.weather import now as now_w
-from music.song import song,tum,m#,s
+
 from general import general
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
@@ -179,6 +181,7 @@ def on_activation():
 print(11)
 runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
 print(12)
+m.stop()
 runner.start()
 print(13)
 thread1 = Thread(target = alert_run)
