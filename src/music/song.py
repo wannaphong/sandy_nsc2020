@@ -69,6 +69,11 @@ class music:
 
     def next(self):
         self.player.next()
+    def play_other(self,file):
+        self.stop()
+        self.MediaList= self.Instance.media_list_new()
+        self.MediaList.add_media(file)
+        self.player.set_media_list(self.MediaList)
     
     #def get_now(self):
         #return self.player.get_media_player().get_title()#get_media_player().get_media().get_mrl()

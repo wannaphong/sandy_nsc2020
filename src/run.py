@@ -142,6 +142,7 @@ def on_activation():
         return ''
     if on_news==True:
         #mixer.music.stop()
+        m.stop()
         on_news=False
     sound("ค่ะ")
     global r
@@ -162,7 +163,9 @@ def on_activation():
             #mixer.music.load('./news.mp3')
             print("ok news")
             #mixer.music.play()
-            playsound('./news.mp3')
+            m.play_other('./news.mp3')
+            m.play()
+            #playsound('./news.mp3')
         else:
             sound(tt[0])
         
