@@ -32,6 +32,8 @@ class music:
         self.status = True
         self.Instance = vlc.Instance()
         self.player = self.Instance.media_list_player_new()
+        self.list_new =[]
+        self.now=None
     def change(self,search):
         self.stop()
         self._search(search)
@@ -66,10 +68,17 @@ class music:
             self.player.pause()
             self.m="pause"
             print("status is pause!")
-
+    def play_old(self):
+        if self.list_new !=[]:
+            self.player.set_media_list(self.list_new)
+            if self.now !=None:
+                self.player.play_item_at_index(self.list_new.index(self.now))
+            self.play()
     def next(self):
         self.player.next()
     def play_other(self,file):
+        if self.m == "pause" and self.list_new !=[]:
+            self.now=self.player.get_media_player().get_media().get_mrl()
         self.stop()
         self.MediaList= self.Instance.media_list_new()
         self.MediaList.add_media(file)

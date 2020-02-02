@@ -96,6 +96,8 @@ def process(text:str)->tuple:
         if 'เปิด' in text:
             sound("กำลังเปิดเพลงอยู่ กรุณารอสักครู่ค่ะ")
         text = song(text)#"ระบบฟังเพลง"
+        if 'เล่นเพลงต่อ' in text:
+            m.play_old()
     elif tag == "religion":
         if 'เปิด' in text:
             sound("กำลังเปิดธรรมะอยู่ กรุณารอสักครู่ค่ะ")
@@ -157,6 +159,8 @@ def on_activation():
         print("รับเสียง")
         audio =  r.record(source) #r.listen(source)
     print("กำลังประมวลผล")
+    m.play_other('./sound/361217__littlejest__waiting.mp3')
+    m.play()
     try:
         print("กำลังรอเสียง")
         text=r.recognize_google(audio,language = "th-TH")
@@ -168,10 +172,12 @@ def on_activation():
             #mixer.music.load('./news.mp3')
             print("ok news")
             #mixer.music.play()
+            m.stop()
             m.play_other('./news.mp3')
             m.play()
             #playsound('./news.mp3')
         else:
+            m.stop()
             sound(tt[0])
         
     except sr.RequestError as e:
@@ -184,12 +190,11 @@ def on_activation():
 print(11)
 runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
 print(12)
-m.stop()
 runner.start()
 print(13)
 thread1 = Thread(target = alert_run)
 thread1.start()
 thread1.join()
 #runner.start()
-
+m.stop()
 Event().wait()

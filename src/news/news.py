@@ -16,9 +16,6 @@ _player = instance.media_player_new()
 '''
 t=TTS()
 
-def playnews(txt):
-    t.gTTS1(txt,'news.mp3')
-    return playfile('news.mp3')
 
 def get_news(ty="breakingnews",text=""):
     if ty == "breakingnews":
@@ -91,11 +88,9 @@ def gethotnews():
         j+=1
     t+="สำหรับข่าวเด่นประจำวันจบแล้วค่ะ"
     return t
-def get():
-    n=gethotnews()
 #print(gethotnews())
 def text2com(text):
-    global politics,get_newst#,instance,_player
+    global get_newst#,instance,_player
     if "ข่าว" not in text:
         temp= "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ"
     if "การเมือง" in text:
