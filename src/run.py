@@ -23,8 +23,8 @@ from gettime.nowtime import now # ถามวันเวลา
 from sos import sent
 from pyvadrun import run
 print("4 : import vlc")
-from pygame import mixer
-mixer.init()
+#from pygame import mixer
+#mixer.init()
 #
 print("import ฟังก์ชัน")
 from weather.weather import now as now_w
@@ -88,8 +88,12 @@ def process(text:str)->tuple:
     elif tag == "fan" or tag == "light":
         text = iotcom(text,tag)
     elif tag == "music":
+        if 'เปิด' in text:
+            sound("กำลังเปิดเพลงอยู่ กรุณารอสักครู่ค่ะ")
         text = song(text)#"ระบบฟังเพลง"
     elif tag == "religion":
+        if 'เปิด' in text:
+            sound("กำลังเปิดธรรมะอยู่ กรุณารอสักครู่ค่ะ")
         text = tum(text)#"ระบบฟังธรรมะ"
     elif tag == "weather":
         text = wcom(text)
@@ -137,7 +141,7 @@ def on_activation():
         sound("nointernet")
         return ''
     if on_news==True:
-        mixer.music.stop()
+        #mixer.music.stop()
         on_news=False
     sound("ค่ะ")
     global r
@@ -155,9 +159,10 @@ def on_activation():
         print(tt)
         if tt[1] == 'news':
             on_news=True
-            mixer.music.load('./news.mp3')
+            #mixer.music.load('./news.mp3')
             print("ok news")
-            mixer.music.play()
+            #mixer.music.play()
+            playsound('./news.mp3')
         else:
             sound(tt[0])
         
