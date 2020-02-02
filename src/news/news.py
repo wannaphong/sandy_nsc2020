@@ -18,7 +18,7 @@ t=TTS()
 
 def playnews(txt):
     t.gTTS1(txt,'news.mp3')
-    playfile('news.mp3')
+    return playfile('news.mp3')
 
 def get_news(ty="breakingnews",text=""):
     if ty == "breakingnews":
@@ -124,5 +124,6 @@ def text2com(text):
     #media = instance.media_new('news.mp3')
     #_player.set_media(media)
     #_player.play()
-    playnews(temp)
-    return True#''
+    #v=playnews(temp)
+    t.gTTS1(temp,'news.mp3')
+    return (True)#''

@@ -6,14 +6,14 @@ import requests
 from gtts import gTTS
 from pythainlp.tokenize import word_tokenize
 from pythainlp.util import normalize
-#from pydub import AudioSegment
-#from pydub.playback import play
-from pyvlc import playfile
+from pydub import AudioSegment
+from pydub.playback import play
+#from pyvlc import playfile
 from .ai4thai import ai4thai
 def playsound(path):
-    #song = AudioSegment.from_file(path)
-    #play(song)
-    playfile(path)
+    song = AudioSegment.from_file(path)
+    play(song)
+    #playfile(path)
 
 def thaitts(text,url,filename):
     r = requests.get(url+text, allow_redirects=True)

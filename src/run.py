@@ -23,7 +23,11 @@ from gettime.nowtime import now # ถามวันเวลา
 from sos import sent
 from pyvadrun import run
 print("4 : import vlc")
-from pyvlc import quitfile
+import vlc
+instance = vlc.Instance()
+_player = instance.media_player_new()
+#
+print("import ฟังก์ชัน")
 from weather.weather import now as now_w
 from music.song import song,tum,m#,s
 from general import general
@@ -97,7 +101,7 @@ def process(text:str)->tuple:
         text = sent()
     else:
         text = "ระบบยังไม่รองรับ"
-    print("ข้อความจากฟังก์ชัน : "+text)
+    print("ข้อความจากฟังก์ชัน : "+str(text))
     return (text,tag)
 
 def sound(text):
@@ -127,14 +131,14 @@ print(10)
 on_run =False
 on_news=False
 def on_activation():
-    global t,on_news
+    global t,on_news,v
     global m,on_run,_player#instance,on_news
     m.pause()
     if is_internet()==False:
         sound("nointernet")
         return ''
     if on_news==True:
-        quitfile()
+        _player.stop()
         on_news=False
     sound("ค่ะ")
     global r
@@ -149,8 +153,13 @@ def on_activation():
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
+        print(tt)
         if tt[1] == 'news':
             on_news=True
+            media = instance.media_new('./news.mp3')
+            print("ok news")
+            _player.set_media(media)
+            _player.play()
         else:
             sound(tt[0])
         
