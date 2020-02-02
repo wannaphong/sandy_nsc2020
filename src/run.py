@@ -6,7 +6,8 @@ from warnings import simplefilter
 # ignore all future warnings
 simplefilter(action='ignore', category=UserWarning)
 from music.song import song,tum,m#,s
-m.play_other("./sound/open.mp4")
+m.play_other("./sound/on.mp4")
+m.play()
 # python พื้นฐาน
 import time
 from threading import Event, Thread
@@ -30,7 +31,9 @@ print("4 : import vlc")
 #
 print("import ฟังก์ชัน")
 from weather.weather import now as now_w
-
+m.stop()
+m.play_other("./sound/open.mp4")
+m.play()
 from general import general
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
