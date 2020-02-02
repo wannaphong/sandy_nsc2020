@@ -23,9 +23,8 @@ from gettime.nowtime import now # ถามวันเวลา
 from sos import sent
 from pyvadrun import run
 print("4 : import vlc")
-import vlc
-instance = vlc.Instance()
-_player = instance.media_player_new()
+from pygame import mixer
+mixer.init()
 #
 print("import ฟังก์ชัน")
 from weather.weather import now as now_w
@@ -138,7 +137,7 @@ def on_activation():
         sound("nointernet")
         return ''
     if on_news==True:
-        _player.stop()
+        mixer.music.stop()
         on_news=False
     sound("ค่ะ")
     global r
@@ -156,10 +155,9 @@ def on_activation():
         print(tt)
         if tt[1] == 'news':
             on_news=True
-            media = instance.media_new('./news.mp3')
+            mixer.music.load('./news.mp3')
             print("ok news")
-            _player.set_media(media)
-            _player.play()
+            mixer.music.play()
         else:
             sound(tt[0])
         
