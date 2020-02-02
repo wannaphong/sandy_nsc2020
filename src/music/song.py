@@ -5,9 +5,10 @@ from vlc import *
 import urllib.request
 import urllib.parse
 import re
-import youtube_dl
+#import youtube_dl
+from pytube import YouTube
 
-
+'''
 def youtube(url):
     ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s%(ext)s'})
     with ydl:
@@ -18,7 +19,10 @@ def youtube(url):
         video = result
     #print(video)
     return video['url']
-
+'''
+def youtube(url):
+    a=YouTube(url)
+    return a.streams.filter(only_audio=True).all()[0].url
 def del_d(listdata):
     temp=[]
     for i in listdata:
@@ -42,14 +46,14 @@ class music:
         self.html_content = urllib.request.urlopen("https://www.youtube.com/results?" + self.query_string)
         self.search_results = re.findall(r'href=\"\/watch\?v=(.{11})', self.html_content.read().decode())
         
-        self.MediaList= self.Instance.media_list_new()
+        self.MediaListtemp= self.Instance.media_list_new()
         self.list_new=[]
         for i in list(self.search_results):
             if i not in self.list_new:
                 self.list_new.append(i)
         for i in self.list_new[:3]:
-            self.MediaList.add_media(youtube("https://www.youtube.com/watch?v=" + i))
-        self.player.set_media_list(self.MediaList)
+            self.MediaListtemp.add_media(youtube("https://www.youtube.com/watch?v=" + i))
+        self.player.set_media_list(self.MediaListtemp)
         self.play()
 
 
@@ -70,9 +74,10 @@ class music:
             print("status is pause!")
     def play_old(self):
         if self.list_new !=[]:
-            self.player.set_media_list(self.list_new)
+            self.player.set_media_list(self.MediaListtemp)
             if self.now !=None:
                 self.player.play_item_at_index(self.list_new.index(self.now))
+                self.now = None
             self.play()
     def next(self):
         self.player.next()
