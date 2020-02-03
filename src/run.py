@@ -70,7 +70,7 @@ def on_prediction(prob:float)->None:
 print(8)
 
 def process(text:str)->tuple:
-    global clf,wcom,ncom,acom,song,tum,n,sound,iotcom
+    global clf,wcom,ncom,acom,song,tum,n,sound,iotcom,m
     tag=str(clf.predict([text])[0])
     print("ฟังก์ชัน : "+tag)
     _p = clf.predict_proba([text]).max()
@@ -166,23 +166,26 @@ def on_activation():
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
+        m.stop()
         print(tt)
         if tt[1] == 'news':
             on_news=True
             #mixer.music.load('./news.mp3')
             print("ok news")
             #mixer.music.play()
-            m.stop()
+            #m.stop()
             m.play_other('./news.mp3')
             m.play()
             #playsound('./news.mp3')
         else:
-            m.stop()
+            #m.stop()
             sound(tt[0])
         
     except sr.RequestError as e:
+        m.stop()
         print(e)
     except Exception as e:
+        m.stop()
         print(e)
     finally:
         on_run=False
