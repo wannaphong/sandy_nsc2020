@@ -182,14 +182,14 @@ def on_activation():
         print("รับเสียง")
         audio =  r.record(source) #r.listen(source)
     print("กำลังประมวลผล")
-    m.play_other(get_path('./sound/361217__littlejest__waiting.mp3'))
-    m.play()
+    #m.play_other(get_path('./sound/361217__littlejest__waiting.mp3'))
+    #m.play()
     try:
         print("กำลังรอเสียง")
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
-        m.stop()
+        #m.stop()
         print(tt)
         if tt[1] == 'news':
             on_news=True
@@ -214,16 +214,14 @@ def on_activation():
         on_run=False
 
 print(11)
-def main():
-    runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
-    print(12)
-    runner.start()
-    print(13)
-    thread1 = Thread(target = alert_run)
-    thread1.start()
-    thread1.join()
-    #runner.start()
-    m.stop()
-    Event().wait()
-if __name__=='__main__':
-   main()
+m.stop()
+runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
+print(12)
+runner.start()
+print(13)
+thread1 = Thread(target = alert_run)
+thread1.start()
+thread1.join()
+#runner.start()
+
+Event().wait()

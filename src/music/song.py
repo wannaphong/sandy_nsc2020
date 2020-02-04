@@ -17,7 +17,7 @@ def youtube(url):
         video = result['formats'][0]
     else:
         video = result
-    print(video['url'])
+    #print(video['url'])
     return video['url']#.replace("https:","http:")
 '''
 def youtube(url):
