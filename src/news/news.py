@@ -4,7 +4,7 @@ from .allnews import s
 from pythainlp.util import num_to_thaiword
 from pythainlp.tokenize import sent_tokenize
 from thaitts import TTS
-from pyvlc import playfile
+#from pyvlc import playfile
 '''
 from thaitts import TTS
 t=TTS()

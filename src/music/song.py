@@ -17,12 +17,13 @@ def youtube(url):
         video = result['formats'][0]
     else:
         video = result
-    #print(video)
-    return video['url']
-
-#def youtube(url):
-    #a=YouTube(url)
-    #return a.streams.filter(only_audio=True).all()[0].url
+    print(video['url'])
+    return video['url']#.replace("https:","http:")
+'''
+def youtube(url):
+    a=YouTube(url)
+    return a.streams.filter(only_audio=True).all()[0].url
+'''
 def del_d(listdata):
     temp=[]
     for i in listdata:
@@ -34,13 +35,24 @@ class music:
     def __init__(self):
         self.m=None
         self.status = True
-        self.Instance = vlc.Instance()
+        self.Instance = vlc.Instance()#Instance("prefer-insecure")#
         self.player = self.Instance.media_list_player_new()
         self.list_new =[]
         self.now=None
     def change(self,search):
         self.stop()
-        self._search(search)
+        if search == "โลกที่ไม่มีเธอ":
+            self.MediaListtemp= self.Instance.media_list_new()
+            self.MediaListtemp.add_media("./sound/m-play.mp3")
+            self.player.set_media_list(self.MediaListtemp)
+            self.play()
+        elif search == "ตายแล้วไปไหน":
+            self.MediaListtemp= self.Instance.media_list_new()
+            self.MediaListtemp.add_media("./sound/t-play.mp3")
+            self.player.set_media_list(self.MediaListtemp)
+            self.play()
+        else:
+            self._search(search)
     def _search(self,search):
         self.query_string = urllib.parse.urlencode({"search_query" : search})
         self.html_content = urllib.request.urlopen("https://www.youtube.com/results?" + self.query_string)
@@ -102,8 +114,12 @@ def song(text:str)->str:
     
     elif 'เปิด' in text and 'เพลง' in text:
         text=text.split('เพลง')[1]
-        m.change(text)
-        m.play()
+        if "เปิดเพลง" == text or ("โลก" in text and "เธอ" in text):
+            text = "โลกที่ไม่มีเธอ"
+            m.change(text)
+        else:
+            m.change(text)
+            m.play()
     elif ("ฟัง" in text or "เล่น"in text) and 'เพลง'and 'ต่อ' in text: 
         text="เล่นเพลงต่อแล้วค่ะ"
         m.play()
@@ -136,8 +152,12 @@ def tum(text:str)->str:
     
     elif 'เปิด' in text  and 'ธรรมะ' in text:
         text=text.split('ธรรมะ')[1]
-        m.change(text)
-        m.play()
+        if "เปิดธรรมะ" == text or ("ตาย" in text and "ไป" in text):
+            text = "ตายแล้วไปไหน"
+            m.change(text)
+        else:
+            m.change(text)
+            m.play()
     
     
     elif ("ฟัง" in text or "เล่น"in text) and 'ธรรมะ'and 'ต่อ' in text: 

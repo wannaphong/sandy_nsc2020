@@ -1,0 +1,1 @@
+python -m zipapp src -m "run:main"

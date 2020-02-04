@@ -26,6 +26,6 @@ gtts
 pynput
 emoji
 sklearn-crfsuite
-pytube
+pytube3
 ffmpeg-python
 https://github.com/wannaphong/mycroft-precise/archive/dev.zip

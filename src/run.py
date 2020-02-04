@@ -2,11 +2,15 @@
 """
 แสนดี : คู่บ้านผู้สูงอายุ
 """
+import sys
 from warnings import simplefilter
 # ignore all future warnings
 simplefilter(action='ignore', category=UserWarning)
 from music.song import song,tum,m#,s
-m.play_other("./sound/on.mp4")
+import os
+def get_path(p):
+    return os.path.join(os.path.dirname(__file__),p)
+m.play_other(get_path('./sound/on.mp4'))
 m.play()
 # python พื้นฐาน
 import time
@@ -15,7 +19,7 @@ import dill
 print("1 : import hotword")
 # Hotword
 from precise_runner import PreciseEngine, PreciseRunner
-engine = PreciseEngine('precise-engine', 'jao-sandy.pb')
+engine = PreciseEngine('precise-engine', get_path('jao-sandy.pb'))
 print("2 : import AER, TTS")
 # AER, TTS
 import speech_recognition as sr
@@ -31,9 +35,7 @@ print("4 : import vlc")
 #
 print("import ฟังก์ชัน")
 from weather.weather import now as now_w
-m.stop()
-m.play_other("./sound/open.mp4")
-m.play()
+
 from general import general
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
@@ -57,9 +59,12 @@ def is_internet():
         return False
 #m = music()
 stauts=""
-with open('modelclass2.model', 'rb') as in_strm:
+with open(get_path('modelclass2.model'), 'rb') as in_strm:
     clf = dill.load(in_strm)
 t=TTS()
+m.stop()
+m.play_other(get_path("./sound/open.mp4"))
+m.play()
 print("6 : ASR")
 r = sr.Recognizer()
 print(7)
@@ -70,7 +75,7 @@ def on_prediction(prob:float)->None:
 print(8)
 
 def process(text:str)->tuple:
-    global clf,wcom,ncom,acom,song,tum,n,sound,iotcom
+    global clf,wcom,ncom,acom,song,tum,n,sound,iotcom,m
     tag=str(clf.predict([text])[0])
     print("ฟังก์ชัน : "+tag)
     _p = clf.predict_proba([text]).max()
@@ -113,25 +118,43 @@ def process(text:str)->tuple:
         text = "ระบบยังไม่รองรับ"
     print("ข้อความจากฟังก์ชัน : "+str(text))
     return (text,tag)
+soundfile={
+    "ค่ะ":'./sound/ค่ะ.mp3',
+    "ลาก่อนค่ะ":'./sound/bye.mp3',
+    "กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ":'./sound/news1.mp3',
+    "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ":'./sound/sos1.mp3',
+    "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ":'./sound/notsup.mp3',
+    "nointernet":'./sound/notnet.mp3',
+    "ระบบไอโอทีไม่รองรับการทำงานนี้ค่ะ":'./sound/iot-not.mp3',
+    "เปิดไฟแล้วค่ะ":'./sound/l-on.mp3',
+    "ปิดไฟแล้วค่ะ":'./sound/l-off.mp3',
+    "เปิดพัดลมแล้วค่ะ":'./sound/f-on.mp3',
+    "ปิดพัดลมแล้วค่ะ":'./sound/f-off.mp3',
+    "คุณยังไม่สั่งเปิดเพลงค่ะ":'./sound/m-not.mp3',
+    "เล่นเพลงต่อแล้วค่ะ":'./sound/m-con.mp3',
+    "ปิดเพลงเรียบร้อยแล้วค่ะ":'./sound/m-close.mp3',
+    "หยุดเพลงเรียบร้อยแล้วค่ะหากต้องการฟังต่อให้สั่งฟังเพลงต่อได้เลยนะคะ":'./sound/m-s.mp3',
+    "เล่นเพลงถัดไปแล้วค่ะ":'./sound/m-con2.mp3',
+    "คุณยังไม่สั่งเปิดธรรมะค่ะ":'./sound/t-not.mp3',
+    "เล่นธรรมะต่อแล้วค่ะ":"./sound/t-con.mp3",
+    "ปิดธรรมะเรียบร้อยแล้วค่ะ":"./sound/t-close.mp3",
+    "หยุดธรรมะเรียบร้อยแล้วค่ะหากต้องการฟังธรรมะต่อให้สั่งฟังธรรมะต่อได้เลยนะคะ":"./sound/t-con2.mp3",
+    "เล่นธรรมะถัดไปแล้วค่ะ":"./sound/t-next.mp3",
+    "ขออภัยค่ะ ระบบอ่านข่าวยังไม่รองรับการใช้งานปัจจุบันค่ะ":"./sound/news-not.mp3",
+    "ไม่พบข่าวค่ะ":"./sound/news-nn.mp3"
+}
 
 def sound(text):
     global t
-    if text == "ค่ะ":
-        playsound('./sound/ค่ะ.mp3')
-    elif text == "ลาก่อนค่ะ":
-        playsound('./sound/bye.mp3')
-    elif text == "กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ":
-        playsound('./sound/news1.mp3')
-    elif text == "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ":
-        playsound('./sound/sos1.mp3')
-    elif text == "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ":
-        playsound('./sound/notsup.mp3')
-    elif text == "nointernet":
-        playsound('./sound/notnet.mp3')
-    elif text == "":
+    for i in soundfile.keys():
+        if text == i:
+            playsound(get_path(soundfile[i]))
+            return None
+    if text == "":
         pass
     else:
         t.listen(text)
+    return None
 print(9)
 #instance = vlc.Instance()
 #on_news = False
@@ -159,42 +182,48 @@ def on_activation():
         print("รับเสียง")
         audio =  r.record(source) #r.listen(source)
     print("กำลังประมวลผล")
-    m.play_other('./sound/361217__littlejest__waiting.mp3')
+    m.play_other(get_path('./sound/361217__littlejest__waiting.mp3'))
     m.play()
     try:
         print("กำลังรอเสียง")
         text=r.recognize_google(audio,language = "th-TH")
         print(text)
         tt=process(text)
+        m.stop()
         print(tt)
         if tt[1] == 'news':
             on_news=True
             #mixer.music.load('./news.mp3')
             print("ok news")
             #mixer.music.play()
-            m.stop()
+            #m.stop()
             m.play_other('./news.mp3')
             m.play()
             #playsound('./news.mp3')
         else:
-            m.stop()
+            #m.stop()
             sound(tt[0])
         
     except sr.RequestError as e:
+        m.stop()
         print(e)
     except Exception as e:
+        m.stop()
         print(e)
     finally:
         on_run=False
 
 print(11)
-runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
-print(12)
-runner.start()
-print(13)
-thread1 = Thread(target = alert_run)
-thread1.start()
-thread1.join()
-#runner.start()
-m.stop()
-Event().wait()
+def main():
+    runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
+    print(12)
+    runner.start()
+    print(13)
+    thread1 = Thread(target = alert_run)
+    thread1.start()
+    thread1.join()
+    #runner.start()
+    m.stop()
+    Event().wait()
+if __name__=='__main__':
+   main()
