@@ -5,10 +5,10 @@ from vlc import *
 import urllib.request
 import urllib.parse
 import re
-#import youtube_dl
+import youtube_dl
 from pytube import YouTube
 
-'''
+
 def youtube(url):
     ydl = youtube_dl.YoutubeDL({'outtmpl': '%(id)s%(ext)s'})
     with ydl:
@@ -19,10 +19,10 @@ def youtube(url):
         video = result
     #print(video)
     return video['url']
-'''
-def youtube(url):
-    a=YouTube(url)
-    return a.streams.filter(only_audio=True).all()[0].url
+
+#def youtube(url):
+    #a=YouTube(url)
+    #return a.streams.filter(only_audio=True).all()[0].url
 def del_d(listdata):
     temp=[]
     for i in listdata:
