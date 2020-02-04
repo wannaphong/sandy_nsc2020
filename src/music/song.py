@@ -43,12 +43,12 @@ class music:
         self.stop()
         if search == "โลกที่ไม่มีเธอ":
             self.MediaListtemp= self.Instance.media_list_new()
-            self.MediaListtemp.add_media("./sound/m-play.mp3")
+            self.MediaListtemp.add_media("m-play.mp3")
             self.player.set_media_list(self.MediaListtemp)
             self.play()
         elif search == "ตายแล้วไปไหน":
             self.MediaListtemp= self.Instance.media_list_new()
-            self.MediaListtemp.add_media("./sound/t-play.mp3")
+            self.MediaListtemp.add_media("t-play.mp3")
             self.player.set_media_list(self.MediaListtemp)
             self.play()
         else:
