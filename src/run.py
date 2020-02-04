@@ -2,11 +2,15 @@
 """
 แสนดี : คู่บ้านผู้สูงอายุ
 """
+import sys
 from warnings import simplefilter
 # ignore all future warnings
 simplefilter(action='ignore', category=UserWarning)
 from music.song import song,tum,m#,s
-m.play_other("./sound/on.mp4")
+import os
+def get_path(p):
+    return os.path.join(os.path.dirname(__file__),p)
+m.play_other(get_path('./sound/on.mp4'))
 m.play()
 # python พื้นฐาน
 import time
@@ -15,7 +19,7 @@ import dill
 print("1 : import hotword")
 # Hotword
 from precise_runner import PreciseEngine, PreciseRunner
-engine = PreciseEngine('precise-engine', 'jao-sandy.pb')
+engine = PreciseEngine('precise-engine', get_path('jao-sandy.pb'))
 print("2 : import AER, TTS")
 # AER, TTS
 import speech_recognition as sr
@@ -32,7 +36,7 @@ print("4 : import vlc")
 print("import ฟังก์ชัน")
 from weather.weather import now as now_w
 m.stop()
-m.play_other("./sound/open.mp4")
+m.play_other(get_path("./sound/open.mp4"))
 m.play()
 from general import general
 from weather.weather import text2com as wcom
@@ -57,7 +61,7 @@ def is_internet():
         return False
 #m = music()
 stauts=""
-with open('modelclass2.model', 'rb') as in_strm:
+with open(get_path('modelclass2.model'), 'rb') as in_strm:
     clf = dill.load(in_strm)
 t=TTS()
 print("6 : ASR")
@@ -117,17 +121,17 @@ def process(text:str)->tuple:
 def sound(text):
     global t
     if text == "ค่ะ":
-        playsound('./sound/ค่ะ.mp3')
+        playsound(get_path('./sound/ค่ะ.mp3'))
     elif text == "ลาก่อนค่ะ":
-        playsound('./sound/bye.mp3')
+        playsound(get_path('./sound/bye.mp3'))
     elif text == "กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ":
-        playsound('./sound/news1.mp3')
+        playsound(get_path('./sound/news1.mp3'))
     elif text == "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ":
-        playsound('./sound/sos1.mp3')
+        playsound(get_path('./sound/sos1.mp3'))
     elif text == "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ":
-        playsound('./sound/notsup.mp3')
+        playsound(get_path('./sound/notsup.mp3'))
     elif text == "nointernet":
-        playsound('./sound/notnet.mp3')
+        playsound(get_path('./sound/notnet.mp3'))
     elif text == "":
         pass
     else:
@@ -159,7 +163,7 @@ def on_activation():
         print("รับเสียง")
         audio =  r.record(source) #r.listen(source)
     print("กำลังประมวลผล")
-    m.play_other('./sound/361217__littlejest__waiting.mp3')
+    m.play_other(get_path('./sound/361217__littlejest__waiting.mp3'))
     m.play()
     try:
         print("กำลังรอเสียง")
@@ -191,13 +195,16 @@ def on_activation():
         on_run=False
 
 print(11)
-runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
-print(12)
-runner.start()
-print(13)
-thread1 = Thread(target = alert_run)
-thread1.start()
-thread1.join()
-#runner.start()
-m.stop()
-Event().wait()
+def main():
+    runner = PreciseRunner(engine, on_prediction=on_prediction, on_activation=on_activation, sensitivity=0.5, trigger_level=3)
+    print(12)
+    runner.start()
+    print(13)
+    thread1 = Thread(target = alert_run)
+    thread1.start()
+    thread1.join()
+    #runner.start()
+    m.stop()
+    Event().wait()
+if __name__=='__main__':
+   main()

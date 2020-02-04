@@ -17,8 +17,8 @@ def youtube(url):
         video = result['formats'][0]
     else:
         video = result
-    #print(video)
-    return video['url']
+    print(video['url'])
+    return video['url']#.replace("https:","http:")
 '''
 def youtube(url):
     a=YouTube(url)
@@ -35,7 +35,7 @@ class music:
     def __init__(self):
         self.m=None
         self.status = True
-        self.Instance = vlc.Instance()
+        self.Instance = vlc.Instance("prefer-insecure")#Instance()
         self.player = self.Instance.media_list_player_new()
         self.list_new =[]
         self.now=None
