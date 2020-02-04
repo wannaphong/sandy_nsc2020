@@ -28,6 +28,12 @@ def text2com(text,t):
     elif "ปิด" in text and t=="light":
         light("off")
         temp="ปิดไฟแล้วค่ะ"
-    if t=="fan":
-        temp="ระบบยังไม่รองรับพัดลมค่ะ"
+    elif "เปิด" in text and t=="fan":
+        fan("on")
+        temp="เปิดพัดลมแล้วค่ะ"
+    elif "ปิด" in text and t=="fan":
+        fan("off")
+        temp="ปิดพัดลมแล้วค่ะ"
+    else:
+        temp="ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ"
     return temp

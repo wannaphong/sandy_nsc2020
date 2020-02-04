@@ -35,9 +35,7 @@ print("4 : import vlc")
 #
 print("import ฟังก์ชัน")
 from weather.weather import now as now_w
-m.stop()
-m.play_other(get_path("./sound/open.mp4"))
-m.play()
+
 from general import general
 from weather.weather import text2com as wcom
 from news.news import text2com as ncom
@@ -64,6 +62,9 @@ stauts=""
 with open(get_path('modelclass2.model'), 'rb') as in_strm:
     clf = dill.load(in_strm)
 t=TTS()
+m.stop()
+m.play_other(get_path("./sound/open.mp4"))
+m.play()
 print("6 : ASR")
 r = sr.Recognizer()
 print(7)
@@ -117,25 +118,41 @@ def process(text:str)->tuple:
         text = "ระบบยังไม่รองรับ"
     print("ข้อความจากฟังก์ชัน : "+str(text))
     return (text,tag)
+soundfile={
+    "ค่ะ":'./sound/ค่ะ.mp3',
+    "ลาก่อนค่ะ":'./sound/bye.mp3',
+    "กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ":'./sound/news1.mp3',
+    "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ":'./sound/sos1.mp3',
+    "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ":'./sound/notsup.mp3',
+    "nointernet":'./sound/notnet.mp3',
+    "ระบบไอโอทีไม่รองรับการทำงานนี้ค่ะ":'./sound/iot-not.mp3',
+    "เปิดไฟแล้วค่ะ":'./sound/l-on.mp3',
+    "ปิดไฟแล้วค่ะ":'./sound/l-off.mp3',
+    "เปิดพัดลมแล้วค่ะ":'./sound/f-on.mp3',
+    "ปิดพัดลมแล้วค่ะ":'./sound/f-off.mp3',
+    "คุณยังไม่สั่งเปิดเพลงค่ะ":'./sound/m-not.mp3',
+    "เล่นเพลงต่อแล้วค่ะ":'./sound/m-con.mp3',
+    "ปิดเพลงเรียบร้อยแล้วค่ะ":'./sound/m-close.mp3',
+    "หยุดเพลงเรียบร้อยแล้วค่ะหากต้องการฟังต่อให้สั่งฟังเพลงต่อได้เลยนะคะ":'./sound/m-s.mp3',
+    "เล่นเพลงถัดไปแล้วค่ะ":'./sound/m-con2.mp3',
+    "คุณยังไม่สั่งเปิดธรรมะค่ะ":'./sound/t-not.mp3',
+    "เล่นธรรมะต่อแล้วค่ะ":"./sound/t-con.mp3",
+    "ปิดธรรมะเรียบร้อยแล้วค่ะ":"./sound/t-close.mp3",
+    "หยุดธรรมะเรียบร้อยแล้วค่ะหากต้องการฟังธรรมะต่อให้สั่งฟังธรรมะต่อได้เลยนะคะ":"./sound/t-con2.mp3",
+    "เล่นธรรมะถัดไปแล้วค่ะ":"./sound/t-next.mp3"
+}
 
 def sound(text):
     global t
-    if text == "ค่ะ":
-        playsound(get_path('./sound/ค่ะ.mp3'))
-    elif text == "ลาก่อนค่ะ":
-        playsound(get_path('./sound/bye.mp3'))
-    elif text == "กำลังหาข่าวอยู่ กรุณารอสักครู่ค่ะ":
-        playsound(get_path('./sound/news1.mp3'))
-    elif text == "กำลังขอความช่วยเหลือผ่านไลน์ค่ะ":
-        playsound(get_path('./sound/sos1.mp3'))
-    elif text == "ระบบยังไม่รองรับฟังก์ชันนี้ค่ะ":
-        playsound(get_path('./sound/notsup.mp3'))
-    elif text == "nointernet":
-        playsound(get_path('./sound/notnet.mp3'))
-    elif text == "":
+    for i in soundfile.keys():
+        if text == i:
+            playsound(get_path(soundfile[i]))
+            return None
+    if text == "":
         pass
     else:
         t.listen(text)
+    return None
 print(9)
 #instance = vlc.Instance()
 #on_news = False
