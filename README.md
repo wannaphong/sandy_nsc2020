@@ -4,6 +4,8 @@
 
 รหัสโครงการ: 22p34i0094
 
+อ่านรายละเอียดเชิงเทคนิคได้ที่ https://github.com/wannaphong/sandy_nsc2020/wiki
+
 ## License
 
 โค้ดทั้งหมดอยู่ภายใต้ MIT License ส่วน Sandy Server อยู่ภายใต้ Apache-2.0 License
