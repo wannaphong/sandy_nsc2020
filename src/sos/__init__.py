@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+โค้ดนี้ดัดแปลงมาจาก https://www.youtube.com/watch?v=rwkvgtXgCZs
+"""
 import time
 import requests, urllib.parse
 import io
