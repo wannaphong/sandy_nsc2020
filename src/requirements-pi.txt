@@ -20,7 +20,7 @@ pafy
 youtube-dl
 termcolor
 gast==0.2.2
-tensorflow==1.14.0
+tensorflow==2.5.3
 tensorflow-estimator==1.14.0
 tensorboard==2.0.2
 gtts
